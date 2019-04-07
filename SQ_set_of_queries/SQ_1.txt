@@ -1,6 +1,7 @@
 ################
 ############# Simple virtual links - directed or undirected linksets. 
-############  It answers the question in Table 3.
+############# It answers the  Question (1):
+############# Which are the set of directed virtual links between two RDF datasets?
 ###############
 
 prefix void:    <http://rdfs.org/ns/void#>

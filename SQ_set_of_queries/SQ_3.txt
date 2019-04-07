@@ -1,5 +1,8 @@
+##########################
 ############# Shared similar instances' types (complex virtual links) - competency question from Table 5.
-###############
+############# It answers the  Question (3):
+############# Which are the set of virtual link between two similar or equivalent instances of unlike types in different RDF datasets?
+##########################
 
 prefix void:    <http://rdfs.org/ns/void#>
 prefix bioquery: <http://purl.org/query/bioquery#>

@@ -1,7 +1,9 @@
-
 ################
 ############# Query complex virtual links with 2 link predicates - competency question from Table 6.
-###############
+############# It answers the  Question (4):
+############# Which are the set of complex virtual link between two similar or equivalent 
+############# resources which are subject or object of different predicates in distinct RDF datasets?
+################
 
 prefix void:    <http://rdfs.org/ns/void#>
 prefix bioquery: <http://purl.org/query/bioquery#>

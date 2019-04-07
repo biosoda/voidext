@@ -1,7 +1,7 @@
 ################
 ############# Federated query generated based on the complex link described in Table 6 and Fig. 3 
 ############  It can be executed at https://www.ebi.ac.uk/rdf/services/sparql
-############  Question: which are the drug targets for a given rare disease (Orphanet ontology term)?
+############  Use case question: which are the drug targets for a given rare disease (Orphanet ontology term)?
 ###############
 
 PREFIX drugbank: <http://wifo5-04.informatik.uni-mannheim.de/drugbank/resource/drugbank/>

@@ -1,6 +1,7 @@
 ################
 ############# Shared instances of the same class (undirected and simple virtual links) 
-############# - it answers the question in Table 4.
+############# It answers the  Question (2):
+############# Which are the set of virtual link between two shared instances of the same class in different RDF datasets?
 ###############
 
 prefix void:    <http://rdfs.org/ns/void#>
