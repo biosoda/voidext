@@ -1,0 +1,47 @@
+################
+############# Federated query generated based on the complex link described in Table 6 and Fig. 3 
+############  It can be executed at https://www.ebi.ac.uk/rdf/services/sparql
+############  Question: which are the drug targets for a given rare disease (Orphanet ontology term)?
+###############
+
+PREFIX drugbank: <http://wifo5-04.informatik.uni-mannheim.de/drugbank/resource/drugbank/>
+PREFIX ordo: <http://www.orpha.net/ORDO/>
+PREFIX ordo2: <http://www.orpha.net/ORDO/Orphanet_#>
+prefix oboowl: <http://www.geneontology.org/formats/oboInOwl#>
+PREFIX cco: <http://rdf.ebi.ac.uk/terms/chembl#>
+prefix sio:<http://semanticscience.org/resource/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+
+SELECT distinct ?target ?diseaseOrdo ?diseasename ?drug ?chemicalFormula  ?GeneName ?NEW_IRI 
+from  <http://rdf.ebi.ac.uk/dataset/ordo> 
+from  <http://rdf.ebi.ac.uk/dataset/ordo/2.6>
+WHERE { 
+values(?diseaseOrdo){(<http://www.orpha.net/ORDO/Orphanet_166084>)}
+
+ #ORDO ontology query to retrieve the list of orphanet genes related to a given disease
+ ?diseaseOrdo rdfs:label ?diseasename .
+ ?r owl:onProperty ?rel.
+ ?g rdfs:label ?gDesc.
+ ?g rdfs:subClassOf ?r.
+ ?r owl:someValuesFrom ?diseaseOrdo.
+ ?g ordo2:symbol ?GeneName.
+ 
+ #Virtual link recommended mapping and void:linkPredicate
+ ?g oboowl:hasDbXref ?i.
+ BIND( IRI(concat("http://bio2rdf.org/uniprot:",strafter(?i,"SwissProt:"))) as ?NEW_IRI)
+ filter (contains(?i, "SwissProt:" ))
+ 
+ service<http://wifo5-04.informatik.uni-mannheim.de/drugbank/sparql>{
+    # values(?target){(<http://wifo5-04.informatik.uni-mannheim.de/drugbank/resource/targets/1635>)}
+   ?drug a drugbank:drugs.
+   ?drug    drugbank:target ?target.
+   ?drug  drugbank:chemicalFormula  ?chemicalFormula.
+   ?target   drugbank:swissprotId ?NEW_IRI.  #Virtual link second void:linkPredicate
+   }
+        
+} limit 100

@@ -1,0 +1,28 @@
+################
+############# Shared instances of the same class (undirected and simple virtual links) 
+############# - it answers the question in Table 4.
+###############
+
+prefix void:    <http://rdfs.org/ns/void#>
+prefix bioquery: <http://purl.org/query/bioquery#>
+prefix voidext:<http://purl.org/query/voidext#>
+prefix dcterms: <http://purl.org/dc/terms/>
+
+
+SELECT distinct ?links ?dataset1_name  ?dataset2_name  ?sharedType  ?dataset1_endpoint ?dataset2_endpoint {
+  
+ #values(?dataset1){ (bioquery:BGEE) }
+ #values(?dataset2){ (bioquery:OMA) }
+
+?links a voidext:SharedInstanceSet.
+?links void:target ?dataset1.
+?links void:target ?dataset2.
+?links voidext:sharedInstanceType ?sharedType. 
+?dataset1   dcterms:title ?dataset1_name;
+                   void:sparqlEndpoint ?dataset1_endpoint.
+?dataset2  dcterms:title ?dataset2_name;
+                   void:sparqlEndpoint ?dataset2_endpoint.
+
+filter not exists { ?complexLink voidext:intersectAt ?links .}  
+filter(?dataset1 != ?dataset2)                     
+} order by ?links

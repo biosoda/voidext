@@ -1,0 +1,30 @@
+############# Shared similar instances' types (complex virtual links) - competency question from Table 5.
+###############
+
+prefix void:    <http://rdfs.org/ns/void#>
+prefix bioquery: <http://purl.org/query/bioquery#>
+prefix voidext:<http://purl.org/query/voidext#>
+prefix dcterms: <http://purl.org/dc/terms/>
+
+SELECT distinct ?links ?source_dataset1_name ?target_dataset2_name ?sharedType  ?resourceMapping ?source_endpoint ?target_endpoint{
+  
+ #values(?dataset1){ (bioquery:EBI) }
+ #values(?dataset2){ (bioquery:UNIPROT) }
+
+ ?links a voidext:ComplexLinkSet.
+ ?links void:target ?dataset1, ?dataset2 .
+ ?links  voidext:intersectAt ?points;
+            void:target ?target_db.
+?target_db dcterms:title ?target_dataset2_name;
+                    void:sparqlEndpoint ?target_endpoint.
+ ?points voidext:sharedInstanceType  ?sharedType .
+ ?points void:subset ?source_db .
+ ?source_db dcterms:title ?source_dataset1_name;
+                    void:sparqlEndpoint ?source_endpoint.
+
+ optional{   ?links voidext:recommendedMapping ?points.
+            ?points voidext:resourceMapping  ?resourceMapping}
+ 
+filter(?source_db != ?target_db)        
+                         
+} order by ?links

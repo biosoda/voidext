@@ -1,0 +1,32 @@
+################
+############# Simple virtual links - directed or undirected linksets. 
+############  It answers the question in Table 3.
+###############
+
+prefix void:    <http://rdfs.org/ns/void#>
+prefix bioquery: <http://purl.org/query/bioquery#>
+prefix voidext:<http://purl.org/query/voidext#>
+prefix dcterms: <http://purl.org/dc/terms/>
+
+SELECT distinct ?links  ?source  ?predicate_from_endpoint ?subj_from ?subj_type ?predicate  ?obj_type  ?obj_from  ?resourceMapping {
+
+#values(?dataset_link_subj){  (bioquery:OMA)  }
+?links  a void:Linkset.
+{?links void:subjectsTarget ?dataset_link_subj .
+ ?links void:objectsTarget ?dataset_link_obj.  
+} UNION {
+?links void:target ?dataset_link_subj.
+?links void:target ?dataset_link_obj .}
+?links void:linkPredicate ?predicate;
+          void:subset ?source_db.
+?dataset_link_subj void:sparqlEndpoint ?subj_from.
+?dataset_link_obj void:sparqlEndpoint ?obj_from.
+?source_db dcterms:title ?source;
+                   void:sparqlEndpoint ?predicate_from_endpoint.
+
+optional {?links  voidext:linkPredicateRange ?obj_type}.
+optional {?links voidext:linkPredicateDomain ?subj_type. }
+optional{ ?links voidext:resourceMapping  ?resourceMapping}
+filter not exists { ?complexLink  voidext:intersectAt ?links.}       
+filter ( ?dataset_link_subj  !=  ?dataset_link_obj )       
+} order by ?links
