@@ -16,6 +16,6 @@ These queries are  defined based on the virtual link metadata [ABox_application.
 
 ## The set of SPARQL queries (SQ) along with the competency questions (CQ)
 The formal set of queries to answer the informal competency questions during the development of VoIDext is available in
- [ABox_examplar_data](ABox_examplar_data)
+ [ABox_paper_examples.ttl](ABox_examplar_data)
 These queries can be executed on the [SPARQL endpoint here](http://biosoda.expasy.org:8890/sparql). 
 
