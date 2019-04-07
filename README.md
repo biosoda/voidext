@@ -11,7 +11,7 @@ Both  "ABox_paper_examples.ttl" and "ABox_application.ttl" files were considered
 ## Virtual links for OMA-UniProt-Bgee RDF datasets  
 The real case study  assertion box (ABox) according to VoIDext is available in [ABox_examplar_data](ABox_examplar_data).
 
-Under-development application with federated query templates available at http://biosoda.expasy.org/ . 
+Under-development application with [federated query templates](https://github.com/biosoda/bioquery/tree/master/Queries) available at http://biosoda.expasy.org/ . 
 These queries are  defined based on the virtual link metadata [ABox_application.ttl](ABox_examplar_data). 
 
 ## The set of SPARQL queries (SQ) along with the competency questions (CQ)
