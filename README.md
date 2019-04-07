@@ -8,7 +8,7 @@ VoIDext is also accesible via the [SPARQL endpoint here](http://biosoda.expasy.o
 The exemplar data assertion box (ABox1) used to build the VoIDext is available in [ABox_examplar_data](ABox_examplar_data).
 Both  "ABox_paper_examples.ttl" and "ABox_application.ttl" files were considered during the VoIDext development.
 
-## OMA-UniProt-Bgee RDF datasets virtual links 
+## Virtual links for OMA-UniProt-Bgee RDF datasets  
 The real case study  assertion box (ABox) according to VoIDext is available in [ABox_examplar_data](ABox_examplar_data).
 
 Under-development application with federated query templates available at http://biosoda.expasy.org/ . 
