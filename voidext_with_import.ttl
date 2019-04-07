@@ -5,14 +5,16 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix voidext: <http://purl.org/query/voidext#>.
 @prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
 
 <http://purl.org/query/voidext> a owl:Ontology, adms:SemanticAsset;
-    owl:imports <https://www.w3.org/ns/sparql-service-description.ttl> ;
+    owl:imports <https://www.w3.org/ns/sparql-service-description.ttl> , 
+				<http://purl.org/dc/terms/>, 
+    			<http://xmlns.com/foaf/0.1/>, 
+    			<http://purl.org/vocab/vann/> ;
     dcterms:title "Extended Vocabulary of Interlinked Datasets (VoIDext)";
     dcterms:description "The Extension of the Vocabulary of Interlinked Datasets (VoID) RDF Schema to include the concept of virtual links. This extension enhances interoperability among heterogeneous and distributed RDF data sets by bridging them through explicitly defined virtual links.";
     dcterms:modified "2019-03-30"^^xsd:date;
