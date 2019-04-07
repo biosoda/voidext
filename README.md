@@ -1,4 +1,4 @@
-## Supporting Virtual Links with Extended Vocabulary of Interlinked Datasets (VoIDext)
+## Supporting Virtual Links with the Extended Vocabulary of Interlinked Datasets (VoIDext)
 
 This RDF schema vocabulary (TBox) is documented in the [VoIDext Vocabulary Specification Draft](https://biosoda.github.io/voidext/). 
 In addition, the "voidext_with_import.ttl" file is the VoIDext RDF Turtle serialisation including imported ontologies.
