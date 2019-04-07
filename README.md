@@ -4,9 +4,9 @@ This RDF schema vocabulary (TBox) is documented and available in the [VoIDext Vo
 In addition, the "voidext_with_import.ttl" file is the VoIDext RDF Turtle serialisation including imported ontologies.
 VoIDext is also accesible via the [SPARQL endpoint here](http://biosoda.expasy.org:8890/sparql).
 
-## Exemplar datasets (ABox - SAMOD process)
-The exemplar data assertion box (ABox1) used to build the VoIDext is available in [ABox_examplar_data](ABox_examplar_data).
-Both  "ABox_paper_examples.ttl" and "ABox_application.ttl" files were considered during the VoIDext development.
+## Exemplar datasets (ABox)
+The assertion box (ABox1) used to build the VoIDext is available in [ABox_examplar_data](ABox_examplar_data).
+Both  "ABox_paper_examples.ttl" and "ABox_application.ttl" files were considered during the VoIDext development. "ABox_application.ttl" file contains metadata for describing the virtual links in the Bioquery project (see [bioquery](https://github.com/biosoda/bioquery/) github repository).
 
 ## Virtual links for OMA-UniProt-Bgee RDF datasets  
 The real case study  assertion box (ABox) according to VoIDext is available in [ABox_examplar_data](ABox_examplar_data).
