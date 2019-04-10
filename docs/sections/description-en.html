@@ -1,3 +1,95 @@
 <h2 id="desc" class="list">Extended Vocabulary of Interlinked Datasets (VoIDext): Description <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
-<span class="markdown">
-This is a placeholder text for the description of your ontology. The description should include an explanation and a diagram explaining how the classes are related, examples of usage, etc.</span>
+
+<p>The complexity of quickly achieving semantic interoperability substantially increases when considering 
+distributed and independent RDF datasets on the Web. The reasons for that can be summarized as follows:  
+</p>
+<ul>
+ <li>Thanks to Semantic Web standards, large datasets are now machine-readable. Nevertheless, 
+ just adopting these standards, like just using Web Ontology Language (OWL), does not
+  eliminate semantic heterogeneity for good: it elevates heterogeneity problems at a higher level 
+  (e.g. data schema).
+  </li><li>Improving semantic interoperability with semantic reconciliation among RDF data publishers 
+  is often not conceivable or requires fastidious and time-consuming efforts to have a consensus in 
+  terms of data modelling decisions and semantic interpretations.  
+  </li>  <li> RDF datasets can be published with incomplete or missing data schemas and they 
+  frequently do not include how to semantically relate with other relevant third-party datasets. 
+  This considerable harden the task of manually or automatically writing federated queries, for example,
+   with SPARQL 1.1 query language.
+    </li>
+</ul>
+<p>To mitigate the inherent difficulty of establishing semantic interoperability, we hereby propose a 
+vocabulary and patterns to describe the semantic relations among datasets. This vocabulary so-called 
+VoIDext is actually an extension and an adaptation of the well-accepted VoID RDF schema vocabulary. 
+In this documentation, the words vocabulary and ontology are interchangeably used. The proposed VoID 
+extension is a meta-ontology that describes semantic  links between RDF datasets - virtual links. 
+</p>
+
+
+<h3>Virtual links between RDF datasets</h3>
+
+
+<p>An RDF dataset is ``a set of RDF triples that are published, maintained or aggregated by a single provider" 
+according to the <a href="http://rdfs.org/ns/void">VoID specification</a>. RDF datasets are often  independent
+ and distributed on the Web. A virtual link is a connection between common resources such as literals and
+  instances from two  different RDF datasets. Semantic relaxation is also considered when identifying common 
+   resources between datasets. For example, the datasets might use different prefix namespaces for similar 
+   instances in a given domain scope.
+</p>
+<p> A virtual link can be interpreted as an intersection data point between two datasets. In addition,
+ a virtual link is not explicitly and concretely stored. The link may be physically established, for example,
+  during a conjunctive federated query execution. Virtual links can simply be predicates (i.e. relations) 
+  in one dataset where subjects and objects of the triples are present in disparate datasets. The types of
+   resources involved in a virtual link can be also a valuable information. Another type of virtual 
+   link can be stated when two datasets share the same instances of a given type. These instances 
+   usually do not have exactly the same description or context in each dataset.
+</p>
+<p> 
+Moreover, distinct datasets can state different predicates with the same or similar subjects and objects. 
+By considering these subjects and objects that are in common, the RDF graphs from these datasets may establish
+ two types of intersection nodes (i.e. matched nodes): object-object, subject-subject, and subject-object. 
+ For example, given the following RDF triples T<sub>a</sub> = (S<sub>a</sub>,P<sub>a</sub>, O<sub>a</sub>) in dataset "a" and 
+  T<sub>b</sub>=(S<sub>b</sub>,P<sub>b</sub>, O<sub>b</sub>) in dataset b; if O<sub>a</sub> &equiv; O<sub>b</sub> then we can state a virtual link between
+   O<sub>a</sub> and O<sub>b</sub>; and if S<sub>a</sub> &equiv; S<sub>a</sub> then we can state a virtual link between S<sub>a</sub> and S<sub>b</sub>; 
+   and finally if S<sub>a</sub>&equiv; O<sub>b</sub> then we can state a virtual link between S<sub>a</sub> and O<sub>b</sub>. 
+   The &equiv; symbol represents equivalent subjects or objects. One could also imagine the case of O<sub>a</sub>
+    being similar to O<sub>b</sub> (i.e. O<sub>a</sub> \sim O<sub>b</sub>). In this case, a resource mapping function f<sub>m</sub>(r) is
+     required to establish a virtual link between O<sub>a</sub> and O<sub>b</sub> --- i.e. O<sub>a</sub> &equiv; f<sub>m</sub>(O<sub>b</sub>) or f<sub>m</sub>(O<sub>a</sub>)
+      &equiv; O<sub>b</sub>. This is due to the fact of existing heterogeneities in the representation of a resource 
+      (e.g. "id:1234" or "id_1234" strings) and the resource description, for example, different set of
+       predicates to contextualize a similar resource in different datasets and domain scopes. 
+</p>
+
+<p>Finally, we can also mention the fact of two separated datasets sharing the same instance IRIs, 
+nevertheless they are asserted as instances of unlike classes (i.e. types). Yet, a virtual link can be 
+stated between these instances. This fact might be because of distinct domain scopes and constraints such
+ as legacy information systems. 
+</p>
+<p>Although, the  examples in this specification are based on existing life sciences RDF datasets on the Web, 
+<b>VoIDext can be applied to any knowledge domain</b>. The RDF data may be accessible through SPARQL endpoints.
+ The considered datasets in this specification are as follows:
+ <a href="https://omabrowser.org">OMA (Orthologous MAtrix)</a> , 
+ <a href="https://uniprot.org">UniProtKB (UniProt Knowledgebase)</a>,
+ <a href=""> Drugbank </a>,
+ <a href="https://bgee.org"> Bgee (dataBase for Gene Expression Evolution)</a> , 
+ and <a href="https://www.ebi.ac.uk/rdf">EBI (European Bioinformatics Institute) RDF platform </a>. 
+ <a href="#tab_endpoints">Table 2</a> lists the SPARQL endpoints of these datasets.
+
+</p>
+
+
+<div id="ns" align="center">
+<table id="tab_endpoints">
+<caption> <a href="#ns"> Table 2</a>: SPARQL endpoints for the examples discussed in this specification.
+ </caption>
+<tbody>
+<tr><td><b>RDF Dataset</b></td><td><b>SPARQL endpoint</b></td></tr>
+<tr><td>OMA</td><td>https://sparql.omabrowser.org/sparql</td></tr>
+<tr><td>UniProtKB</td><td>https://sparql.uniprot.org/sparql</td></tr>
+<tr><td>Bgee</td><td>http://biosoda.expasy.org:8080/rdf4j-server/repositories/bgeelight</td></tr>
+<tr><td>Drugbank</td><td>http://wifo5-04.informatik.uni-mannheim.de/drugbank/sparql</td></tr>
+<tr><td>EBI RDF</td><td>https://www.ebi.ac.uk/rdf/services/sparql</td></tr>
+
+</tbody>
+</table>
+</div>
+
