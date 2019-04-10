@@ -16,6 +16,6 @@ These SPARQL federated queries were defined according to the virtual link metada
 
 ## The set of SPARQL queries (SQ) along with the competency questions (CQ)
 The formal set of queries to answer the informal competency questions during the development of VoIDext is available in
- [ABox_paper_examples.ttl](ABox_examplar_data)
+ [SQ_set_of_queries](SQ_set_of_queries). 
 These queries can be executed on the [SPARQL endpoint here](http://biosoda.expasy.org:8890/sparql). 
 
