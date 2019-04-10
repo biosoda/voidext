@@ -22,7 +22,7 @@
     vann:preferredNamespacePrefix "voidext";
     foaf:homepage <http://purl.org/query/voidext>;
     dcterms:created "2019-01-30"^^xsd:date;
-    dcterms:publisher "";
+    dcterms:publisher <https://www.sib.swiss/about-sib/organization>;
     dcterms:license <https://creativecommons.org/licenses/by/3.0/>;
     dcterms:type <http://purl.org/adms/assettype/Ontology>;
     dcterms:status <http://purl.org/adms/status/UnderDevelopment>;
@@ -34,6 +34,11 @@
     foaf:name "Tarcisio Mendes de Farias";
     foaf:homepage <https://www.researchgate.net/profile/Tarcisio_Mendes_De_Farias>;
     foaf:mbox <mailto:tarcisio.mendesdefarias@unil.ch> .
+
+<https://www.sib.swiss/about-sib/organization> a dcterms:Agent;
+    foaf:member <http://purl.org/query/tarcisiomf>;
+    foaf:name "SIB Swiss Institute of Bioinformatics";
+    foaf:homepage <http://www.sib.swiss> .
 
 <http://vocab.deri.ie/void#cygri> a foaf:Person;
     foaf:name "Richard Cyganiak";
