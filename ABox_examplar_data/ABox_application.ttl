@@ -244,4 +244,129 @@ bioquery:BGEE_EBI-ENSEMBL a void:Linkset;
             void:target bioquery:OMA;
 			voidext:intersectAt bioquery:BGEE_EBI-ENSEMBL ;
 			voidext:intersectAt bioquery:OMA_EBI-ENSEMBL ;
-			voidext:intersectionType voidext:OBJECT_OBJECT . 
+			voidext:intersectionType voidext:OBJECT_OBJECT .
+
+
+##############################################################
+######### RDF Metadata ISWC2019 article examples   ###########
+##############################################################
+
+bioquery:EBI a void:Dataset;
+    dcterms:title "Linked Open Data platform for EBI data.";
+    dcterms:description "The EBI RDF Platform aims to bring together the efforts of a number of EMBL-EBI resources that provide access to their data using Semantic Web technologies.";
+    void:sparqlEndpoint <https://www.ebi.ac.uk/rdf/services/sparql>;
+    dcterms:modified "2017-07-10"^^xsd:date;
+    foaf:homepage <https://www.ebi.ac.uk/rdf/>.
+
+bioquery:ORDO sd:name <http://rdf.ebi.ac.uk/dataset/ordo>;
+              a sd:Graph.
+bioquery:ORDO_2_6 sd:name <http://rdf.ebi.ac.uk/dataset/ordo/2.6>;
+                  a sd:Graph.
+                  
+bioquery:EBI_ORDO a sd:Dataset, void:Dataset;
+    dcterms:title "Orphanet Rare Disease Ontology (ORDO)";
+    dcterms:description "The Orphanet nomenclature of rare diseases, essential in improving the visibility of rare diseases. ORDO is stored in EBI RDF store as two RDF graphs.";
+    sd:namedGraph bioquery:ORDO, bioquery:ORDO_2_6 ;
+    sd:defaultGraph [
+            a sd:Graph, void:Dataset;
+            dcterms:title "EBI RDF serialisation" ];
+    void:sparqlEndpoint <https://www.ebi.ac.uk/rdf/services/sparql>;
+    dcterms:modified "2017-07-10"^^xsd:date;
+    foaf:homepage <https://www.ebi.ac.uk/rdf/>;
+    void:subset bioquery:EBI.
+
+bioquery:UNIPROT a void:Dataset;
+    dcterms:title "The Universal Protein Resource (UniProt)";
+    dcterms:description "High-quality and freely accessible resource of protein sequence and functional information.";
+    void:sparqlEndpoint <https://sparql.uniprot.org/sparql/>;
+    dcterms:modified "2018-11-01"^^xsd:date;
+    foaf:homepage <https://www.uniprot.org>.    
+    
+bioquery:DRUGBANK a void:Dataset;
+    dcterms:title "Drug Bank RDF";
+    dcterms:description "The DrugBank database is a unique bioinformatics and cheminformatics resource that combines detailed drug data with comprehensive drug target information.";
+    void:sparqlEndpoint <http://wifo5-04.informatik.uni-mannheim.de/drugbank/sparql>;
+    dcterms:modified "2011-01-01"^^xsd:date;
+    foaf:homepage <http://wifo5-04.informatik.uni-mannheim.de/drugbank/>.
+
+bioquery:OMA a void:Dataset;
+    dcterms:title "Orthologous Matrix (OMA)";
+    dcterms:description "RDF data extracted from OMA HDF5 file.";
+    void:sparqlEndpoint <https://sparql.omabrowser.org/sparql>;
+    dcterms:modified "2018-06-01"^^xsd:date;
+    foaf:homepage <https://omabrowser.org/>.
+
+bioquery:EBI_UNIPROT_10 a voidext:SharedInstanceSet;
+             void:target bioquery:EBI;
+             void:target bioquery:UNIPROT;
+             void:subset bioquery:EBI;
+             voidext:resourceMapping '''?IRI_EBI a <http://www.biopax.org/release/biopax-level3.owl#BioSource>.
+BIND(IRI(CONCAT("http://purl.uniprot.org/taxonomy/",
+         STRAFTER(STR(?IRI_EBI),"http://identifiers.org/taxonomy/"))) as ?IRI_UNIPROT)
+
+FILTER(STRSTARTS(STR(?IRI_EBI),"http://identifiers.org/taxonomy/"))''';
+             voidext:sharedInstanceType biopax:BioSource.
+
+bioquery:EBI_UNIPROT_11 a voidext:SharedInstanceSet;
+             void:target bioquery:EBI;
+             void:target bioquery:UNIPROT;
+             void:subset bioquery:UNIPROT;
+             voidext:resourceMapping 
+             '''?IRI_UNIPROT a <http://purl.uniprot.org/core/Taxon>.
+BIND(IRI(CONCAT("http://identifiers.org/taxonomy/",
+         STRAFTER(STR(?IRI_UNIPROT),"http://purl.uniprot.org/taxonomy/"))) as ?IRI_EBI)
+
+FILTER(STRSTARTS(STR(?IRI_UNIPROT),"http://purl.uniprot.org/taxonomy/"))''';
+             voidext:sharedInstanceType up:Taxon . 
+             
+bioquery:EBI_UNIPROT_12 a voidext:ComplexLinkSet;
+             rdfs:comment "A virtual link between EBI and UniProt that share similar organism taxonomy instances. Being UniProt the most complete in terms of organism taxonomy in RDF.";
+             void:target bioquery:EBI;
+             void:target bioquery:UNIPROT;
+             voidext:intersectAt bioquery:EBI_UNIPROT_11 ;
+			 voidext:intersectAt bioquery:EBI_UNIPROT_10 ; 
+			 voidext:recommendedMapping bioquery:EBI_UNIPROT_10 .             
+             
+bioquery:DRUGBANK_EBI-ORDO a void:Linkset;
+             void:subjectsTarget bioquery:DRUGBANK;
+             rdfs:label "The link predicate description from drugbank dataset to the ORDO/EBI rare diseases dataset.";
+             rdfs:comment "It is a simple virtual link  from ORDO/EBI rare diseases dataset to the drugbank dataset that is part of the bioquery:DRUGBANK_EBI-ORDO_VL complex virtual link. )";
+             void:objectsTarget bioquery:EBI_ORDO;
+             void:linkPredicate drugbank:swissprotId;
+             voidext:linkPredicateDomain drugbank:targets;
+             void:subset bioquery:DRUGBANK.   
+             
+bioquery:EBI-ORDO_DRUGBANK a void:Linkset;
+             rdfs:label "The link predicate description from ORDO/EBI rare diseases dataset to the drugbank dataset.";
+             rdfs:comment "It is a simple virtual link  from ORDO/EBI rare diseases dataset to the drugbank dataset that is part of the bioquery:DRUGBANK_EBI-ORDO_VL complex virtual link. )";
+             void:objectsTarget bioquery:DRUGBANK;
+             void:subjectsTarget bioquery:EBI_ORDO;
+             void:linkPredicate oboowl:hasDbXref;
+             voidext:linkPredicateRange xsd:string ;
+             voidext:resourceMapping '''?g <http://www.geneontology.org/formats/oboInOwl#hasDbXref> ?i.
+ BIND( IRI(CONCAT("http://bio2rdf.org/uniprot:",STRAFTER(?i,"SwissProt:"))) as ?NEW_IRI)
+ FILTER (CONTAINS(?i, "SwissProt:" ))''';
+             void:subset bioquery:EBI_ORDO.
+
+ bioquery:DRUGBANK_EBI-ORDO_VL a voidext:ComplexLinkSet;
+            rdfs:label "Virtual link for rare diseases (ORDO/EBI dataset) and drug targets (drugbank dataset).";
+            rdfs:comment "Virtual link between the Orphanet rare disease terms stored as a subset in the EBI RDF store and the drug targets in DrugBank dataset. They have in common swissprot identifiers but they are represented in a different way. One is a string and another one an URI both of them containing a swissprot identifier.";
+			void:target bioquery:DRUGBANK;
+            void:target bioquery:EBI_ORDO;
+			voidext:intersectAt bioquery:EBI-ORDO_DRUGBANK ;
+			voidext:intersectAt bioquery:DRUGBANK_EBI-ORDO ;
+			voidext:intersectionType voidext:OBJECT_OBJECT ;
+		    voidext:recommendedMapping bioquery:EBI-ORDO_DRUGBANK . 
+
+
+             
+bioquery:OMA_UNIPROT_1 a void:Linkset;
+             void:objectsTarget   bioquery:UNIPROT;
+             void:subjectsTarget  bioquery:OMA;
+             void:linkPredicate lscr:xrefUniprot;
+             voidext:linkPredicateDomain orth:Protein;
+             voidext:linkPredicateRange up:Protein;
+             void:subset bioquery:OMA.
+
+
+ 
