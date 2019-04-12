@@ -64,7 +64,7 @@ nevertheless they are asserted as instances of unlike classes (i.e. types). Yet,
 stated between these instances. This fact might be because of distinct domain scopes and constraints such
  as legacy information systems. 
 </p>
-<p>Although, the  examples in this specification are based on existing life sciences RDF datasets on the Web, 
+<p>Although the  examples in this specification are based on existing life sciences RDF datasets on the Web, 
 <b>VoIDext can be applied to any knowledge domain</b>. The RDF data may be accessible through SPARQL endpoints.
  The considered datasets in this specification are as follows:
  <a href="https://omabrowser.org">OMA (Orthologous MAtrix)</a> , 
@@ -91,5 +91,124 @@ stated between these instances. This fact might be because of distinct domain sc
 
 </tbody>
 </table>
+
 </div>
 
+<p id="ex1"><b>Example 1: directed link predicates between datasets.</b></p>
+
+A dataset can contain property assertions involving IRIs which are also present in another dataset. These IRIs in common, 
+that are referred as instances of a given class, often do not necessary have the same set of properties or context in 
+different datasets, however they are frequently complementary. For example, let us consider the OMA and UniProt RDF datasets. 
+<a href="#fig1">Fig. 1</a> illustrates a triple in OMA where the predicate is a cross-reference property 
+(i.e. <a href="http://purl.org/lscr#xrefUniprot">lscr:xrefUniprot</a>) that assigns as value an IRI in common with Uniprot. 
+By considering this, a direct virtual link such as the one shown in <a href="#fig1">Fig. 1</a> can be stated where the subject of 
+<a href="http://purl.org/lscr#xrefUniprot">lscr:xrefUniprot</a> is described in OMA and 
+the object is further depicted in UniProt. To find out if the virtual link exists, we need to know which dataset contains the triples 
+with the <a href="http://purl.org/lscr#xrefUniprot">lscr:xrefUniprot</a> predicate and what is the another one with the triples' objects.
+ In this example, the objects are further described in the UniProt RDF dataset. Yet, it is suitable to know what is the context of the 
+<a href="http://purl.org/lscr#xrefUniprot">lscr:xrefUniprot</a> predicate's object in UniProt. In this case, the UniProt IRI that is
+ illustrated as a black circle in <a href="#fig1">Fig. 1</a> indeed refers to an instance of the 
+ \textit{up:Protein} class in UniProt. Therefore, \textit{up:Protein} must be asserted as the range of the virtual link.
+  Although in this example the virtual link's range and the <a href="http://purl.org/lscr#xrefUniprot">lscr:xrefUniprot</a> 
+  property's range in OMA are the same, it is not always the case when establishing directed virtual links. 
+
+<div  align="center">
+<figure id="fig1">
+<p><img src="images/fig1.png" class="imagedesc2"/>
+<figcaption><a href="#fig1">Figure 1</a>. A directed virtual link predicate between OMA and UniProt datasets.</figcaption>
+</figure>
+</div>
+
+The  <a href="https://www.w3.org/TR/turtle/">RDF 1.1 Turtle</a> serialisation of <a href="#ex1">Example 1</a> 
+according to VoIDext vocabulary is defined <a href="#ex1_ttl">below</a>. 
+When the virtual link is stated between the <a href="https://www.w3.org/TR/rdf-schema/#ch_type">rdf:type</a> subject in a first dataset (e.g. UniProtKB) and the subject/object of any other 
+property different from r<a href="https://www.w3.org/TR/rdf-schema/#ch_type">rdf:type</a> in a second dataset (e.g. OMA), the non-rdf:type property is the
+the link predicate (e.g. <a href="http://purl.org/lscr#xrefUniprot">lscr:xrefUniprot</a> in  <a href="#fig1">Fig. 1</a>) and either its
+ domain (<a href="#linkPredicateDomain">voidext:linkPredicateDomain</a>) or range (<a href="#linkPredicateRange">voidext:linkPredicateRange</a>) 
+ must be the object of the <a href="https://www.w3.org/TR/rdf-schema/#ch_type">rdf:type</a> property in the first dataset.
+ 
+<pre class="example" id="ex1_ttl">
+ bioquery:OMA_UNIPROT_1 rdf:type void:Linkset;
+             void:objectsTarget   bioquery:UNIPROT;
+             void:subjectsTarget  bioquery:OMA;
+             void:linkPredicate lscr:xrefUniprot;
+             voidext:linkPredicateDomain orth:Protein;
+             voidext:linkPredicateRange up:Protein;
+             void:subset bioquery:OMA.
+             
+  bioquery:UNIPROT a void:Dataset;
+    dcterms:title "The Universal Protein Resource (UniProt)";
+    dcterms:description "High-quality and freely accessible resource of protein sequence and functional information.";
+    void:sparqlEndpoint &lt;https://sparql.uniprot.org/sparql/&gt;;
+    dcterms:modified "2018-11-01"^^xsd:date;
+    foaf:homepage &lt;https://www.uniprot.org&gt;.  
+  
+  bioquery:OMA a void:Dataset;
+    dcterms:title "Orthologous Matrix (OMA)";
+    dcterms:description "RDF data extracted from OMA HDF5 file.";
+    void:sparqlEndpoint &lt;https://sparql.omabrowser.org/sparql&gt;;
+    dcterms:modified "2018-06-01"^^xsd:date;
+    foaf:homepage &lt;https://omabrowser.org/&gt;.
+ </pre>
+ 
+<p>Once directed virtual links are serialised with triple patterns such as the example  <a href="#ex1_ttl">above</a>,
+ we can answer the following question:</p>
+ <p> <b>Question (1)</b>: which are the set of directed virtual links between two RDF datasets?</p> 
+<p>To  answer this question, the SPARQL query template 1 (<a href="#q1">SQ<sub>1</sub></a>) below can be executed used. By considering our example, 
+ we can retrieve the virtual link illustrated in <a href="#fig1">Fig. 1</a> by executing <a href="#q1">SQ<sub>1</sub></a> on the <a href="http://biosoda.expasy.org:8890/sparql">SPARQL endpoint here</a>. 
+ </p>
+
+<pre class="query" id="q1">
+prefix void:    &lt;http://rdfs.org/ns/void#&gt;
+prefix bioquery: &lt;http://purl.org/query/bioquery#&gt;
+prefix voidext:&lt;http://purl.org/query/voidext#&gt;
+prefix dcterms: &lt;http://purl.org/dc/terms/&gt;
+
+SELECT distinct ?links  ?source  ?predicate_from_endpoint ?subj_from ?subj_type ?predicate 
+ ?obj_type  ?obj_from  ?resourceMapping {
+
+###if we want to specify the target datasets that contain one of the resources
+###related with a virtual link.
+#values(?dataset_link_subj){  (bioquery:OMA)  }
+#values(?dataset_link_obj){  (bioquery:UNIPROT)  }
+
+?links  a void:Linkset.
+{
+ ?links void:subjectsTarget ?dataset_link_subj .
+ ?links void:objectsTarget ?dataset_link_obj.  
+} UNION {
+ ?links void:target ?dataset_link_subj.
+ ?links void:target ?dataset_link_obj .}
+ ?links void:linkPredicate ?predicate;
+        void:subset ?source_db.
+ ?dataset_link_subj void:sparqlEndpoint ?subj_from.
+ ?dataset_link_obj void:sparqlEndpoint ?obj_from.
+ ?source_db dcterms:title ?source;
+            void:sparqlEndpoint ?predicate_from_endpoint.
+
+ optional {?links  voidext:linkPredicateRange ?obj_type}.
+ optional {?links voidext:linkPredicateDomain ?subj_type. }
+ optional{ ?links voidext:resourceMapping  ?resourceMapping}
+
+filter not exists { ?complexLink  voidext:intersectAt ?links.}       
+filter ( ?dataset_link_subj  !=  ?dataset_link_obj )       
+
+} order by ?links
+
+#<a href="http://biosoda.expasy.org:8890/sparql?default-graph-uri=&query=prefix+void%3A++++%3Chttp%3A%2F%2Frdfs.org%2Fns%2Fvoid%23%3E%0D%0Aprefix+bioquery%3A+%3Chttp%3A%2F%2Fpurl.org%2Fquery%2Fbioquery%23%3E%0D%0Aprefix+voidext%3A%3Chttp%3A%2F%2Fpurl.org%2Fquery%2Fvoidext%23%3E%0D%0Aprefix+dcterms%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0D%0A%0D%0ASELECT+distinct+%3Flinks++%3Fsource++%3Fpredicate_from_endpoint+%3Fsubj_from+%3Fsubj_type+%3Fpredicate+%0D%0A+%3Fobj_type++%3Fobj_from++%3FresourceMapping+%7B%0D%0A%0D%0A%23%23%23if+we+want+to+specify+the+target+datasets+that+contain+one+of+the+resources%0D%0A%23%23%23related+with+a+virtual+link.%0D%0A%23values%28%3Fdataset_link_subj%29%7B++%28bioquery%3AOMA%29++%7D%0D%0A%23values%28%3Fdataset_link_obj%29%7B++%28bioquery%3AUNIPROT%29++%7D%0D%0A%0D%0A%3Flinks++a+void%3ALinkset.%0D%0A%7B%0D%0A+%3Flinks+void%3AsubjectsTarget+%3Fdataset_link_subj+.%0D%0A+%3Flinks+void%3AobjectsTarget+%3Fdataset_link_obj.++%0D%0A%7D+UNION+%7B%0D%0A+%3Flinks+void%3Atarget+%3Fdataset_link_subj.%0D%0A+%3Flinks+void%3Atarget+%3Fdataset_link_obj+.%7D%0D%0A+%3Flinks+void%3AlinkPredicate+%3Fpredicate%3B%0D%0A++++++++void%3Asubset+%3Fsource_db.%0D%0A+%3Fdataset_link_subj+void%3AsparqlEndpoint+%3Fsubj_from.%0D%0A+%3Fdataset_link_obj+void%3AsparqlEndpoint+%3Fobj_from.%0D%0A+%3Fsource_db+dcterms%3Atitle+%3Fsource%3B%0D%0A++++++++++++void%3AsparqlEndpoint+%3Fpredicate_from_endpoint.%0D%0A%0D%0A+optional+%7B%3Flinks++voidext%3AlinkPredicateRange+%3Fobj_type%7D.%0D%0A+optional+%7B%3Flinks+voidext%3AlinkPredicateDomain+%3Fsubj_type.+%7D%0D%0A+optional%7B+%3Flinks+voidext%3AresourceMapping++%3FresourceMapping%7D%0D%0A%0D%0Afilter+not+exists+%7B+%3FcomplexLink++voidext%3AintersectAt+%3Flinks.%7D+++++++%0D%0Afilter+%28+%3Fdataset_link_subj++%21%3D++%3Fdataset_link_obj+%29+++++++%0D%0A%0D%0A%7D+order+by+%3Flinks&should-sponge=&format=text%2Fhtml&timeout=0&debug=on"><b>Click here to execute this query over our exemplar dataset.</b></a>
+ </pre>
+<p> 
+The outcome of this query is a set of tuples <i>T<sub>1</sub> = (?links, ?source, ?predicate_from_endpoint,
+ ?subj_from, ?subj_type, ?predicate, ?obj_type,  ?obj_from  ?resourceMapping)</i> where <i>?links</i> is the direct virtual link IRI; <i>?source</i> is the 
+ dataset source name where the link predicates are asserted; <i>?predicate_from_endpoint</i> is the access method to the link predicate assertions
+  (e.g. an SPARQL endpoint); <i>?subj_from</i> is the access method to the link predicate' subject; <i>?subj_type</i> is the subject type;
+   <i>?predicate</i> is the link predicate; <i>?obj_type</i> is the object type;  <i>?obj_from</i> is the access method to the link predicate's object;
+    <i>?resourceMapping</i> is the resource mapping procedure, if any. 
+    <i>?resourceMapping</i> must be applied to the <i> ?predicate</i> predicate' object in the dataset <i>?source</i> if <i>?predicate_from_endpoint &ne; ?obj_from</i>, 
+    otherwise the mapping is applied to the <i>?predicate</i>' subject in <i>?source</i>. In addition, the  <i>?subj_type</i> xor <i>?obj_type</i> statements and the
+     <i>?predicate</i> are in  different datasets (e.g. SPARQL enpoints) where "xor" is the "exclusive or".   <p>
+<p>	One of this tuple could be as follows:  <i>T<sub>1</sub><sup>1</sup>=(bioquery:OMA_UNIPROT_1,  "Orthologous Matrix (OMA)", 
+	&lt;https://sparql.omabrowser.org/sparql&gt;,  &lt;https://sparql.omabrowser.org/sparql&gt;,  orth:Protein, lscr:xrefUniprot, up:Protein,	 
+	&lt;https://sparql.uniprot.org/sparql/&gt;, &Phi;)</i> where &Phi; represents an empty value. 
+</p>
+	
