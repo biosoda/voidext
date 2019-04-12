@@ -52,7 +52,7 @@ By considering these subjects and objects that are in common, the RDF graphs fro
    O<sub>a</sub> and O<sub>b</sub>; and if S<sub>a</sub> &equiv; S<sub>a</sub> then we can state a virtual link between S<sub>a</sub> and S<sub>b</sub>; 
    and finally if S<sub>a</sub>&equiv; O<sub>b</sub> then we can state a virtual link between S<sub>a</sub> and O<sub>b</sub>. 
    The &equiv; symbol represents equivalent subjects or objects. One could also imagine the case of O<sub>a</sub>
-    being similar to O<sub>b</sub> (i.e. O<sub>a</sub> \sim O<sub>b</sub>). In this case, a resource mapping function f<sub>m</sub>(r) is
+    being similar to O<sub>b</sub> (i.e. O<sub>a</sub> &sim; O<sub>b</sub>). In this case, a resource mapping function f<sub>m</sub>(r) is
      required to establish a virtual link between O<sub>a</sub> and O<sub>b</sub> --- i.e. O<sub>a</sub> &equiv; f<sub>m</sub>(O<sub>b</sub>) or f<sub>m</sub>(O<sub>a</sub>)
       &equiv; O<sub>b</sub>. This is due to the fact of existing heterogeneities in the representation of a resource 
       (e.g. "id:1234" or "id_1234" strings) and the resource description, for example, different set of
@@ -108,7 +108,7 @@ with the <a href="http://purl.org/lscr#xrefUniprot">lscr:xrefUniprot</a> predica
  In this example, the objects are further described in the UniProt RDF dataset. Yet, it is suitable to know what is the context of the 
 <a href="http://purl.org/lscr#xrefUniprot">lscr:xrefUniprot</a> predicate's object in UniProt. In this case, the UniProt IRI that is
  illustrated as a black circle in <a href="#fig1">Fig. 1</a> indeed refers to an instance of the 
- \textit{up:Protein} class in UniProt. Therefore, \textit{up:Protein} must be asserted as the range of the virtual link.
+ <a href="https://www.uniprot.org/core/">up:Protein</a> class in UniProt. Therefore, <a href="https://www.uniprot.org/core/">up:Protein</a> must be asserted as the range of the virtual link.
   Although in this example the virtual link's range and the <a href="http://purl.org/lscr#xrefUniprot">lscr:xrefUniprot</a> 
   property's range in OMA are the same, it is not always the case when establishing directed virtual links. 
 
@@ -122,7 +122,7 @@ with the <a href="http://purl.org/lscr#xrefUniprot">lscr:xrefUniprot</a> predica
 The  <a href="https://www.w3.org/TR/turtle/">RDF 1.1 Turtle</a> serialisation of <a href="#ex1">Example 1</a> 
 according to VoIDext vocabulary is defined <a href="#ex1_ttl">below</a>. 
 When the virtual link is stated between the <a href="https://www.w3.org/TR/rdf-schema/#ch_type">rdf:type</a> subject in a first dataset (e.g. UniProtKB) and the subject/object of any other 
-property different from r<a href="https://www.w3.org/TR/rdf-schema/#ch_type">rdf:type</a> in a second dataset (e.g. OMA), the non-rdf:type property is the
+property different from <a href="https://www.w3.org/TR/rdf-schema/#ch_type">rdf:type</a> in a second dataset (e.g. OMA), the non-rdf:type property is the
 the link predicate (e.g. <a href="http://purl.org/lscr#xrefUniprot">lscr:xrefUniprot</a> in  <a href="#fig1">Fig. 1</a>) and either its
  domain (<a href="#linkPredicateDomain">voidext:linkPredicateDomain</a>) or range (<a href="#linkPredicateRange">voidext:linkPredicateRange</a>) 
  must be the object of the <a href="https://www.w3.org/TR/rdf-schema/#ch_type">rdf:type</a> property in the first dataset.
