@@ -211,4 +211,31 @@ The outcome of this query is a set of tuples <i>T<sub>1</sub> = (?links, ?source
 	&lt;https://sparql.omabrowser.org/sparql&gt;,  &lt;https://sparql.omabrowser.org/sparql&gt;,  orth:Protein, lscr:xrefUniprot, up:Protein,	 
 	&lt;https://sparql.uniprot.org/sparql/&gt;, &Phi;)</i> where &Phi; represents an empty value. 
 </p>
+
+<h3>VoIDext <i>vs</i> VoID: main changes</h3>
+
+We built the VoIDext TBox based on the <a href="https://www.w3.org/TR/rdf-schema/">RDF schema 1.1</a> and the already existing <a 
+href="http://vocab.deri.ie/void">VoID RDF schema vocabulary</a>.
+Unlike VoID, we stated the <a href="#http://rdfs.org/ns/void#Linkset">void:Linkset</a> class as a subclass of the new <a href="#SimpleLinkSet">voidext:SimpleLinkSet</a> class instead of the
+   <a href="#Dataset">void:Dataset</a> class as it was previously stated. The <a href="#SimpleLinkSet">voidext:SimpleLinkSet</a> is a class to represent the simple virtual links and 
+   <a href="#SimpleLinkSet">voidext:SimpleLinkSet</a> &#8849; <a href="#Dataset">void:Dataset</a>, where the symbol &#8849; reads as "is subsumed by". Then, we can infer 
+   that <a href="#http://rdfs.org/ns/void#Linkset">void:Linkset</a> &#8849; <a href="#Dataset">void:Dataset</a> what makes VoID instances (ABox) fully compatible with the VoIDext schema. In 
+   addition to the <a href="#http://rdfs.org/ns/void#Linkset">void:Linkset</a> term,  in spite of the fact that we modified <a href="#http://rdfs.org/ns/void#target">void:target</a>
+   , <a href="#http://rdfs.org/ns/void#subjectsTarget">void:subjectsTarget</a> and 
+   <a href="#http://rdfs.org/ns/void#objectsTarget">void:objectsTarget</a> property domains  from <a href="#http://rdfs.org/ns/void#Linkset">void:Linkset</a> to <a href="#VirtualLink">voidext:VirtualLink</a>, 
+   the VoIDext is still backward compatible with any VoID-based ABox since <a href="#http://rdfs.org/ns/void#Linkset">void:Linkset</a> &#8849; <a href="#VirtualLink">voidext:VirtualLink</a>. 
+   The <a href="#http://rdfs.org/ns/void#target">void:target</a> is assigned with one of the two datasets linked by the <i>virtual link</i> where <a href="#http://rdfs.org/ns/void#subjectsTarget">void:subjectsTarget</a> &#8849;
+    <a href="#http://rdfs.org/ns/void#target">void:target</a> and <a href="#http://rdfs.org/ns/void#objectsTarget">void:objectsTarget</a> &#8849; <a href="#http://rdfs.org/ns/void#target">void:target</a>. 
+    The <a href="#http://rdfs.org/ns/void#subjectsTarget">void:subjectsTarget</a>/<a href="#http://rdfs.org/ns/void#objectsTarget">void:objectsTarget</a> 
+    property asserts as its value the dataset that describes the subjects/objects of triples contained in the virtual link. 
+    By asserting these sub-target properties, we can state the subject-object direction of the links explicitly. <a href="#fig4">Fig. 2</a> illustrates VoIDext main concepts 
+    and an example of a complex link involving two link predicates. 
+
+<div  align="center">
+<figure id="fig4">
+<p><img src="images/fig4.png" class="imagedesc2"/>
+<figcaption><a href="#fig4">Figure 2</a>. A portion of the VoIDext terminological and assertion boxes.</figcaption>
+</figure>
+</div>
+
 	
