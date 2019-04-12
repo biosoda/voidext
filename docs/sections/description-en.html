@@ -94,6 +94,13 @@ stated between these instances. This fact might be because of distinct domain sc
 
 </div>
 
+<p>A virtual link (VL) can be classified as simple or complex. A simple VL must contain in its definition, 
+either exactly one link predicate such as in <a href="#ex1_ttl">Example 1</a> or exactly one shared instance type (i.e. class).
+This VL type is defined with the <a href="#SimpleLinkSet">voidext:SimpleLinkSet<a> subclasses.
+A complex virtual link is composed of exactly either two link predicates (e.g. <a href="#ex1_ttl">Example 4</a>)  or two shared instance types (e.g. <a href="#ex1_ttl">Example 3</a>) . 
+This VL type is defined with <a href="#ComplexLinkSet">voidext:ComplexLinkSet<a> class.
+</p>
+
 <p id="ex1"><b>Example 1: directed link predicates between datasets.</b></p>
 
 A dataset can contain property assertions involving IRIs which are also present in another dataset. These IRIs in common, 
@@ -108,7 +115,7 @@ with the <a href="http://purl.org/lscr#xrefUniprot">lscr:xrefUniprot</a> predica
  In this example, the objects are further described in the UniProt RDF dataset. Yet, it is suitable to know what is the context of the 
 <a href="http://purl.org/lscr#xrefUniprot">lscr:xrefUniprot</a> predicate's object in UniProt. In this case, the UniProt IRI that is
  illustrated as a black circle in <a href="#fig1">Fig. 1</a> indeed refers to an instance of the 
- <a href="https://www.uniprot.org/core/">up:Protein</a> class in UniProt. Therefore, <a href="https://www.uniprot.org/core/">up:Protein</a> must be asserted as the range of the virtual link.
+ <a href="https://www.uniprot.org/core/Protein">up:Protein</a> class in UniProt. Therefore, <a href="https://www.uniprot.org/core/">up:Protein</a> must be asserted as the range of the virtual link.
   Although in this example the virtual link's range and the <a href="http://purl.org/lscr#xrefUniprot">lscr:xrefUniprot</a> 
   property's range in OMA are the same, it is not always the case when establishing directed virtual links. 
 
@@ -212,9 +219,114 @@ The outcome of this query is a set of tuples <i>T<sub>1</sub> = (?links, ?source
 	&lt;https://sparql.uniprot.org/sparql/&gt;, &Phi;)</i> where &Phi; represents an empty value. 
 </p>
 
+
+<p id="ex2"><b>Example 3: similar instances between datasets</b></p>
+
+<p>
+EBI and UniProt RDF data stores use different instance IRIs and classes to represent the organism species, and in a more general way, the taxonomic lineage for organisms. 
+To exemplify this, let us consider the <i>&lt;http://identifiers.org/taxonomy/9606&gt;</i> instance of <i>biopax:BioSource</i> and the 
+<i>&lt;http://purl.uniprot.org/taxonomy/9606&gt;</i> instance of <a href="https://www.uniprot.org/core/Taxon">up:Taxon</a> in EBI and UniProt datasets,
+ respectively. Although these instances are not exactly the same (i.e. distinct IRIs, property sets, and contexts), they refer to the same 
+ organism species at some extent, namely <i>homo sapiens</i> --- human. By applying a semantic relaxation, we can state a virtual link
+  between these two instances. This link is illustrated in <a href="#fig3">Fig. 3</a>. To establish this link, we need to define an IRI mapping function 
+  (i.e. <i>f<sub>m</sub>(r)</i>) either to the EBI or UniProt species-related instances ---  either f<sub>m</sub>(<i>&lt;http://identifiers.org/taxonomy/9606&gt;</i>) 
+  &equiv; <i>&lt;http://purl.uniprot.org/taxonomy/9606&gt;</i> or f<sub>m</sub>(<i>&lt;http://identifiers.org/taxonomy/9606&gt;</i>) 
+  &equiv; <i>&lt;http://identifiers.org/taxonomy/9606&gt;</i>.   
+
+</p>
+
+<div  align="center">
+<figure id="fig3">
+<p><img src="images/fig2.png" class="imagedesc2"/>
+<figcaption><a href="#fig3">Figure 3</a>. A virtual link between datasets based on similar IRIs of different types.</figcaption>
+</figure>
+</div>
+
+The  <a href="https://www.w3.org/TR/turtle/">RDF 1.1 Turtle</a> serialisation of <a href="#ex2">Example 3</a> 
+according to VoIDext vocabulary is defined <a href="#ex2_ttl">below</a>. 
+When the virtual link is stated between the <a href="https://www.w3.org/TR/rdf-schema/#ch_type">rdf:type</a> subject in a first dataset (e.g. EBI) and the 
+<a href="https://www.w3.org/TR/rdf-schema/#ch_type">rdf:type</a> subject from a second dataset (e.g. UniProtKB), and if the instances are from different 
+types such as illustrated in <a href="#fig3">Fig. 3</a>), we classify this virtual link as a <a href="#ComplexLinkSet">complex link set</a>. 
+ 
+<pre class="example" id="ex3_ttl">
+bioquery:EBI_UNIPROT_10 a voidext:SharedInstanceSet;
+             void:target bioquery:EBI;
+             void:target bioquery:UNIPROT;
+             void:subset bioquery:EBI;
+             voidext:resourceMapping 
+             '''?IRI_EBI a &lt;http://www.biopax.org/release/biopax-level3.owl#BioSource&gt;.
+                BIND(IRI(CONCAT("http://purl.uniprot.org/taxonomy/",
+                STRAFTER(STR(?IRI_EBI),"http://identifiers.org/taxonomy/"))) as ?IRI_UNIPROT)
+                FILTER(STRSTARTS(STR(?IRI_EBI),"http://identifiers.org/taxonomy/"))''';
+             voidext:sharedInstanceType biopax:BioSource.
+
+bioquery:EBI_UNIPROT_11 a voidext:SharedInstanceSet;
+             void:target bioquery:EBI;
+             void:target bioquery:UNIPROT;
+             void:subset bioquery:UNIPROT;
+             voidext:resourceMapping 
+             '''?IRI_UNIPROT a &lt;http://purl.uniprot.org/core/Taxon&gt;.
+                BIND(IRI(CONCAT("http://identifiers.org/taxonomy/",
+                STRAFTER(STR(?IRI_UNIPROT),"http://purl.uniprot.org/taxonomy/"))) as ?IRI_EBI)
+                FILTER(STRSTARTS(STR(?IRI_UNIPROT),"http://purl.uniprot.org/taxonomy/"))''';
+             voidext:sharedInstanceType up:Taxon . 
+             
+bioquery:EBI_UNIPROT_12 a voidext:ComplexLinkSet;
+             rdfs:comment "A virtual link between EBI and UniProt that share similar organism taxonomy instances. 
+                             Being UniProt the most complete in terms of organism taxonomy in RDF.";
+             void:target bioquery:EBI;
+             void:target bioquery:UNIPROT;
+             voidext:intersectAt bioquery:EBI_UNIPROT_11 ;
+			 voidext:intersectAt bioquery:EBI_UNIPROT_10 ; 
+			 voidext:recommendedMapping bioquery:EBI_UNIPROT_10 .  
+ </pre>
+ 
+	
+ 
+<p>Once virtual links between instances are serialised with triple patterns such as the example  <a href="#ex3_ttl">above</a>,
+ we can answer the following question:</p>
+ <p> <b>Question (3)</b>:  which are the set of virtual links between two similar or equivalent instances of unlike types in different RDF datasets?</p> 
+<p>To  answer this question, the SPARQL query template 3 (<a href="#q3">SQ<sub>3</sub></a>) below can be executed. For example, 
+ we can retrieve the virtual link illustrated in <a href="#fig3">Fig. 3</a> by executing <a href="#q3">SQ<sub>3</sub></a> on the <a href="http://biosoda.expasy.org:8890/sparql">SPARQL endpoint here</a>. 
+ </p>
+
+<pre class="query" id="q3">
+prefix void:    &lt;http://rdfs.org/ns/void#&gt;
+prefix bioquery: &lt;http://purl.org/query/bioquery#&gt;
+prefix voidext:&lt;http://purl.org/query/voidext#&gt;
+prefix dcterms: &lt;http://purl.org/dc/terms/&gt;
+
+SELECT distinct ?links ?source_dataset1_name ?target_dataset2_name ?sharedType
+  ?resourceMapping ?source_endpoint ?target_endpoint{
+  
+ #values(?dataset1){ (bioquery:EBI) }
+ #values(?dataset2){ (bioquery:UNIPROT) }
+
+ ?links a voidext:ComplexLinkSet.
+ ?links void:target ?dataset1, ?dataset2 .
+ ?links voidext:intersectAt ?points;
+        void:target ?target_db.
+ ?target_db dcterms:title ?target_dataset2_name;
+           void:sparqlEndpoint ?target_endpoint.
+ ?points voidext:sharedInstanceType  ?sharedType .
+ ?points void:subset ?source_db .
+ ?source_db dcterms:title ?source_dataset1_name;
+            void:sparqlEndpoint ?source_endpoint.
+
+ optional{   ?links voidext:recommendedMapping ?points.
+             ?points voidext:resourceMapping  ?resourceMapping}
+ filter(?source_db != ?target_db)        
+                         
+} order by ?links
+
+#<a href="http://biosoda.expasy.org:8890/sparql?default-graph-uri=&query=prefix+void%3A++++%3Chttp%3A%2F%2Frdfs.org%2Fns%2Fvoid%23%3E%0D%0Aprefix+bioquery%3A+%3Chttp%3A%2F%2Fpurl.org%2Fquery%2Fbioquery%23%3E%0D%0Aprefix+voidext%3A%3Chttp%3A%2F%2Fpurl.org%2Fquery%2Fvoidext%23%3E%0D%0Aprefix+dcterms%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0D%0A%0D%0ASELECT+distinct+%3Flinks+%3Fsource_dataset1_name+%3Ftarget_dataset2_name+%3FsharedType++%3FresourceMapping+%3Fsource_endpoint+%3Ftarget_endpoint%7B%0D%0A++%0D%0A+%23values%28%3Fdataset1%29%7B+%28bioquery%3AEBI%29+%7D%0D%0A+%23values%28%3Fdataset2%29%7B+%28bioquery%3AUNIPROT%29+%7D%0D%0A%0D%0A+%3Flinks+a+voidext%3AComplexLinkSet.%0D%0A+%3Flinks+void%3Atarget+%3Fdataset1%2C+%3Fdataset2+.%0D%0A+%3Flinks++voidext%3AintersectAt+%3Fpoints%3B%0D%0A++++++++++++void%3Atarget+%3Ftarget_db.%0D%0A%3Ftarget_db+dcterms%3Atitle+%3Ftarget_dataset2_name%3B%0D%0A++++++++++++++++++++void%3AsparqlEndpoint+%3Ftarget_endpoint.%0D%0A+%3Fpoints+voidext%3AsharedInstanceType++%3FsharedType+.%0D%0A+%3Fpoints+void%3Asubset+%3Fsource_db+.%0D%0A+%3Fsource_db+dcterms%3Atitle+%3Fsource_dataset1_name%3B%0D%0A++++++++++++++++++++void%3AsparqlEndpoint+%3Fsource_endpoint.%0D%0A%0D%0A+optional%7B+++%3Flinks+voidext%3ArecommendedMapping+%3Fpoints.%0D%0A++++++++++++%3Fpoints+voidext%3AresourceMapping++%3FresourceMapping%7D%0D%0A+%0D%0Afilter%28%3Fsource_db+%21%3D+%3Ftarget_db%29++++++++%0D%0A+++++++++++++++++++++++++%0D%0A%7D+order+by+%3Flinks&should-sponge=&format=text%2Fhtml&timeout=0&debug=on"><b>Click here to execute this query over our exemplar dataset.</b></a>
+ </pre>
+<p> 
+
+
 <h3>VoIDext <i>vs</i> VoID: main changes</h3>
 
-We built the VoIDext TBox based on the <a href="https://www.w3.org/TR/rdf-schema/">RDF schema 1.1</a> and the already existing <a 
+<p>We built the VoIDext TBox based on the <a href="https://www.w3.org/TR/rdf-schema/">RDF schema 1.1</a> and the already existing <a 
 href="http://vocab.deri.ie/void">VoID RDF schema vocabulary</a>.
 Unlike VoID, we stated the <a href="#http://rdfs.org/ns/void#Linkset">void:Linkset</a> class as a subclass of the new <a href="#SimpleLinkSet">voidext:SimpleLinkSet</a> class instead of the
    <a href="#Dataset">void:Dataset</a> class as it was previously stated. The <a href="#SimpleLinkSet">voidext:SimpleLinkSet</a> is a class to represent the simple virtual links and 
@@ -228,13 +340,13 @@ Unlike VoID, we stated the <a href="#http://rdfs.org/ns/void#Linkset">void:Links
     <a href="#http://rdfs.org/ns/void#target">void:target</a> and <a href="#http://rdfs.org/ns/void#objectsTarget">void:objectsTarget</a> &#8849; <a href="#http://rdfs.org/ns/void#target">void:target</a>. 
     The <a href="#http://rdfs.org/ns/void#subjectsTarget">void:subjectsTarget</a>/<a href="#http://rdfs.org/ns/void#objectsTarget">void:objectsTarget</a> 
     property asserts as its value the dataset that describes the subjects/objects of triples contained in the virtual link. 
-    By asserting these sub-target properties, we can state the subject-object direction of the links explicitly. <a href="#fig4">Fig. 2</a> illustrates VoIDext main concepts 
+    By asserting these sub-target properties, we can state the subject-object direction of the links explicitly. <a href="#fig4">Fig. 4</a> illustrates VoIDext main concepts 
     and an example of a complex link involving two link predicates. 
-
+</p>
 <div  align="center">
 <figure id="fig4">
 <p><img src="images/fig4.png" class="imagedesc2"/>
-<figcaption><a href="#fig4">Figure 2</a>. A portion of the VoIDext terminological and assertion boxes.</figcaption>
+<figcaption><a href="#fig4">Figure 4</a>. A portion of the VoIDext terminological and assertion boxes.</figcaption>
 </figure>
 </div>
 
