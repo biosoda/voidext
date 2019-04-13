@@ -101,7 +101,7 @@ A complex virtual link is composed of exactly either two link predicates (e.g. <
 This VL type is defined with <a href="#ComplexLinkSet">voidext:ComplexLinkSet<a> class.
 </p>
 
-<h4 id="ex1" class="list">Example 1: directed link predicates between datasets.<span class="backlink"> back to <a href="#toc">ToC</a></span></h4>
+<h4 id="ex1" class="list">Example 1: directed link predicates between datasets. <span class="backlink"> back to <a href="#toc">ToC</a></span></h4>
 
 A dataset can contain property assertions involving IRIs which are also present in another dataset. These IRIs in common, 
 that are referred as instances of a given class, often do not necessary have the same set of properties or context in 
@@ -133,7 +133,7 @@ property different from <a href="https://www.w3.org/TR/rdf-schema/#ch_type">rdf:
 the link predicate (e.g. <a href="http://purl.org/lscr#xrefUniprot">lscr:xrefUniprot</a> in  <a href="#fig1">Fig. 1</a>) and either its
  domain (<a href="#linkPredicateDomain">voidext:linkPredicateDomain</a>) or range (<a href="#linkPredicateRange">voidext:linkPredicateRange</a>) 
  must be the object of the <a href="https://www.w3.org/TR/rdf-schema/#ch_type">rdf:type</a> property in the first dataset.
- 
+ <div>
 <pre class="example" id="ex1_ttl">
  bioquery:OMA_UNIPROT_1 rdf:type void:Linkset;
              void:objectsTarget   bioquery:UNIPROT;
@@ -157,7 +157,7 @@ the link predicate (e.g. <a href="http://purl.org/lscr#xrefUniprot">lscr:xrefUni
     dcterms:modified "2018-06-01"^^xsd:date;
     foaf:homepage &lt;https://omabrowser.org/&gt;.
  </pre>
- 
+</div> 
 <p>Once directed virtual links are serialised with triple patterns such as the example  <a href="#ex1_ttl">above</a>,
  we can answer the following question:</p>
  <p> <b>Question (1)</b>: which are the set of directed virtual links between two RDF datasets?</p> 
@@ -520,7 +520,8 @@ filter(?source_db != ?target_db)
  </pre>
 
 <br>
-<h3>A real use case: <a href="https://github.com/biosoda/bioquery">Bioquery project</a></h3>
+
+<h3 id="bioquery" class="list">A real use case: <a href="https://github.com/biosoda/bioquery">Bioquery project</a> span class="backlink"> back to <a href="#toc">ToC</a></span></h3>
 <p> <a href="#fig5">Figure 4</a> illustrates virtual links among UniProt, Bgee and OMA datasets.
   For example, OMA and Bgee describe complementary information about common genes
 (instances of the <a href="http://qfo.github.io/OrthologyOntology/#Gene">orth:Gene</a> class),
@@ -570,6 +571,7 @@ Indeed, OMA instances are reused as part of the Bgee RDF graph rather than creat
 in <a href="#fig5">Figure 4</a>.
 This example illustrates how to instantiate virtual links of type <a href="#ComplexLinkSet">voidext:ComplexLinkSet</a> with the VoIDext RDF schema.
 </p>
+<div>	
 <pre class="example" id="ex5_ttl">
 bioquery:UNIPROT_OMA_2 a <a href="#ComplexLinkSet">voidext:ComplexLinkSet</a>; ### The filled gray circle in <a href="#fig5">Figure 4</a>
 			<a href="#http://rdfs.org/ns/void#target">void:target</a> bioquery:OMA;
@@ -598,11 +600,13 @@ bioquery:OMA a  <a href="#http://rdfs.org/ns/void#Dataset">void:Dataset</a>.
 bioquery:UNIPROT a  <a href="#http://rdfs.org/ns/void#Dataset">void:Dataset</a>.
 bioquery:EBI a  <a href="#http://rdfs.org/ns/void#Dataset">void:Dataset</a>.		
 </pre>
+</div>	
 <p>
 For further instantiation examples serialised with Turtle syntax, please refer to the <a href="http://purl.org/query/bioquery">BioQuery RDF federation metadata file</a>. 
 </p>
 <br>	
-<h3>VoIDext <i>vs</i> VoID: main changes</h3>
+
+<h3 id="voidext_void" class="list">VoIDext <i>vs</i> VoID: main changes <span class="backlink"> back to <a href="#toc">ToC</a></span></h3>
 
 <p>We built the VoIDext TBox based on the <a href="https://www.w3.org/TR/rdf-schema/">RDF schema 1.1</a> and the already existing <a 
 href="http://vocab.deri.ie/void">VoID RDF schema vocabulary</a>.
