@@ -248,7 +248,7 @@ bioquery:BGEE_EBI-ENSEMBL a void:Linkset;
 
 
 ##############################################################
-######### RDF Metadata ISWC2019 article examples   ###########
+########  RDF Metadata ISWC2019 article examples   ###########
 ##############################################################
 
 bioquery:EBI a void:Dataset;
