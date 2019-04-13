@@ -100,6 +100,7 @@ This VL type is defined with the <a href="#SimpleLinkSet">voidext:SimpleLinkSet<
 A complex virtual link is composed of exactly either two link predicates (e.g. <a href="#ex1_ttl">Example 4</a>)  or two shared instance types (e.g. <a href="#ex1_ttl">Example 3</a>) . 
 This VL type is defined with <a href="#ComplexLinkSet">voidext:ComplexLinkSet<a> class.
 </p>
+	
 
 <h4 id="ex1" class="list">Example 1: directed link predicates between datasets. <span class="backlink"> back to <a href="#toc">ToC</a></span></h4>
 
@@ -158,6 +159,11 @@ the link predicate (e.g. <a href="http://purl.org/lscr#xrefUniprot">lscr:xrefUni
     foaf:homepage &lt;https://omabrowser.org/&gt;.
  </pre>
 </div> 
+<p>
+In <a href="#ex1_ttl">Example 1</a>The void:subjectsTarget and void:objectsTarget properties define the subject-object direction of the links explicitly 
+	as described in the <a href="https://www.w3.org/TR/void/#target">VoID RDF schema vocabulary specification<a>. 
+In addition, the void:subset property states which dataset contains the link predicate assertions.   
+</p>
 <p>Once directed virtual links are serialised with triple patterns such as the example  <a href="#ex1_ttl">above</a>,
  we can answer the following question:</p>
  <p> <b>Question (1)</b>: which are the set of directed virtual links between two RDF datasets?</p> 
