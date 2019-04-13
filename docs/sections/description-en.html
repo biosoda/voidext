@@ -519,7 +519,7 @@ filter(?source_db != ?target_db)
 #<a href="http://biosoda.expasy.org:8890/sparql?default-graph-uri=&query=prefix+void%3A++++%3Chttp%3A%2F%2Frdfs.org%2Fns%2Fvoid%23%3E%0D%0Aprefix+bioquery%3A+%3Chttp%3A%2F%2Fpurl.org%2Fquery%2Fbioquery%23%3E%0D%0Aprefix+voidext%3A%3Chttp%3A%2F%2Fpurl.org%2Fquery%2Fvoidext%23%3E%0D%0Aprefix+dcterms%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0D%0A%0D%0ASELECT+distinct+%3Flinks+%3Fsource_dataset1_name+%3Ftarget_dataset2_name+%3Fpredicate+%3Fintersection_type+%3Fsubj_type+%3Fobj_type++%3Fsource_endpoint+%3Ftarget_endpoint+%3FresourceMapping+%7B%0D%0A++%0D%0A+%23values%28%3Fdataset1%29%7B+%28bioquery%3AEBI_ORDO%29+%7D%0D%0A+%23values%28%3Fdataset2%29%7B+%28bioquery%3ADRUGBANK%29+%7D%0D%0A%0D%0A+%3Flinks+a+voidext%3AComplexLinkSet.%0D%0A+%3Flinks+void%3Atarget+%3Fdataset1%2C+%3Fdataset2+.%0D%0A+%3Flinks++voidext%3AintersectAt+%3Fpoints%3B%0D%0A++++++++++++voidext%3AintersectionType%2Frdfs%3Alabel+%3Fintersection_type%3B%0D%0A++++++++++++void%3Atarget+%3Ftarget_db.%0D%0A%3Ftarget_db+dcterms%3Atitle+%3Ftarget_dataset2_name%3B%0D%0A++++++++++++++++++++void%3AsparqlEndpoint+%3Ftarget_endpoint.%0D%0A+%3Fpoints+void%3AlinkPredicate+%3Fpredicate+.%0D%0A+%3Fpoints+void%3Asubset+%3Fsource_db+.%0D%0A+%3Fsource_db+dcterms%3Atitle+%3Fsource_dataset1_name%3B%0D%0A++++++++++++++++++++void%3AsparqlEndpoint+%3Fsource_endpoint.%0D%0Aoptional%7B+%3Fpoints+voidext%3AlinkPredicateDomain+%3Fsubj_type%7D%0D%0Aoptional%7B+%3Fpoints+voidext%3AlinkPredicateRange+%3Fobj_type.%7D%0D%0Aoptional%7B+%3Flinks+voidext%3ArecommendedMapping+%3Fpoints.%0D%0A+++++++++++++++%3Fpoints+voidext%3AresourceMapping++%3FresourceMapping%7D%0D%0A+%0D%0Afilter%28%3Fsource_db+%21%3D+%3Ftarget_db%29++++++++%0D%0A+++++++++++++++++++++++++%0D%0A%7D+order+by+%3Flinks&should-sponge=&format=text%2Fhtml&timeout=0&debug=on"><b>Click here to execute this query over our exemplar dataset.</b></a>
  </pre>
 <p>
-</br>
+<br>
 <h3>A real use case: <a href="https://github.com/biosoda/bioquery">Bioquery project</a></h3>
  <a href="#fig5">Figure 4</a> illustrates virtual links among UniProt, Bgee and OMA datasets.
   For example, OMA and Bgee describe complementary information about common genes
@@ -566,10 +566,10 @@ Indeed, OMA instances are reused as part of the Bgee RDF graph rather than creat
   these literals are represented as rectangles. 
 </p>
 
-The example <a href="#ex5_ttl">below</a> defines with the <a href="https://www.w3.org/TR/turtle/">Turtle RDF syntax</a> some of the instances shown 
+<p>The example <a href="#ex5_ttl">below</a> defines with the <a href="https://www.w3.org/TR/turtle/">Turtle RDF syntax</a> some of the instances shown 
 in <a href="#fig5">Figure 4</a>.
 This example illustrates how to instantiate virtual links of type <a href="#ComplexLinkSet">voidext:ComplexLinkSet</a> with the VoIDext RDF schema.
-
+</p>
 <pre class="example" id="ex5_ttl">
 bioquery:UNIPROT_OMA_2 a <a href="#ComplexLinkSet">voidext:ComplexLinkSet</a>; ### The filled gray circle in <a href="#fig5">Figure 4</a>
 			<a href="#http://rdfs.org/ns/void#target">void:target</a> bioquery:OMA;
@@ -600,7 +600,7 @@ bioquery:EBI a  <a href="#http://rdfs.org/ns/void#Dataset">void:Dataset</a>.
 </pre>
 <p>
 For further instantiation examples serialised with Turtle syntax, please refer to the <a href="http://purl.org/query/bioquery">BioQuery RDF federation metadata file</a>. 
-</br>
+<br>
 </p>	
 <h3>VoIDext <i>vs</i> VoID: main changes</h3>
 
