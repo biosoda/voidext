@@ -20,7 +20,7 @@
 @prefix oboowl: <http://www.geneontology.org/formats/oboInOwl#> .
 
 ##############################################################
-######### RDF Metadata ISWC2019 article examples   ###########
+########  RDF Metadata VoIDext specification examples   ######
 ##############################################################
 
 bioquery:EBI a void:Dataset;
