@@ -4,6 +4,8 @@ This RDF schema vocabulary (TBox) is documented and available in the [VoIDext Vo
 In addition, the [voidext_with_import.ttl](https://github.com/biosoda/voidext/blob/master/voidext_with_import.ttl) file is the VoIDext RDF Turtle serialisation including imported ontologies.
 VoIDext is also accesible via the [SPARQL endpoint here](http://biosoda.expasy.org:8890/sparql).
 
+## PURL VoIDext: [http://purl.org/query/voidext#](http://purl.org/query/voidext#)
+
 ## Exemplar datasets (ABox)
 The assertion box (ABox1) used to build the VoIDext is available in [ABox_examplar_data](ABox_examplar_data).
 Both  "ABox_paper_examples.ttl" and "ABox_application.ttl" files were considered during the VoIDext development. "ABox_application.ttl" file contains metadata for describing the virtual links in the Bioquery project (see [bioquery](https://github.com/biosoda/bioquery/) github repository).
@@ -18,4 +20,3 @@ These SPARQL federated queries were defined according to the virtual link metada
 The formal set of queries to answer the informal competency questions during the development of VoIDext is available in
  [SQ_set_of_queries](SQ_set_of_queries). 
 These queries can be executed on the [SPARQL endpoint here](http://biosoda.expasy.org:8890/sparql). 
-
