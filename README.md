@@ -4,7 +4,7 @@ This RDF schema vocabulary (TBox) is documented and available in the [VoIDext Vo
 In addition, the [voidext_with_import.ttl](https://github.com/biosoda/voidext/blob/master/voidext_with_import.ttl) file is the VoIDext RDF Turtle serialisation including imported ontologies.
 VoIDext is also accesible via the [SPARQL endpoint here](http://biosoda.expasy.org:8890/sparql).
 
-## PURL VoIDext: [http://purl.org/query/voidext#](http://purl.org/query/voidext#)
+## PURL VoIDext: [http://purl.org/query/voidext](http://purl.org/query/voidext)
 
 ## Exemplar datasets (ABox)
 The assertion box (ABox1) used to build the VoIDext is available in [ABox_examplar_data](ABox_examplar_data).
