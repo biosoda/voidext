@@ -13,10 +13,10 @@ Both  "ABox_paper_examples.ttl" and "ABox_application.ttl" files were considered
 ## Virtual links for OMA-UniProt-Bgee RDF datasets  
 The real case study  assertion box (ABox) according to VoIDext is available in [ABox_examplar_data](ABox_examplar_data).
 
-The under-development application with query templates based on the federated SPARQL queries in the [federated_queries.xlsx file](https://github.com/biosoda/bioquery/tree/master/Queries) is available at http://biosoda.expasy.org/ . 
+The under-development application "[BioQuery](http://biosoda.expasy.org)" with query templates based on the federated SPARQL queries in the [federated_queries.xlsx file](https://github.com/biosoda/bioquery/tree/master/Queries) is available at http://biosoda.expasy.org/ . 
 These SPARQL federated queries were defined according to the virtual link metadata in [ABox_application.ttl](ABox_examplar_data) file. 
 
 ## The set of SPARQL queries (SQ) along with the competency questions (CQ)
 The formal set of queries to answer the informal competency questions during the development of VoIDext is available in
  [SQ_set_of_queries](SQ_set_of_queries). 
-These queries can be executed on the [SPARQL endpoint here](http://biosoda.expasy.org:8890/sparql). 
+These queries can be executed on the [SPARQL endpoint here](http://biosoda.expasy.org:8890/sparql) (except "[SQ_5.txt](https://github.com/biosoda/voidext/blob/master/SQ_set_of_queries/SQ_5.txt)" that should be executed at https://www.ebi.ac.uk/rdf/services/sparql ). "[SQ_5.txt](https://github.com/biosoda/voidext/blob/master/SQ_set_of_queries/SQ_5.txt)" is actually a federated query to test a mapping function that solves heterogeneities at the ABox level.
