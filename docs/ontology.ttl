@@ -22,6 +22,7 @@
     dcterms:license <https://creativecommons.org/licenses/by/3.0/>;
     dcterms:type <http://purl.org/adms/assettype/Ontology>;
     dcterms:status <http://purl.org/adms/status/UnderDevelopment>;
+    dcterms:isVersionOf <http://rdfs.org/ns/void.ttl>;
     dcterms:creator
         <http://purl.org/query/tarcisiomf> .
 
