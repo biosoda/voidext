@@ -60,6 +60,7 @@ bioquery:OMA_EBI-ENSEMBL a void:Linkset;
              void:linkPredicate lscr:xrefEnsemblGene;
              voidext:linkPredicateDomain <http://purl.org/net/orth#Gene>;
              voidext:linkPredicateRange <http://purl.obolibrary.org/obo/SO_0000704>;
+             dcterms:issued  "2019-06-28"^^xsd:date;
              void:subset bioquery:OMA.
 
 bioquery:OMA_BGEE_1 a void:Linkset;
@@ -68,6 +69,7 @@ bioquery:OMA_BGEE_1 a void:Linkset;
              void:linkPredicate dcterms:identifier;
              voidext:linkPredicateDomain [ owl:unionOf (orth:Protein orth:Gene) ] ;
              voidext:linkPredicateRange rdfs:Literal;
+             dcterms:issued  "2019-06-28"^^xsd:date;
              void:subset bioquery:OMA.
 
 bioquery:BGEE_OMA_4 a void:Linkset;
@@ -76,6 +78,7 @@ bioquery:BGEE_OMA_4 a void:Linkset;
              void:linkPredicate dcterms:identifier;
              voidext:linkPredicateDomain orth:Gene;
              voidext:linkPredicateRange rdfs:Literal;
+             dcterms:issued  "2019-06-28"^^xsd:date;
              void:subset bioquery:BGEE.
 
 bioquery:BGEE_OMA_1_4 a voidext:ComplexLinkSet;
@@ -83,16 +86,19 @@ bioquery:BGEE_OMA_1_4 a voidext:ComplexLinkSet;
              void:target bioquery:BGEE;
 			 voidext:intersectAt bioquery:OMA_BGEE_1 ;
 			 voidext:intersectAt bioquery:BGEE_OMA_4 ;
+             dcterms:issued  "2019-06-28"^^xsd:date;
 			 voidext:intersectionType voidext:OBJECT_OBJECT .	
 
 bioquery:OMA_BGEE_2 a voidext:SharedInstanceSet;
              void:target bioquery:OMA;
              void:target bioquery:BGEE;
+             dcterms:issued  "2019-06-28"^^xsd:date;
              voidext:sharedInstanceType orth:Gene.
 
 bioquery:OMA_BGEE_3 a voidext:SharedInstanceSet;
              void:target bioquery:OMA;
              void:target bioquery:BGEE;
+             dcterms:issued  "2019-06-28"^^xsd:date;
              voidext:sharedInstanceType up:Taxon.
 
 
@@ -102,6 +108,7 @@ bioquery:OMA_BGEE_4 a void:Linkset;
              void:linkPredicate rdfs:label;
              voidext:linkPredicateDomain orth:Protein;
              voidext:linkPredicateRange rdfs:Literal;
+             dcterms:issued  "2019-06-28"^^xsd:date;
              void:subset bioquery:OMA.
 
 
@@ -111,6 +118,7 @@ bioquery:BGEE_OMA_1 a void:Linkset;
              void:linkPredicate rdfs:label;
              voidext:linkPredicateDomain orth:Gene;
              voidext:linkPredicateRange rdfs:Literal;
+             dcterms:issued  "2019-06-28"^^xsd:date;
              void:subset bioquery:BGEE.
 
 bioquery:BGEE_OMA_2 a voidext:ComplexLinkSet;
@@ -118,6 +126,7 @@ bioquery:BGEE_OMA_2 a voidext:ComplexLinkSet;
             void:target bioquery:BGEE;
 			voidext:intersectAt bioquery:BGEE_OMA_1 ;
 			voidext:intersectAt bioquery:OMA_BGEE_4 ;
+            dcterms:issued  "2019-06-28"^^xsd:date;
 			voidext:intersectionType voidext:OBJECT_OBJECT .
 			
 bioquery:BGEE_UNIPROT_3 a void:Linkset;
@@ -126,6 +135,7 @@ bioquery:BGEE_UNIPROT_3 a void:Linkset;
              void:linkPredicate rdfs:label;
              voidext:linkPredicateDomain orth:Gene;
              voidext:linkPredicateRange rdfs:Literal;
+             dcterms:issued  "2019-06-28"^^xsd:date;
              void:subset bioquery:BGEE.
              
 bioquery:BGEE_UNIPROT_4 a voidext:ComplexLinkSet;
@@ -133,6 +143,7 @@ bioquery:BGEE_UNIPROT_4 a voidext:ComplexLinkSet;
             void:target bioquery:BGEE;
 			voidext:intersectAt bioquery:BGEE_UNIPROT_3 ;
 			voidext:intersectAt bioquery:UNIPROT_BGEE_6 ;
+            dcterms:issued  "2019-06-28"^^xsd:date;
 			voidext:intersectionType voidext:OBJECT_OBJECT .			
              
 bioquery:UNIPROT_EBI-ENSEMBL a void:Linkset;
@@ -141,6 +152,7 @@ bioquery:UNIPROT_EBI-ENSEMBL a void:Linkset;
              void:linkPredicate up:transcribedFrom;
              voidext:linkPredicateDomain up:Transcript_Resource;
              voidext:linkPredicateRange obo:SO_0000704;
+             dcterms:issued  "2019-06-28"^^xsd:date;
              void:subset bioquery:UNIPROT.
 
 bioquery:UNIPROT_OMA_2 a voidext:ComplexLinkSet;
@@ -148,6 +160,7 @@ bioquery:UNIPROT_OMA_2 a voidext:ComplexLinkSet;
             void:target bioquery:UNIPROT;
 			voidext:intersectAt bioquery:UNIPROT_EBI-ENSEMBL ;
 			voidext:intersectAt bioquery:OMA_EBI-ENSEMBL ;
+            dcterms:issued  "2019-06-28"^^xsd:date;
 			voidext:intersectionType voidext:OBJECT_OBJECT .
 
 
@@ -158,6 +171,7 @@ bioquery:OMA_UNIPROT_1 a void:Linkset;
              void:linkPredicate lscr:xrefUniprot;
              voidext:linkPredicateDomain orth:Protein;
              voidext:linkPredicateRange up:Protein;
+             dcterms:issued  "2019-06-28"^^xsd:date;
              void:subset bioquery:OMA.
 
 bioquery:OMA_UNIPROT_4 a void:Linkset;
@@ -166,6 +180,7 @@ bioquery:OMA_UNIPROT_4 a void:Linkset;
              void:linkPredicate rdfs:label;
              voidext:linkPredicateDomain orth:Protein;
              voidext:linkPredicateRange rdfs:Literal;
+             dcterms:issued  "2019-06-28"^^xsd:date;
              void:subset bioquery:OMA.   
 
 bioquery:UNIPROT_OMA_3 a voidext:ComplexLinkSet;
@@ -173,6 +188,7 @@ bioquery:UNIPROT_OMA_3 a voidext:ComplexLinkSet;
             void:target bioquery:UNIPROT;
 			voidext:intersectAt bioquery:OMA_UNIPROT_2 ;
 			voidext:intersectAt bioquery:UNIPROT_OMA_4 ;
+            dcterms:issued  "2019-06-28"^^xsd:date;
 			voidext:intersectionType voidext:OBJECT_OBJECT .      
 
 bioquery:UNIPROT_OMA_6 a void:Linkset;
@@ -181,6 +197,7 @@ bioquery:UNIPROT_OMA_6 a void:Linkset;
              void:linkPredicate skos:prefLabel;
              voidext:linkPredicateDomain up:Gene;
              voidext:linkPredicateRange rdfs:Literal;
+             dcterms:issued  "2019-06-28"^^xsd:date;
              void:subset bioquery:UNIPROT.
 
 bioquery:UNIPROT_BGEE_6 a void:Linkset;
@@ -189,6 +206,7 @@ bioquery:UNIPROT_BGEE_6 a void:Linkset;
              void:linkPredicate skos:prefLabel;
              voidext:linkPredicateDomain up:Gene;
              voidext:linkPredicateRange rdfs:Literal;
+             dcterms:issued  "2019-06-28"^^xsd:date;
              void:subset bioquery:UNIPROT.
 
 bioquery:UNIPROT_OMA_5 a voidext:ComplexLinkSet;
@@ -196,6 +214,7 @@ bioquery:UNIPROT_OMA_5 a voidext:ComplexLinkSet;
             void:target bioquery:UNIPROT;
 			voidext:intersectAt bioquery:UNIPROT_OMA_6 ;
 			voidext:intersectAt bioquery:OMA_UNIPROT_4 ;
+            dcterms:issued  "2019-06-28"^^xsd:date;
 			voidext:intersectionType voidext:OBJECT_OBJECT .  
 			
 bioquery:OMA_UNIPROT_2 a void:Linkset;
@@ -204,11 +223,13 @@ bioquery:OMA_UNIPROT_2 a void:Linkset;
              void:linkPredicate oma:swissProtId;
              voidext:linkPredicateDomain orth:Protein;
              voidext:linkPredicateRange rdfs:Literal;
+             dcterms:issued  "2019-06-28"^^xsd:date;
              void:subset bioquery:OMA.   
 
 bioquery:OMA_UNIPROT_3 a voidext:SharedInstanceSet;
              void:target bioquery:OMA;
              void:target bioquery:UNIPROT;
+             dcterms:issued  "2019-06-28"^^xsd:date;
              voidext:sharedInstanceType up:Taxon.
 
 bioquery:UNIPROT_OMA_4 a void:Linkset;
@@ -217,6 +238,7 @@ bioquery:UNIPROT_OMA_4 a void:Linkset;
              void:linkPredicate up:mnemonic;
              voidext:linkPredicateDomain up:Protein;
              voidext:linkPredicateRange rdfs:Literal;
+             dcterms:issued  "2019-06-28"^^xsd:date;
              void:subset bioquery:UNIPROT.     
              
 bioquery:BGEE_UNIPROT_1 a voidext:ComplexLinkSet;
@@ -224,11 +246,13 @@ bioquery:BGEE_UNIPROT_1 a voidext:ComplexLinkSet;
             void:target bioquery:UNIPROT;
 			voidext:intersectAt bioquery:BGEE_EBI-ENSEMBL ;
 			voidext:intersectAt bioquery:UNIPROT_EBI-ENSEMBL ;
+            dcterms:issued  "2019-06-28"^^xsd:date;
 			voidext:intersectionType voidext:OBJECT_OBJECT .      
 			
 bioquery:BGEE_UNIPROT_2 a voidext:SharedInstanceSet;
              void:target bioquery:BGEE;
              void:target bioquery:UNIPROT;
+             dcterms:issued  "2019-06-28"^^xsd:date;
              voidext:sharedInstanceType up:Taxon.
              
 bioquery:BGEE_EBI-ENSEMBL a void:Linkset;
@@ -237,6 +261,7 @@ bioquery:BGEE_EBI-ENSEMBL a void:Linkset;
              void:linkPredicate lscr:xrefEnsemblGene;
              voidext:linkPredicateDomain <http://purl.org/net/orth#Gene>;
              voidext:linkPredicateRange <http://purl.obolibrary.org/obo/SO_0000704>;
+             dcterms:issued  "2019-06-28"^^xsd:date;
              void:subset bioquery:BGEE.   
 
  bioquery:BGEE_OMA_3 a voidext:ComplexLinkSet;
@@ -244,6 +269,7 @@ bioquery:BGEE_EBI-ENSEMBL a void:Linkset;
             void:target bioquery:OMA;
 			voidext:intersectAt bioquery:BGEE_EBI-ENSEMBL ;
 			voidext:intersectAt bioquery:OMA_EBI-ENSEMBL ;
+            dcterms:issued  "2019-06-28"^^xsd:date;
 			voidext:intersectionType voidext:OBJECT_OBJECT .
 
 
@@ -317,6 +343,7 @@ BIND(IRI(CONCAT("http://identifiers.org/taxonomy/",
          STRAFTER(STR(?IRI_UNIPROT),"http://purl.uniprot.org/taxonomy/"))) as ?IRI_EBI)
 
 FILTER(STRSTARTS(STR(?IRI_UNIPROT),"http://purl.uniprot.org/taxonomy/"))''';
+             dcterms:issued  "2019-06-28"^^xsd:date;
              voidext:sharedInstanceType up:Taxon . 
              
 bioquery:EBI_UNIPROT_12 a voidext:ComplexLinkSet;
@@ -325,6 +352,7 @@ bioquery:EBI_UNIPROT_12 a voidext:ComplexLinkSet;
              void:target bioquery:UNIPROT;
              voidext:intersectAt bioquery:EBI_UNIPROT_11 ;
 			 voidext:intersectAt bioquery:EBI_UNIPROT_10 ; 
+             dcterms:issued  "2019-06-28"^^xsd:date;
 			 voidext:recommendedMapping bioquery:EBI_UNIPROT_10 .             
              
 bioquery:DRUGBANK_EBI-ORDO a void:Linkset;
@@ -334,6 +362,7 @@ bioquery:DRUGBANK_EBI-ORDO a void:Linkset;
              void:objectsTarget bioquery:EBI_ORDO;
              void:linkPredicate drugbank:swissprotId;
              voidext:linkPredicateDomain drugbank:targets;
+             dcterms:issued  "2019-06-28"^^xsd:date;
              void:subset bioquery:DRUGBANK.   
              
 bioquery:EBI-ORDO_DRUGBANK a void:Linkset;
@@ -346,6 +375,7 @@ bioquery:EBI-ORDO_DRUGBANK a void:Linkset;
              voidext:resourceMapping '''?g <http://www.geneontology.org/formats/oboInOwl#hasDbXref> ?i.
  BIND( IRI(CONCAT("http://bio2rdf.org/uniprot:",STRAFTER(?i,"SwissProt:"))) as ?NEW_IRI)
  FILTER (CONTAINS(?i, "SwissProt:" ))''';
+             dcterms:issued  "2019-06-28"^^xsd:date;
              void:subset bioquery:EBI_ORDO.
 
  bioquery:DRUGBANK_EBI-ORDO_VL a voidext:ComplexLinkSet;
@@ -356,6 +386,7 @@ bioquery:EBI-ORDO_DRUGBANK a void:Linkset;
 			voidext:intersectAt bioquery:EBI-ORDO_DRUGBANK ;
 			voidext:intersectAt bioquery:DRUGBANK_EBI-ORDO ;
 			voidext:intersectionType voidext:OBJECT_OBJECT ;
+            dcterms:issued  "2019-06-28"^^xsd:date;
 		    voidext:recommendedMapping bioquery:EBI-ORDO_DRUGBANK . 
 
 
@@ -366,6 +397,7 @@ bioquery:OMA_UNIPROT_1 a void:Linkset;
              void:linkPredicate lscr:xrefUniprot;
              voidext:linkPredicateDomain orth:Protein;
              voidext:linkPredicateRange up:Protein;
+             dcterms:issued  "2019-06-28"^^xsd:date;
              void:subset bioquery:OMA.
 
 
