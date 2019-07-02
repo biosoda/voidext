@@ -65,30 +65,28 @@ bioquery:OMA_EBI-ENSEMBL a void:Linkset;
 
 bioquery:OMA_BGEE_1 a void:Linkset;
              void:subjectsTarget bioquery:OMA;
-             void:objectsTarget bioquery:BGEE;
+             void:objectsTarget bioquery:BGEE_OMA_4 ;
              void:linkPredicate dcterms:identifier;
              voidext:linkPredicateDomain [ owl:unionOf (orth:Protein orth:Gene) ] ;
              voidext:linkPredicateRange rdfs:Literal;
              dcterms:issued  "2019-06-28"^^xsd:date;
-             void:subset bioquery:OMA.
+             voidext:isSubsetOf bioquery:OMA.
 
 bioquery:BGEE_OMA_4 a void:Linkset;
              void:subjectsTarget bioquery:BGEE;
-             void:objectsTarget bioquery:OMA;
+             void:objectsTarget bioquery:OMA_BGEE_1;
              void:linkPredicate dcterms:identifier;
              voidext:linkPredicateDomain orth:Gene;
              voidext:linkPredicateRange rdfs:Literal;
              dcterms:issued  "2019-06-28"^^xsd:date;
-             void:subset bioquery:BGEE.
+             voidext:isSubsetOf bioquery:BGEE.
 
 bioquery:BGEE_OMA_1_4 a voidext:ComplexLinkSet;
-			 void:target bioquery:OMA;
-             void:target bioquery:BGEE;
 			 voidext:intersectAt bioquery:OMA_BGEE_1 ;
 			 voidext:intersectAt bioquery:BGEE_OMA_4 ;
              dcterms:issued  "2019-06-28"^^xsd:date;
 			 voidext:intersectionType voidext:OBJECT_OBJECT .	
-
+###To continue from here
 bioquery:OMA_BGEE_2 a voidext:SharedInstanceSet;
              void:target bioquery:OMA;
              void:target bioquery:BGEE;

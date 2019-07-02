@@ -1,0 +1,222 @@
+******** owl:sameAs
+
+http://dbpedia.org/sparql         1 of several <http://dbpedia.org/ontology/Artist> and (=) <http://www.wikidata.org/entity/Q483501> subclassOf dbpedia:ontology/Person foaf:Person
+ http://dbtune.org/musicbrainz/sparql
+SELECT * WHERE {
+?s foaf:name	"Izaline Calister".
+  #?s ?p ?o
+service<http://dbpedia.org/sparql>{
+ ?db rdfs:label "Izaline Calister"@en. //foaf:name
+?db a ?type_db
+}
+}
+LIMIT 100
+
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+select * where {
+service<http://dbpedia.org/sparql>{
+select * where {
+
+#values(?a){(<http://dbpedia.org/resource/Wolfgang_Amadeus_Mozart>)}
+{ 
+?a a <http://dbpedia.org/class/yago/Artist109812338>.
+}UNION {
+?a a <http://dbpedia.org/ontology/Band>.
+}UNION{
+?a a <http://dbpedia.org/ontology/Artist>.
+
+}
+?a rdfs:label ?v.
+BIND(str(?v) as ?x )
+values(?x){("Wolfgang Amadeus Mozart")}
+
+}}
+
+service<http://dbtune.org/musicbrainz/sparql>{
+select * where {
+?s foaf:name ?x.
+}
+
+}
+
+} LIMIT 100
+
+
+
+
+dbpedia:ontology/Band [http]	-
+rdf:type [http]	dbpedia:ontology/Group [http]	-
+rdf:type [http]	dbpedia:ontology/Organisation 
+3520
+
+711 with labels
+530 with owl same as
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+select count(distinct ?a) where {
+
+service<http://dbtune.org/musicbrainz/sparql>{
+select * where {
+?s a <http://purl.org/ontology/mo/MusicArtist>.
+?s owl:sameAs ?a.}}
+
+service<http://dbpedia.org/sparql>{
+select * where {
+?a rdf:type ?v.
+}}} 
+
+############### Example 2 ###############
+######## Links between DBpedia and Swiss government RDF Platform LINDAS regarding the Swiss cantons. 
+######## Coverage of 100% (23 out 26 cantons ) P:100% R:100%
+
+select  count(*) where { 
+ 
+
+service<https://lindas-data.ch/sparql>{
+
+?x a  <https://gont.ch/Canton>.
+ ?x <https://gont.ch/longName> ?c.
+ BIND(IF(contains(?c,"Graubünden"), "Grisons"^^<http://www.w3.org/1999/02/22-rdf-syntax-ns#langString>,
+      IF( ?c="Genève", "Geneva"^^<http://www.w3.org/1999/02/22-rdf-syntax-ns#langString>,
+      IF( ?c="Luzern", "Lucerne"^^<http://www.w3.org/1999/02/22-rdf-syntax-ns#langString>,
+       IF(contains(?c, "/"), STRDT(STRBEFORE(?c, " /"),<http://www.w3.org/1999/02/22-rdf-syntax-ns#langString>),
+            STRDT(?c,<http://www.w3.org/1999/02/22-rdf-syntax-ns#langString>)))))
+        as ?new_name)
+
+}
+
+service<http://dbpedia.org/sparql>{
+    
+?dbpedia_place <http://purl.org/dc/terms/subject> <http://dbpedia.org/resource/Category:Cantons_of_Switzerland>.
+?dbpedia_place <http://dbpedia.org/property/shortName> ?new_name.
+}}
+
+
+select  count(*) where { 
+ service<http://dbpedia.org/sparql>{
+    
+?dbpedia_place <http://purl.org/dc/terms/subject> <http://dbpedia.org/resource/Category:Cantons_of_Switzerland>.
+?dbpedia_place <http://dbpedia.org/property/shortName> ?c.
+BIND(IF(str(?c)="Grisons", "Graubünden / Grigioni / Grischun",
+      IF(str(?c)="Geneva", "Genève",
+      IF(str(?c)="Lucerne", "Luzern",
+      IF(str(?c)="Valais", "Valais / Wallis",
+      IF(str(?c)="Bern", "Bern / Berne",
+      IF(str(?c)="Fribourg", "Fribourg / Freiburg", str(?c) ))))))
+        as ?new_name)
+
+}
+
+service<https://lindas-data.ch/sparql>{
+
+?x a  <https://gont.ch/Canton>.
+ ?x <https://gont.ch/longName> ?new_name.
+ 
+
+}
+
+}
+######## CITIES
+
+2340 out of 2767 municipalities (with dbpedia valid seeAlso links) out of 3428 (total LIDAS)  >2863(total DBPedia)
+P: 100%
+R: 2340/3428
+
+select  *  where { 
+
+service<https://lindas-data.ch/sparql>{
+select * {
+?city a <https://gont.ch/Municipality>.
+?city <http://www.w3.org/2000/01/rdf-schema#seeAlso> ?dbpedia_city.
+BIND(?dbpedia_city as ?dbpedia_city_new)
+FILTER(CONTAINS(STR(?dbpedia_city), "dbpedia"))} limit 10
+}
+
+service<http://dbpedia.org/sparql>{
+select ?dbpedia_city_new {
+
+{?dbpedia_city_new a <http://dbpedia.org/ontology/PopulatedPlace>.  } 
+#optional{
+#{?dbpedia_city_new <http://dbpedia.org/ontology/type>	<http://dbpedia.org/resource/Municipalities_of_Switzerland> }UNION {
+#?dbpedia_city_new a <http://dbpedia.org/class/yago/Municipality108626283>.
+
+#?dbpedia_city_new <http://dbpedia.org/ontology/country>	<http://dbpedia.org/resource/Switzerland>}
+#?dbpedia_city_new ?p ?v  . 
+}}}
+
+******restrict the domain and range of the virtual link
+#https://gont.ch/MunicipalityVersion
+#https://gont.ch/Canton
+#https://gont.ch/DistrictEntityVersion
+********
+
+select * where { 
+ 
+service<http://dbpedia.org/sparql>{
+    select distinct ?new_label {
+		#values(?dbpedia_place){(<http://dbpedia.org/resource/Vaud>)}
+		{ ?dbpedia_place <http://purl.org/dc/terms/subject> <http://dbpedia.org/resource/Category:Cantons_of_Switzerland>.}
+		UNION{
+      		?dbpedia_place a <http://dbpedia.org/ontology/Place>;
+      		<http://dbpedia.org/ontology/country> <http://dbpedia.org/resource/Switzerland>.}
+
+		?dbpedia_place <http://www.w3.org/2000/01/rdf-schema#label> ?s.
+      	BIND(str(?s) as ?new_label)
+    	FILTER(lang(?s)="en"|| lang(?s)="fr"||lang(?s)="de"||lang(?s)="it")}LIMIT 100
+    	}
+ service <https://lindas-data.ch/sparql>{
+    ?p 	<https://gont.ch/longName> ?new_label.
+	}      
+  } LIMIT 1000
+ 
+ 
+ 
+  ####
+  ###extra
+  ####
+rdf:rest*/rdf:first ?item
+
+ #To revise....   http://www.w3.org/2000/01/rdf-schema#seeAlso http://dbpedia.org/resource/Fribourg 
+ex:DBPEDIA_LINDAS  a void:Linkset;
+             void:subjectsTarget ex:DBPEDIA;
+             rdfs:label "A link set for Swiss places from DBpedia to Swiss government LINDAS dataset.";
+             rdfs:comment "It is a simple link set from DBpedia to Swiss government LINDAS dataset that is part of the ex:DBPEDIA_LINDAS_VL complex link set. It describes a mapping function to modify rdfs:label assertions stated to instances of dbpedia:Place type in Switzerland to be equivalent to literals in Swiss government LIDAS dataset.";
+             void:objectsTarget ex:LINDAS;
+             void:linkPredicate rdfs:label;
+             voidext:linkPredicateDomain <http://dbpedia.org/ontology/Place>;
+             voidext:linkPredicateRange rdfs:Literal ;
+             voidext:resourceMapping 
+'''{?dbpedia_place a <http://dbpedia.org/ontology/Place>;
+      <http://dbpedia.org/ontology/country> <http://dbpedia.org/resource/Switzerland>.}
+   UNION{
+    ?dbpedia_place <http://purl.org/dc/terms/subject> <http://dbpedia.org/resource/Category:Cantons_of_Switzerland>.}
+	?dbpedia_place <http://www.w3.org/2000/01/rdf-schema#label> ?s.
+    BIND(str(?s) as ?new_label)
+    FILTER(lang(?s)="en"|| lang(?s)="fr"||lang(?s)="de"||lang(?s)="it")''';
+             void:subset ex:DBPEDIA.   
+             
+ex:LINDAS_DBPEDIA a void:Linkset;
+             rdfs:label "A link set for Swiss municipalities and districts from  LIDAS Swiss government dataset to DBpedia dataset.";
+             rdfs:comment "It is a simple link set from LIDAS dataset to the DBpedia dataset. This link set is part of the ex:DBPEDIA_LINDAS_VL complex virtual link. ";
+             void:objectsTarget ex:DBPEDIA;
+             void:subjectsTarget ex:MUSICBRAINZ;
+             void:linkPredicate <https://gont.ch/longName>;
+             voidext:linkPredicateRange rdfs:Literal ;
+             voidext:linkPredicateDomain  <https://gont.ch/Canton> 
+                                                         <https://gont.ch/DistrictEntityVersion>). ] ;
+             void:subset ex:MUSICBRAINZ.
+
+
+ ex:DBPEDIA_LINDAS_VL a voidext:LINDAS;
+            rdfs:label "A virtual link set for cities, cantons, and districts in both DBpedia and LIDAS Swiss government datasets.";
+            rdfs:comment "A set of virtual links is established between the objects of lindas:longName assigned to lindas:Canton, lindas:MunicipalityVersion or lindas:DistrictEntityVersion types and the objects of rdfs:label assigned to instances of dbpedia:Place types related to Switzerland. They have in common places' names but they are represented in a different way. LIDAS represents as a literal value and DBpedia as a literal with a language tag. In this virtual link set, the knowlege domain of intersection is about places in Switzerland. Thus, rdfs:label(s) and lidas:longName(s) are restricted to this subdomain.";
+			void:target ex:DBPEDIA;
+            void:target ex:LINDAS;
+			voidext:intersectAt ex:LINDAS_DBPEDIA ;
+			voidext:intersectAt ex:DBPEDIA_LINDAS;
+			voidext:intersectionType voidext:OBJECT_OBJECT ;
+		    voidext:recommendedMapping ex:DBPEDIA_LINDAS . 
