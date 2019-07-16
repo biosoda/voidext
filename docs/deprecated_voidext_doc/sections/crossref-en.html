@@ -1,14 +1,8 @@
-<h2  id="crossreference" class="list">Cross reference for Extended Vocabulary of Interlinked Datasets (VoIDext) classes, properties and dataproperties <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
-This section provides details for each class and property defined by Extended Vocabulary of Interlinked Datasets (VoIDext) and VoID.
+<h2  id="crossreference" class="list">Cross reference for VoIDext Vocabulary classes, properties and dataproperties <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+This section provides details for each class and property defined by Extended Vocabulary of Interlinked Datasets (VoIDext).
 <div id="classes">
    <h3 id="classes-headline" class="list">Classes</h3>
    <ul class="hlist">
-      <li>
-         <a href="#http://mex.aksw.org/mex-perf#ClassificationMeasure"
-            title="http://mex.aksw.org/mex-perf#ClassificationMeasure">
-            <span>classification measure</span>
-         </a>
-      </li>
       <li>
          <a href="#ComplexLinkSet" title="http://purl.org/query/voidext#ComplexLinkSet">Complex link set</a>
       </li>
@@ -31,22 +25,11 @@ This section provides details for each class and property defined by Extended Vo
          </a>
       </li>
       <li>
-         <a href="#LINK_SHAREDINSTANCE_SET"
-            title="http://purl.org/query/voidext#LINK_SHAREDINSTANCE_SET">
-            <span>LINK_SHAREDINSTANCE_SET</span>
-         </a>
-      </li>
-      <li>
          <a href="#http://rdfs.org/ns/void#Linkset" title="http://rdfs.org/ns/void#Linkset">linkset</a>
       </li>
       <li>
          <a href="#LinkSetIntersection"
             title="http://purl.org/query/voidext#LinkSetIntersection">Linkset intersection</a>
-      </li>
-      <li>
-         <a href="#http://mex.aksw.org/mex-perf#PerformanceMeasure" title="http://mex.aksw.org/mex-perf#PerformanceMeasure">
-            <span>performance measure</span>
-         </a>
       </li>
       <li>
          <a href="#http://purl.org/dc/terms/ProvenanceStatement" title="http://purl.org/dc/terms/ProvenanceStatement">Provenance Statement</a>
@@ -61,24 +44,9 @@ This section provides details for each class and property defined by Extended Vo
          <a href="#http://rdfs.org/ns/void#TechnicalFeature" title="http://rdfs.org/ns/void#TechnicalFeature">technical feature</a>
       </li>
       <li>
-         <a href="#VirtualLinkSet" title="http://purl.org/query/voidext#VirtualLinkSet">Virtual link set</a>
+         <a href="#VirtualLink" title="http://purl.org/query/voidext#VirtualLink">Virtual link set</a>
       </li>
    </ul>
-   <div class="entity" id="http://mex.aksw.org/mex-perf#ClassificationMeasure">
-      <h3>classification measure<sup class="type-c" title="class">c</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> http://mex.aksw.org/mex-perf#ClassificationMeasure</p>
-      <dl class="description">
-         <dt>has super-classes</dt>
-         <dd>
-            <a href="#http://mex.aksw.org/mex-perf#PerformanceMeasure" title="http://mex.aksw.org/mex-perf#PerformanceMeasure">performance measure</a>
-            <sup class="type-c" title="class">c</sup>
-         </dd>
-      </dl>
-   </div>
    <div class="entity" id="ComplexLinkSet">
       <h3>Complex link set<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
@@ -87,21 +55,12 @@ This section provides details for each class and property defined by Extended Vo
       <p>
          <strong>IRI:</strong> http://purl.org/query/voidext#ComplexLinkSet</p>
       <div class="comment">
-         <span class="markdown">It is a complex virtual link set. A complex link set is composed of exactly two link sets xor two shared instance sets where xor is the exclusive or. For example, two link sets that intersects at some graph node (e.g. the object nodes of link predicates).</span>
+         <span class="markdown">It is a complex virtual link. A complex link set is composed of exactly two link sets xor two shared instance sets where xor is the exclusive or. For example, two link sets that intersects at some graph node (e.g. the object nodes of link predicates).</span>
       </div>
       <dl class="description">
-         <dt>is equivalent to</dt>
-         <dd>((<a href="#intersectAt" title="http://purl.org/query/voidext#intersectAt">intersects at</a>
-            <sup class="type-op" title="object property">op</sup> 
-            <span class="logic">exactly</span> 2 <a href="#SharedInstanceSet" title="http://purl.org/query/voidext#SharedInstanceSet">Shared instance set</a>
-            <sup class="type-c" title="class">c</sup>) <span class="logic">or</span> (<a href="#intersectAt" title="http://purl.org/query/voidext#intersectAt">intersects at</a>
-            <sup class="type-op" title="object property">op</sup> 
-            <span class="logic">exactly</span> 2 <a href="#http://rdfs.org/ns/void#Linkset" title="http://rdfs.org/ns/void#Linkset">linkset</a>
-            <sup class="type-c" title="class">c</sup>)) <span class="logic">and</span> (<span class="logic">not</span> (<a href="#SimpleLinkSet" title="http://purl.org/query/voidext#SimpleLinkSet">Simple link set</a>
-            <sup class="type-c" title="class">c</sup>))</dd>
          <dt>has super-classes</dt>
          <dd>
-            <a href="#VirtualLinkSet" title="http://purl.org/query/voidext#VirtualLinkSet">Virtual link set</a>
+            <a href="#VirtualLink" title="http://purl.org/query/voidext#VirtualLink">Virtual link set</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>is in domain of</dt>
@@ -110,11 +69,6 @@ This section provides details for each class and property defined by Extended Vo
             <sup class="type-op" title="object property">op</sup>, <a href="#intersectAt" title="http://purl.org/query/voidext#intersectAt">intersects at</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#recommendedMapping" title="http://purl.org/query/voidext#recommendedMapping">recommended mapping from</a>
             <sup class="type-op" title="object property">op</sup>
-         </dd>
-         <dt>is disjoint with</dt>
-         <dd>
-            <a href="#http://rdfs.org/ns/void#Dataset" title="http://rdfs.org/ns/void#Dataset">dataset</a>
-            <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
    </div>
@@ -137,12 +91,11 @@ This section provides details for each class and property defined by Extended Vo
       <dl class="description">
          <dt>has sub-classes</dt>
          <dd>
-            <a href="#SharedInstanceSet" title="http://purl.org/query/voidext#SharedInstanceSet">Shared instance set</a>
+            <a href="#VirtualLink" title="http://purl.org/query/voidext#VirtualLink">Virtual link set</a>
             <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/sparql-service-description#Dataset"
                title="http://www.w3.org/ns/sparql-service-description#Dataset">dataset</a>
             <sup class="type-c" title="class">c</sup>, <a href="#http://www.w3.org/ns/sparql-service-description#Graph"
                title="http://www.w3.org/ns/sparql-service-description#Graph">graph</a>
-            <sup class="type-c" title="class">c</sup>, <a href="#http://rdfs.org/ns/void#Linkset" title="http://rdfs.org/ns/void#Linkset">linkset</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>is in domain of</dt>
@@ -157,7 +110,6 @@ This section provides details for each class and property defined by Extended Vo
             <sup class="type-dp" title="data property">dp</sup>, <a href="#http://rdfs.org/ns/void#exampleResource" title="http://rdfs.org/ns/void#exampleResource">example resource of dataset</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#http://rdfs.org/ns/void#feature" title="http://rdfs.org/ns/void#feature">feature</a>
             <sup class="type-op" title="object property">op</sup>, <span class="dotted" title="http://rdfs.org/ns/void#uriRegexPattern">has URI regular expression pattern</span>, <span class="dotted" title="http://rdfs.org/ns/void#sparqlEndpoint">has a SPARQL endpoint at</span>, <span class="dotted" title="http://rdfs.org/ns/void#uriLookupEndpoint">has an URI look-up endpoint at</span>, <a href="#http://rdfs.org/ns/void#subset" title="http://rdfs.org/ns/void#subset">has subset</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#isSubsetOf" title="http://purl.org/query/voidext#isSubsetOf">is subset of</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#http://rdfs.org/ns/void#documents" title="http://rdfs.org/ns/void#documents">number of documents</a>
             <sup class="type-dp" title="data property">dp</sup>, <a href="#http://rdfs.org/ns/void#entities" title="http://rdfs.org/ns/void#entities">number of entities</a>
             <sup class="type-dp" title="data property">dp</sup>, <a href="#http://rdfs.org/ns/void#properties" title="http://rdfs.org/ns/void#properties">number of properties</a>
@@ -165,9 +117,7 @@ This section provides details for each class and property defined by Extended Vo
             <sup class="type-dp" title="data property">dp</sup>, <a href="#http://rdfs.org/ns/void#openSearchDescription" title="http://rdfs.org/ns/void#openSearchDescription">open search description</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#http://rdfs.org/ns/void#property" title="http://rdfs.org/ns/void#property">property</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#http://rdfs.org/ns/void#propertyPartition" title="http://rdfs.org/ns/void#propertyPartition">property partition</a>
-            <sup class="type-op" title="object property">op</sup>, <span class="dotted" title="http://rdfs.org/ns/void#rootResource">root resource</span>, <a href="#supportFederatedQuery"
-               title="http://purl.org/query/voidext#supportFederatedQuery">supports SPARQL 1.1 federated query</a>
-            <sup class="type-dp" title="data property">dp</sup>, <span class="dotted" title="http://rdfs.org/ns/void#vocabulary">vocabulary</span>
+            <sup class="type-op" title="object property">op</sup>, <span class="dotted" title="http://rdfs.org/ns/void#rootResource">root resource</span>, <span class="dotted" title="http://rdfs.org/ns/void#vocabulary">vocabulary</span>
          </dd>
          <dt>is in range of</dt>
          <dd>
@@ -177,14 +127,8 @@ This section provides details for each class and property defined by Extended Vo
             <sup class="type-op" title="object property">op</sup>, <a href="#http://rdfs.org/ns/void#classPartition" title="http://rdfs.org/ns/void#classPartition">class partition</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#http://rdfs.org/ns/void#subset" title="http://rdfs.org/ns/void#subset">has subset</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#http://rdfs.org/ns/void#inDataset" title="http://rdfs.org/ns/void#inDataset">in dataset</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#isSubsetOf" title="http://purl.org/query/voidext#isSubsetOf">is subset of</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#http://rdfs.org/ns/void#propertyPartition" title="http://rdfs.org/ns/void#propertyPartition">property partition</a>
             <sup class="type-op" title="object property">op</sup>
-         </dd>
-         <dt>is disjoint with</dt>
-         <dd>
-            <a href="#ComplexLinkSet" title="http://purl.org/query/voidext#ComplexLinkSet">Complex link set</a>
-            <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
    </div>
@@ -242,36 +186,6 @@ This section provides details for each class and property defined by Extended Vo
          </dd>
       </dl>
    </div>
-   <div class="entity" id="LINK_SHAREDINSTANCE_SET">
-      <h3>LINK_SHAREDINSTANCE_SET<sup class="type-c" title="class">c</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> http://purl.org/query/voidext#LINK_SHAREDINSTANCE_SET</p>
-      <dl class="description">
-         <dt>is equivalent to</dt>
-         <dd>
-            <a href="#SharedInstanceSet" title="http://purl.org/query/voidext#SharedInstanceSet">Shared instance set</a>
-            <sup class="type-c" title="class">c</sup> 
-            <span class="logic">or</span> 
-            <a href="#http://rdfs.org/ns/void#Linkset" title="http://rdfs.org/ns/void#Linkset">linkset</a>
-            <sup class="type-c" title="class">c</sup>
-         </dd>
-         <dt>is in domain of</dt>
-         <dd>
-            <a href="#http://rdfs.org/ns/void#target" title="http://rdfs.org/ns/void#target">Target</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#resourceMapping" title="http://purl.org/query/voidext#resourceMapping">resource mapped with</a>
-            <sup class="type-dp" title="data property">dp</sup>
-         </dd>
-         <dt>is in range of</dt>
-         <dd>
-            <a href="#intersectAt" title="http://purl.org/query/voidext#intersectAt">intersects at</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#recommendedMapping" title="http://purl.org/query/voidext#recommendedMapping">recommended mapping from</a>
-            <sup class="type-op" title="object property">op</sup>
-         </dd>
-      </dl>
-   </div>
    <div class="entity" id="http://rdfs.org/ns/void#Linkset">
       <h3>linkset<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
@@ -280,19 +194,17 @@ This section provides details for each class and property defined by Extended Vo
       <p>
          <strong>IRI:</strong> http://rdfs.org/ns/void#Linkset</p>
       <div class="comment">
-         <span class="markdown">A collection of RDF links between two void:Datasets.</span>
+         <span class="markdown">A collection of simple virtual links between two RDF datasets (i.e. void:Dataset). This collection is defined with exactly one RDF link predicate.</span>
       </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <a href="#http://rdfs.org/ns/void#Dataset" title="http://rdfs.org/ns/void#Dataset">dataset</a>
+            <a href="#SimpleLinkSet" title="http://purl.org/query/voidext#SimpleLinkSet">Simple link set</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>is in domain of</dt>
          <dd>
-            <a href="#http://rdfs.org/ns/void#objectsTarget" title="http://rdfs.org/ns/void#objectsTarget">Objects Target</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#http://rdfs.org/ns/void#subjectsTarget" title="http://rdfs.org/ns/void#subjectsTarget">Subjects Target</a>
-            <sup class="type-op" title="object property">op</sup>, <a href="#http://rdfs.org/ns/void#linkPredicate" title="http://rdfs.org/ns/void#linkPredicate">a link predicate</a>
+            <a href="#http://rdfs.org/ns/void#linkPredicate" title="http://rdfs.org/ns/void#linkPredicate">a link predicate</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#linkPredicateDomain"
                title="http://purl.org/query/voidext#linkPredicateDomain">link predicate domain</a>
             <sup class="type-op" title="object property">op</sup>, <a href="#linkPredicateRange" title="http://purl.org/query/voidext#linkPredicateRange">link predicate range</a>
@@ -325,33 +237,6 @@ This section provides details for each class and property defined by Extended Vo
          </dd>
       </dl>
    </div>
-   <div class="entity" id="http://mex.aksw.org/mex-perf#PerformanceMeasure">
-      <h3>performance measure<sup class="type-c" title="class">c</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> http://mex.aksw.org/mex-perf#PerformanceMeasure</p>
-      <dl class="description">
-         <dt>has super-classes</dt>
-         <dd>
-            <span class="dotted" title="http://www.w3.org/ns/prov#Entity">entity</span>
-            <sup class="type-c" title="class">c</sup>
-         </dd>
-         <dt>has sub-classes</dt>
-         <dd>
-            <a href="#http://mex.aksw.org/mex-perf#ClassificationMeasure"
-               title="http://mex.aksw.org/mex-perf#ClassificationMeasure">classification measure</a>
-            <sup class="type-c" title="class">c</sup>
-         </dd>
-         <dt>is in range of</dt>
-         <dd>
-            <a href="#hasPerformanceMeasure"
-               title="http://purl.org/query/voidext#hasPerformanceMeasure">has performance measure</a>
-            <sup class="type-op" title="object property">op</sup>
-         </dd>
-      </dl>
-   </div>
    <div class="entity" id="http://purl.org/dc/terms/ProvenanceStatement">
       <h3>Provenance Statement<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
@@ -368,7 +253,8 @@ This section provides details for each class and property defined by Extended Vo
       <dl class="description">
          <dt>has members</dt>
          <dd>
-            <a href="#MODIFIED_TARGET_1" title="http://purl.org/query/voidext#MODIFIED_TARGET_1">MODIFIED_TARGET_1</a>
+            <a href="#MODIFIED_LINKSET" title="http://purl.org/query/voidext#MODIFIED_LINKSET">modified linkset</a>
+            <sup class="type-ni" title="named individual">ni</sup>, <a href="#MODIFIED_TARGET" title="http://purl.org/query/voidext#MODIFIED_TARGET">modified target</a>
             <sup class="type-ni" title="named individual">ni</sup>
          </dd>
       </dl>
@@ -381,12 +267,12 @@ This section provides details for each class and property defined by Extended Vo
       <p>
          <strong>IRI:</strong> http://purl.org/query/voidext#SharedInstanceSet</p>
       <div class="comment">
-         <span class="markdown">A shared instance set between exactly two datasets. For example, two datasets that contain the same OWL/RDFS class instances.</span>
+         <span class="markdown">A simple link set between shared instances that are usually of the same OWL/RDFS class and asserted in two different datasets.</span>
       </div>
       <dl class="description">
          <dt>has super-classes</dt>
          <dd>
-            <a href="#http://rdfs.org/ns/void#Dataset" title="http://rdfs.org/ns/void#Dataset">dataset</a>
+            <a href="#SimpleLinkSet" title="http://purl.org/query/voidext#SimpleLinkSet">Simple link set</a>
             <sup class="type-c" title="class">c</sup>
          </dd>
          <dt>is in domain of</dt>
@@ -404,26 +290,30 @@ This section provides details for each class and property defined by Extended Vo
       <p>
          <strong>IRI:</strong> http://purl.org/query/voidext#SimpleLinkSet</p>
       <div class="comment">
-         <span class="markdown">A simple link set must be a linkset that does not target another linkset (i.e. it has exactly one link predicate) or a set with exactly the same shared instances of the same type (i.e. class) in both datasets. The instances of this class must be also instances of either void:Linkset or voidext:SharedInstanceSet.</span>
+         <span class="markdown">A simple link set must contain in its definition, either exactly one link predicate (void:linkPredicate) or exactly one shared instance type (i.e. class). The instances of this class must be also instances of its subclasses (i.e. void:Linkset xor voidext:SharedInstanceSet - where xor is the exclusive or).</span>
       </div>
       <dl class="description">
-         <dt>is equivalent to</dt>
-         <dd>(<a href="#SharedInstanceSet" title="http://purl.org/query/voidext#SharedInstanceSet">Shared instance set</a>
-            <sup class="type-c" title="class">c</sup> 
-            <span class="logic">and</span> (<span class="logic">not</span> (<a href="#isSubsetOf" title="http://purl.org/query/voidext#isSubsetOf">is subset of</a>
-            <sup class="type-op" title="object property">op</sup> 
-            <span class="logic">exactly</span> 1 <a href="#http://rdfs.org/ns/void#Dataset" title="http://rdfs.org/ns/void#Dataset">dataset</a>
-            <sup class="type-c" title="class">c</sup>))) <span class="logic">or</span> (<a href="#http://rdfs.org/ns/void#Linkset" title="http://rdfs.org/ns/void#Linkset">linkset</a>
-            <sup class="type-c" title="class">c</sup> 
-            <span class="logic">and</span> (<span class="logic">not</span> (<a href="#http://rdfs.org/ns/void#target" title="http://rdfs.org/ns/void#target">Target</a>
-            <sup class="type-op" title="object property">op</sup> 
-            <span class="logic">some</span> 
-            <a href="#http://rdfs.org/ns/void#Linkset" title="http://rdfs.org/ns/void#Linkset">linkset</a>
-            <sup class="type-c" title="class">c</sup>)))</dd>
          <dt>has super-classes</dt>
          <dd>
-            <a href="#VirtualLinkSet" title="http://purl.org/query/voidext#VirtualLinkSet">Virtual link set</a>
+            <a href="#VirtualLink" title="http://purl.org/query/voidext#VirtualLink">Virtual link set</a>
             <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>has sub-classes</dt>
+         <dd>
+            <a href="#SharedInstanceSet" title="http://purl.org/query/voidext#SharedInstanceSet">Shared instance set</a>
+            <sup class="type-c" title="class">c</sup>, <a href="#http://rdfs.org/ns/void#Linkset" title="http://rdfs.org/ns/void#Linkset">linkset</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+         <dt>is in domain of</dt>
+         <dd>
+            <a href="#resourceMapping" title="http://purl.org/query/voidext#resourceMapping">resource mapped with</a>
+            <sup class="type-dp" title="data property">dp</sup>
+         </dd>
+         <dt>is in range of</dt>
+         <dd>
+            <a href="#intersectAt" title="http://purl.org/query/voidext#intersectAt">intersects at</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#recommendedMapping" title="http://purl.org/query/voidext#recommendedMapping">recommended mapping from</a>
+            <sup class="type-op" title="object property">op</sup>
          </dd>
       </dl>
    </div>
@@ -451,17 +341,22 @@ This section provides details for each class and property defined by Extended Vo
          </dd>
       </dl>
    </div>
-   <div class="entity" id="VirtualLinkSet">
+   <div class="entity" id="VirtualLink">
       <h3>Virtual link set<sup class="type-c" title="class">c</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
          </span>
       </h3>
       <p>
-         <strong>IRI:</strong> http://purl.org/query/voidext#VirtualLinkSet</p>
+         <strong>IRI:</strong> http://purl.org/query/voidext#VirtualLink</p>
       <div class="comment">
-         <span class="markdown">A set of virtual links between two datasets. A virtual link is a connection between resources such as literals and instances with some commonality. Each of these resources is from a different RDF dataset. A resource mapping can be also considered when defining common resources between datasets. For example, the datasets uses different prefix namespaces for similar instances in a given domain scope. A virtual link can be interpreted as an intersection data point between two datasets. In addition, a virtual link is not concretely stored. The link may be physically established during a federated query execution, for example. This class must only have instances of its subclasses. It is recommendable to comment (rdfs:comment) the scope of the virtual link set.</span>
+         <span class="markdown">A virtual link is a connection between resources such as literals and instances with some commonality. Each of these resources is from a different RDF dataset. Semantic relaxation is also considered when defining common resources between datasets. For example, the datasets uses different prefix namespaces for similar instances in a given domain scope. A virtual link can be interpreted as an intersection data point between two datasets. In addition, a virtual link is not concretely stored. The link may be physically established during a federated query execution, for example. This class must only have instances of its subclasses.</span>
       </div>
       <dl class="description">
+         <dt>has super-classes</dt>
+         <dd>
+            <a href="#http://rdfs.org/ns/void#Dataset" title="http://rdfs.org/ns/void#Dataset">dataset</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
          <dt>has sub-classes</dt>
          <dd>
             <a href="#ComplexLinkSet" title="http://purl.org/query/voidext#ComplexLinkSet">Complex link set</a>
@@ -470,8 +365,9 @@ This section provides details for each class and property defined by Extended Vo
          </dd>
          <dt>is in domain of</dt>
          <dd>
-            <a href="#hasPerformanceMeasure"
-               title="http://purl.org/query/voidext#hasPerformanceMeasure">has performance measure</a>
+            <a href="#http://rdfs.org/ns/void#objectsTarget" title="http://rdfs.org/ns/void#objectsTarget">Objects Target</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://rdfs.org/ns/void#subjectsTarget" title="http://rdfs.org/ns/void#subjectsTarget">Subjects Target</a>
+            <sup class="type-op" title="object property">op</sup>, <a href="#http://rdfs.org/ns/void#target" title="http://rdfs.org/ns/void#target">Target</a>
             <sup class="type-op" title="object property">op</sup>
          </dd>
       </dl>
@@ -498,10 +394,6 @@ This section provides details for each class and property defined by Extended Vo
          <a href="#http://rdfs.org/ns/void#feature" title="http://rdfs.org/ns/void#feature">feature</a>
       </li>
       <li>
-         <a href="#hasPerformanceMeasure"
-            title="http://purl.org/query/voidext#hasPerformanceMeasure">has performance measure</a>
-      </li>
-      <li>
          <a href="#http://rdfs.org/ns/void#subset" title="http://rdfs.org/ns/void#subset">has subset</a>
       </li>
       <li>
@@ -512,9 +404,6 @@ This section provides details for each class and property defined by Extended Vo
       </li>
       <li>
          <a href="#intersectAt" title="http://purl.org/query/voidext#intersectAt">intersects at</a>
-      </li>
-      <li>
-         <a href="#isSubsetOf" title="http://purl.org/query/voidext#isSubsetOf">is subset of</a>
       </li>
       <li>
          <a href="#linkPredicateDomain"
@@ -736,31 +625,6 @@ This section provides details for each class and property defined by Extended Vo
          </dl>
       </div>
    </div>
-   <div class="entity" id="hasPerformanceMeasure">
-      <h3>has performance measure<sup class="type-op" title="object property">op</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> http://purl.org/query/voidext#hasPerformanceMeasure</p>
-      <div class="comment">
-         <span class="markdown">This property assings the performance of the virtual link set, for example, in terms of recall and precision. The values to be assigned (property range) are represented with the ontology MEX Performance Ontology.</span>
-      </div>
-      <div class="description">
-         <dl>
-            <dt>has domain</dt>
-            <dd>
-               <a href="#VirtualLinkSet" title="http://purl.org/query/voidext#VirtualLinkSet">Virtual link set</a>
-               <sup class="type-c" title="class">c</sup>
-            </dd>
-            <dt>has range</dt>
-            <dd>
-               <a href="#http://mex.aksw.org/mex-perf#PerformanceMeasure" title="http://mex.aksw.org/mex-perf#PerformanceMeasure">performance measure</a>
-               <sup class="type-c" title="class">c</sup>
-            </dd>
-         </dl>
-      </div>
-   </div>
    <div class="entity" id="http://rdfs.org/ns/void#subset">
       <h3>has subset<sup class="type-op" title="object property">op</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
@@ -791,11 +655,6 @@ This section provides details for each class and property defined by Extended Vo
             <dd>
                <a href="#http://rdfs.org/ns/void#Dataset" title="http://rdfs.org/ns/void#Dataset">dataset</a>
                <sup class="type-c" title="class">c</sup>
-            </dd>
-            <dt>is inverse of</dt>
-            <dd>
-               <a href="#isSubsetOf" title="http://purl.org/query/voidext#isSubsetOf">is subset of</a>
-               <sup class="type-op" title="object property">op</sup>
             </dd>
          </dl>
       </div>
@@ -876,36 +735,8 @@ This section provides details for each class and property defined by Extended Vo
             </dd>
             <dt>has range</dt>
             <dd>
-               <a href="#LINK_SHAREDINSTANCE_SET"
-                  title="http://purl.org/query/voidext#LINK_SHAREDINSTANCE_SET">LINK_SHAREDINSTANCE_SET</a>
+               <a href="#SimpleLinkSet" title="http://purl.org/query/voidext#SimpleLinkSet">Simple link set</a>
                <sup class="type-c" title="class">c</sup>
-            </dd>
-         </dl>
-      </div>
-   </div>
-   <div class="entity" id="isSubsetOf">
-      <h3>is subset of<sup class="type-op" title="object property">op</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> http://purl.org/query/voidext#isSubsetOf</p>
-      <div class="description">
-         <dl>
-            <dt>has domain</dt>
-            <dd>
-               <a href="#http://rdfs.org/ns/void#Dataset" title="http://rdfs.org/ns/void#Dataset">dataset</a>
-               <sup class="type-c" title="class">c</sup>
-            </dd>
-            <dt>has range</dt>
-            <dd>
-               <a href="#http://rdfs.org/ns/void#Dataset" title="http://rdfs.org/ns/void#Dataset">dataset</a>
-               <sup class="type-c" title="class">c</sup>
-            </dd>
-            <dt>is inverse of</dt>
-            <dd>
-               <a href="#http://rdfs.org/ns/void#subset" title="http://rdfs.org/ns/void#subset">has subset</a>
-               <sup class="type-op" title="object property">op</sup>
             </dd>
          </dl>
       </div>
@@ -918,7 +749,7 @@ This section provides details for each class and property defined by Extended Vo
       <p>
          <strong>IRI:</strong> http://purl.org/query/voidext#linkPredicateDomain</p>
       <div class="comment">
-         <span class="markdown">The link predicate's subject type (i.e. class), if any. Moreover, in the case of a void:Linkset that is classified as a simple link set (voidext:SimpleLinkSet), if the two datasets are linked through the link predicate's subject then the link predicate domain must be specified. Indeed, this subject matches a second resource in an external dataset. Therefore, the type of this second resource is asserted as the link predicate domain.</span>
+         <span class="markdown">The link predicate's subject type (i.e. class), if any. Moreover, in the case of a void:Linkset that is not part of a complex virtual link (voidext:ComplexLinkset), if the two datasets are linked through the link predicate's subject then the link predicate range must be specified. Indeed, this subject matches a second resource in another dataset. Therefore, the type of this second resource is asserted as the link predicate range.</span>
       </div>
       <div class="description">
          <dl>
@@ -943,7 +774,7 @@ This section provides details for each class and property defined by Extended Vo
       <p>
          <strong>IRI:</strong> http://purl.org/query/voidext#linkPredicateRange</p>
       <div class="comment">
-         <span class="markdown">The link predicate's object type (i.e. class), if any. Moreover, in the case of a void:Linkset that is not classified as a simple link set, if the two datasets are linked through the link predicate's object then the link predicate range must be specified. Indeed, this object matches a second resource in an external dataset. Therefore, the type of this second resource is asserted as the link predicate range.</span>
+         <span class="markdown">The link predicate's object type (i.e. class), if any. Moreover, in the case of a void:Linkset that is not part of a complex virtual link, if the two datasets are linked through the link predicate's object then the link predicate range must be specified. Indeed, this object matches a second resource in another dataset. Therefore, the type of this second resource is asserted as the link predicate range.</span>
       </div>
       <div class="description">
          <dl>
@@ -968,7 +799,7 @@ This section provides details for each class and property defined by Extended Vo
       <p>
          <strong>IRI:</strong> http://rdfs.org/ns/void#objectsTarget</p>
       <div class="comment">
-         <span class="markdown">The dataset describing the objects of the triples contained in the Linkset.</span>
+         <span class="markdown">The dataset describing the objects of the triples contained in the virtual link.</span>
       </div>
       <div class="description">
          <p>
@@ -981,7 +812,7 @@ This section provides details for each class and property defined by Extended Vo
             </dd>
             <dt>has domain</dt>
             <dd>
-               <a href="#http://rdfs.org/ns/void#Linkset" title="http://rdfs.org/ns/void#Linkset">linkset</a>
+               <a href="#VirtualLink" title="http://purl.org/query/voidext#VirtualLink">Virtual link set</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
@@ -1101,7 +932,7 @@ This section provides details for each class and property defined by Extended Vo
       <p>
          <strong>IRI:</strong> http://purl.org/query/voidext#recommendedMapping</p>
       <div class="comment">
-         <span class="markdown">If more than one mapping is defined in the different void:Linkset(s) that are part of a voidext:ComplexLinkSet, one of the resource mappings may be recommended by asserting this property. The recommended mapping is the one stated to the void:Linkset assigned as the value of this property. If no mapping is explicitly recommended, solely one of them must arbitrarily be applied to establish a virtual link. At most one mapping function can be defined either per linkset or per shared instance set.</span>
+         <span class="markdown">If more than one mapping is defined in the different void:Linkset(s) that are part of a voidext:ComplexLinkSet, one of the resource mappings may be recommended by asserting this property. The recommended mapping is the one stated to the void:Linkset assigned as the value of this property. If no mapping is explicitly recommended, solely one of them must arbitrarily be applied to establish a virtual link. At most one mapping function can be defined per voidext:SimpleLinkSet.</span>
       </div>
       <div class="description">
          <p>
@@ -1114,8 +945,7 @@ This section provides details for each class and property defined by Extended Vo
             </dd>
             <dt>has range</dt>
             <dd>
-               <a href="#LINK_SHAREDINSTANCE_SET"
-                  title="http://purl.org/query/voidext#LINK_SHAREDINSTANCE_SET">LINK_SHAREDINSTANCE_SET</a>
+               <a href="#SimpleLinkSet" title="http://purl.org/query/voidext#SimpleLinkSet">Simple link set</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
          </dl>
@@ -1154,7 +984,7 @@ This section provides details for each class and property defined by Extended Vo
       <p>
          <strong>IRI:</strong> http://rdfs.org/ns/void#subjectsTarget</p>
       <div class="comment">
-         <span class="markdown">The dataset describing the subjects of triples contained in the Linkset.</span>
+         <span class="markdown">The dataset describing the subjects of triples contained in the virtual link.</span>
       </div>
       <div class="description">
          <p>
@@ -1167,7 +997,7 @@ This section provides details for each class and property defined by Extended Vo
             </dd>
             <dt>has domain</dt>
             <dd>
-               <a href="#http://rdfs.org/ns/void#Linkset" title="http://rdfs.org/ns/void#Linkset">linkset</a>
+               <a href="#VirtualLink" title="http://purl.org/query/voidext#VirtualLink">Virtual link set</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
@@ -1186,7 +1016,7 @@ This section provides details for each class and property defined by Extended Vo
       <p>
          <strong>IRI:</strong> http://rdfs.org/ns/void#target</p>
       <div class="comment">
-         <span class="markdown">One of the two datasets linked by the Linkset or the Shared instance set.</span>
+         <span class="markdown">One of the two datasets linked by the virtual link.</span>
       </div>
       <div class="description">
          <dl>
@@ -1198,8 +1028,7 @@ This section provides details for each class and property defined by Extended Vo
             </dd>
             <dt>has domain</dt>
             <dd>
-               <a href="#LINK_SHAREDINSTANCE_SET"
-                  title="http://purl.org/query/voidext#LINK_SHAREDINSTANCE_SET">LINK_SHAREDINSTANCE_SET</a>
+               <a href="#VirtualLink" title="http://purl.org/query/voidext#VirtualLink">Virtual link set</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
@@ -1236,10 +1065,6 @@ This section provides details for each class and property defined by Extended Vo
       </li>
       <li>
          <a href="#resourceMapping" title="http://purl.org/query/voidext#resourceMapping">resource mapped with</a>
-      </li>
-      <li>
-         <a href="#supportFederatedQuery"
-            title="http://purl.org/query/voidext#supportFederatedQuery">supports SPARQL 1.1 federated query</a>
       </li>
       <li>
          <a href="#http://rdfs.org/ns/void#uriSpace" title="http://rdfs.org/ns/void#uriSpace">URI space</a>
@@ -1476,37 +1301,12 @@ the output of a function.</span>
          <dl>
             <dt>has domain</dt>
             <dd>
-               <a href="#LINK_SHAREDINSTANCE_SET"
-                  title="http://purl.org/query/voidext#LINK_SHAREDINSTANCE_SET">LINK_SHAREDINSTANCE_SET</a>
+               <a href="#SimpleLinkSet" title="http://purl.org/query/voidext#SimpleLinkSet">Simple link set</a>
                <sup class="type-c" title="class">c</sup>
             </dd>
             <dt>has range</dt>
             <dd>
                <span class="dotted" title="http://www.w3.org/2000/01/rdf-schema#Literal">literal</span>
-            </dd>
-         </dl>
-      </div>
-   </div>
-   <div class="entity" id="supportFederatedQuery">
-      <h3>supports SPARQL 1.1 federated query<sup class="type-dp" title="data property">dp</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> http://purl.org/query/voidext#supportFederatedQuery</p>
-      <div class="comment">
-         <span class="markdown">This property should be used to explicitly assert that a void:Dataset supports SPARQL 1.1. federated queries to be able to access the dataset with the SERVICE keyword and perform federated join queries.</span>
-      </div>
-      <div class="description">
-         <dl>
-            <dt>has domain</dt>
-            <dd>
-               <a href="#http://rdfs.org/ns/void#Dataset" title="http://rdfs.org/ns/void#Dataset">dataset</a>
-               <sup class="type-c" title="class">c</sup>
-            </dd>
-            <dt>has range</dt>
-            <dd>
-               <span class="dotted" title="http://www.w3.org/2001/XMLSchema#boolean">boolean</span>
             </dd>
          </dl>
       </div>
@@ -1612,13 +1412,6 @@ the output of a function.</span>
          <a href="#http://purl.org/dc/terms/provenance" title="http://purl.org/dc/terms/provenance">
             <span>provenance</span>
          </a>
-      </li>
-      <li>
-         <a href="#queryLinkset" title="http://purl.org/query/voidext#queryLinkset">query for linkset</a>
-      </li>
-      <li>
-         <a href="#querySharedInstanceSet"
-            title="http://purl.org/query/voidext#querySharedInstanceSet">query for shared instance set</a>
       </li>
       <li>
          <a href="#http://rdfs.org/ns/void#rootResource" title="http://rdfs.org/ns/void#rootResource">root resource</a>
@@ -1798,44 +1591,6 @@ the output of a function.</span>
       <p>
          <strong>IRI:</strong> http://purl.org/dc/terms/provenance</p>
    </div>
-   <div class="entity" id="queryLinkset">
-      <h3>query for linkset<sup class="type-ap" title="annotation property">ap</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> http://purl.org/query/voidext#queryLinkset</p>
-      <div class="comment">
-         <span class="markdown">This property must only assign one standard SPARQL query per category (i.e. subclass) of VirtualLinkSet to retrieve the formal definition of linkset (i.e. query projection) as presented in the voidext specification.</span>
-      </div>
-      <div class="description">
-         <dl>
-            <dt>has range</dt>
-            <dd>
-               <span class="dotted" title="http://www.w3.org/2000/01/rdf-schema#Literal">literal</span>
-            </dd>
-         </dl>
-      </div>
-   </div>
-   <div class="entity" id="querySharedInstanceSet">
-      <h3>query for shared instance set<sup class="type-ap" title="annotation property">ap</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> http://purl.org/query/voidext#querySharedInstanceSet</p>
-      <div class="comment">
-         <span class="markdown">This property must only assign one standard SPARQL query per category (i.e. subclass) of VirtualLinkSet to retrieve the formal definition of shared instance set (i.e. query projection) as presented in the voidext specification.</span>
-      </div>
-      <div class="description">
-         <dl>
-            <dt>has range</dt>
-            <dd>
-               <span class="dotted" title="http://www.w3.org/2000/01/rdf-schema#Literal">literal</span>
-            </dd>
-         </dl>
-      </div>
-   </div>
    <div class="entity" id="http://rdfs.org/ns/void#rootResource">
       <h3>root resource<sup class="type-ap" title="annotation property">ap</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a>
@@ -1897,13 +1652,13 @@ the output of a function.</span>
          </a>
       </li>
       <li>
-         <a href="#http://vocab.deri.ie/void#Department%20of%20Zoology%2C%20University%20of%20Oxford"
+         <a href="#http://vocab.deri.ie/void#Department of Zoology, University of Oxford"
             title="http://vocab.deri.ie/void#Department%20of%20Zoology%2C%20University%20of%20Oxford">
             <span>Department of Zoology, University of Oxford</span>
          </a>
       </li>
       <li>
-         <a href="#http://vocab.deri.ie/void#Digital%20Enterprise%20Research%20Institute%2C%20NUI%20Galway"
+         <a href="#http://vocab.deri.ie/void#Digital Enterprise Research Institute, NUI Galway"
             title="http://vocab.deri.ie/void#Digital%20Enterprise%20Research%20Institute%2C%20NUI%20Galway">
             <span>Digital Enterprise Research Institute, NUI Galway</span>
          </a>
@@ -1924,22 +1679,22 @@ the output of a function.</span>
          </a>
       </li>
       <li>
-         <a href="#MODIFIED_TARGET_1" title="http://purl.org/query/voidext#MODIFIED_TARGET_1">
-            <span>MODIFIED_TARGET_1</span>
+         <a href="#MODIFIED_LINKSET" title="http://purl.org/query/voidext#MODIFIED_LINKSET">
+            <span>modified linkset</span>
          </a>
       </li>
       <li>
-         <a href="#http://vocab.deri.ie/void#Michael%20Hausenblas" title="http://vocab.deri.ie/void#Michael%20Hausenblas">
+         <a href="#MODIFIED_TARGET" title="http://purl.org/query/voidext#MODIFIED_TARGET">
+            <span>modified tartet</span>
+         </a>
+      </li>
+      <li>
+         <a href="#http://vocab.deri.ie/void#Michael Hausenblas" title="http://vocab.deri.ie/void#Michael%20Hausenblas">
             <span>Michael Hausenblas</span>
          </a>
       </li>
       <li>
          <a href="#OBJECT_OBJECT" title="http://purl.org/query/voidext#OBJECT_OBJECT">Object-object intersection</a>
-      </li>
-      <li>
-         <a href="#https://www.sib.swiss/about-sib/organization" title="https://www.sib.swiss/about-sib/organization">
-            <span>organization</span>
-         </a>
       </li>
       <li>
          <a href="#SUBJECT_OBJECT" title="http://purl.org/query/voidext#SUBJECT_OBJECT">Subject-object intersection</a>
@@ -1958,7 +1713,7 @@ the output of a function.</span>
          </a>
       </li>
       <li>
-         <a href="#http://purl.org/query/voidext" title="http://purl.org/query/voidext">
+         <a href="#" title="http://purl.org/query/voidext">
             <span>voidext</span>
          </a>
       </li>
@@ -1978,7 +1733,7 @@ the output of a function.</span>
          </dd>
       </dl>
    </div>
-   <div class="entity" id="http://vocab.deri.ie/void#Department%20of%20Zoology%2C%20University%20of%20Oxford">
+   <div class="entity" id="http://vocab.deri.ie/void#Department of Zoology, University of Oxford">
       <h3>Department of Zoology, University of Oxford<sup class="type-ni" title="named individual">ni</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
          </span>
@@ -1993,7 +1748,7 @@ the output of a function.</span>
          </dd>
       </dl>
    </div>
-   <div class="entity" id="http://vocab.deri.ie/void#Digital%20Enterprise%20Research%20Institute%2C%20NUI%20Galway">
+   <div class="entity" id="http://vocab.deri.ie/void#Digital Enterprise Research Institute, NUI Galway">
       <h3>Digital Enterprise Research Institute, NUI Galway<sup class="type-ni" title="named individual">ni</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
          </span>
@@ -2053,13 +1808,13 @@ the output of a function.</span>
          </dd>
       </dl>
    </div>
-   <div class="entity" id="MODIFIED_TARGET_1">
-      <h3>MODIFIED_TARGET_1<sup class="type-ni" title="named individual">ni</sup>
+   <div class="entity" id="MODIFIED_LINKSET">
+      <h3>modified linkset<sup class="type-ni" title="named individual">ni</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
          </span>
       </h3>
       <p>
-         <strong>IRI:</strong> http://purl.org/query/voidext#MODIFIED_TARGET_1</p>
+         <strong>IRI:</strong> http://purl.org/query/voidext#MODIFIED_LINKSET</p>
       <dl class="description">
          <dt>belongs to</dt>
          <dd>
@@ -2068,8 +1823,23 @@ the output of a function.</span>
          </dd>
       </dl>
    </div>
-   <div class="entity" id="http://vocab.deri.ie/void#Michael%20Hausenblas">
-      <h3>Michael Hausenblas<sup class="type-ni" title="named individual">ni</sup>
+   <div class="entity" id="MODIFIED_TARGET">
+      <h3>modified target<sup class="type-ni" title="named individual">ni</sup>
+         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
+         </span>
+      </h3>
+      <p>
+         <strong>IRI:</strong> http://purl.org/query/voidext#MODIFIED_TARGET</p>
+      <dl class="description">
+         <dt>belongs to</dt>
+         <dd>
+            <a href="#http://purl.org/dc/terms/ProvenanceStatement" title="http://purl.org/dc/terms/ProvenanceStatement">Provenance Statement</a>
+            <sup class="type-c" title="class">c</sup>
+         </dd>
+      </dl>
+   </div>
+   <div class="entity" id="http://vocab.deri.ie/void#Michael Hausenblas">
+      <h3>michael%20 hausenblas<sup class="type-ni" title="named individual">ni</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
          </span>
       </h3>
@@ -2098,21 +1868,6 @@ the output of a function.</span>
          <dd>
             <a href="#LinkSetIntersection"
                title="http://purl.org/query/voidext#LinkSetIntersection">Linkset intersection</a>
-            <sup class="type-c" title="class">c</sup>
-         </dd>
-      </dl>
-   </div>
-   <div class="entity" id="https://www.sib.swiss/about-sib/organization">
-      <h3>organization<sup class="type-ni" title="named individual">ni</sup>
-         <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
-         </span>
-      </h3>
-      <p>
-         <strong>IRI:</strong> https://www.sib.swiss/about-sib/organization</p>
-      <dl class="description">
-         <dt>belongs to</dt>
-         <dd>
-            <span class="dotted" title="http://purl.org/dc/terms/Agent">agent</span>
             <sup class="type-c" title="class">c</sup>
          </dd>
       </dl>
@@ -2185,7 +1940,7 @@ the output of a function.</span>
          </dd>
       </dl>
    </div>
-   <div class="entity" id="http://purl.org/query/voidext">
+   <div class="entity" id="">
       <h3>voidext<sup class="type-ni" title="named individual">ni</sup>
          <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a>
          </span>

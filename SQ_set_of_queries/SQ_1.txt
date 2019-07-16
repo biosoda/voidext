@@ -1,7 +1,7 @@
 ################
-############# Simple virtual links - directed or undirected linksets. 
-############# It answers the  Question (1):
-############# Which are the set of directed virtual links between two RDF datasets?
+############# Instances that are both void:Linkset and voidext:SimpleLinkSet 
+############# Question (1):
+############# which are the directed virtual link sets between two RDF datasets? In other words, the simple link sets composed of exactly one link predicate (non rdf:type
 ###############
 
 prefix void:    <http://rdfs.org/ns/void#>
@@ -9,25 +9,33 @@ prefix bioquery: <http://purl.org/query/bioquery#>
 prefix voidext:<http://purl.org/query/voidext#>
 prefix dcterms: <http://purl.org/dc/terms/>
 
-SELECT distinct ?links  ?source  ?predicate_from_endpoint ?subj_from ?subj_type ?predicate  ?obj_type  ?obj_from  ?resourceMapping {
+SELECT distinct ?links  ?source  ?predicate_from_endpoint ?subj_from ?subj_type ?predicate 
+ ?obj_type  ?obj_from  ?resourceMapping {
 
+###if we want to specify the target datasets that contain one of the resources
+###related with a virtual link.
 #values(?dataset_link_subj){  (bioquery:OMA)  }
+#values(?dataset_link_obj){  (bioquery:UNIPROT)  }
+
 ?links  a void:Linkset.
-{?links void:subjectsTarget ?dataset_link_subj .
+{
+ ?links void:subjectsTarget ?dataset_link_subj .
  ?links void:objectsTarget ?dataset_link_obj.  
 } UNION {
-?links void:target ?dataset_link_subj.
-?links void:target ?dataset_link_obj .}
-?links void:linkPredicate ?predicate;
-          void:subset ?source_db.
-?dataset_link_subj void:sparqlEndpoint ?subj_from.
-?dataset_link_obj void:sparqlEndpoint ?obj_from.
-?source_db dcterms:title ?source;
-                   void:sparqlEndpoint ?predicate_from_endpoint.
+ ?links void:target ?dataset_link_subj.
+ ?links void:target ?dataset_link_obj .}
+ ?links void:linkPredicate ?predicate;
+        voidext:isSubsetOf ?source_db.
+ ?dataset_link_subj void:sparqlEndpoint ?subj_from.
+ ?dataset_link_obj void:sparqlEndpoint ?obj_from.
+ ?source_db dcterms:title ?source;
+            void:sparqlEndpoint ?predicate_from_endpoint.
 
-optional {?links  voidext:linkPredicateRange ?obj_type}.
-optional {?links voidext:linkPredicateDomain ?subj_type. }
-optional{ ?links voidext:resourceMapping  ?resourceMapping}
+ optional {?links  voidext:linkPredicateRange ?obj_type}.
+ optional {?links voidext:linkPredicateDomain ?subj_type. }
+ optional{ ?links voidext:resourceMapping  ?resourceMapping}
+
 filter not exists { ?complexLink  voidext:intersectAt ?links.}       
 filter ( ?dataset_link_subj  !=  ?dataset_link_obj )       
-} order by ?links
+
+} order by ?links 

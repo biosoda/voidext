@@ -1,380 +1,156 @@
 <div id="changelog">
 <h2 id="changes" class="list">Changes from last version</h2>
 <h3 id="changeClass" class="list">Classes</h3>
-<p><u>Modified classes</u></p>
-<ul><li><a href="#http://rdfs.org/ns/void#Linkset">http://rdfs.org/ns/void#Linkset</a>
+<p><u>Minor modified classes</u></p>
+<ul><li><a href="#http://rdfs.org/ns/void#Dataset">http://rdfs.org/ns/void#Dataset</a>
 <ul>
-<li>Added: SubClass of http://purl.org/query/voidext#SimpleLinkSet</li>
-<li>Added: <http://purl.org/dc/terms/provenance> http://purl.org/query/voidext#MODIFIED_LINKSET</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#keiale</li>
-<li>Added: <http://purl.org/dc/terms/created> "2010-01-26"^^xsd:date</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#Michael%20Hausenblas</li>
-<li>Added: <http://purl.org/dc/terms/contributor> http://purl.org/query/tarcisiomf</li>
-<li>Added: rdfs:comment "A collection of simple virtual links between two RDF datasets (i.e. void:Dataset). This collection is defined with exactly one RDF link predicate."^^xsd:string</li>
-<li>Added: <http://purl.org/dc/terms/modified> "2019-01-30"^^xsd:date</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#cygri</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#junzha</li>
-</ul>
-<ul>
-<li>Deleted: SubClass of http://rdfs.org/ns/void#Dataset</li>
-<li>Deleted: rdfs:comment "A collection of RDF links between two void:Datasets."^^xsd:string</li>
-</ul>
-</li>
-<li><a href="#http://rdfs.org/ns/void#TechnicalFeature">http://rdfs.org/ns/void#TechnicalFeature</a>
-<ul>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#keiale</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#junzha</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#cygri</li>
-<li>Added: rdfs:isDefinedBy http://vocab.deri.ie/void</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#Michael%20Hausenblas</li>
-</ul>
-</li>
-<li><a href="#http://rdfs.org/ns/void#Dataset">http://rdfs.org/ns/void#Dataset</a>
-<ul>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#cygri</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#junzha</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#keiale</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#Michael%20Hausenblas</li>
-<li>Added: rdfs:isDefinedBy http://vocab.deri.ie/void</li>
-</ul>
-</li>
-<li><a href="#http://rdfs.org/ns/void#DatasetDescription">http://rdfs.org/ns/void#DatasetDescription</a>
-<ul>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#cygri</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#junzha</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#Michael%20Hausenblas</li>
-<li>Added: rdfs:isDefinedBy http://vocab.deri.ie/void</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#keiale</li>
+<li>Added: DisjointClasses DisjointClasses(&lt;http://purl.org/query/voidext#ComplexLinkSet&gt; &lt;http://rdfs.org/ns/void#Dataset&gt;)</li>
 </ul>
 </li>
 </ul><p><u>Added classes</u></p>
-<ul><li><a href="#http://purl.org/query/voidext#VirtualLink">http://purl.org/query/voidext#VirtualLink</a>
-<ul>
-<li>Added: SubClass of http://rdfs.org/ns/void#Dataset</li>
-</ul>
+<ul><li><a href="#http://purl.org/dc/terms/ProvenanceStatement">http://purl.org/dc/terms/ProvenanceStatement</a>
 </li>
-<li><a href="#http://purl.org/query/voidext#SharedInstanceSet">http://purl.org/query/voidext#SharedInstanceSet</a>
-<ul>
-<li>Added: SubClass of http://purl.org/query/voidext#SimpleLinkSet</li>
-</ul>
-</li>
-
-<li><a href="#http://purl.org/query/voidext#ComplexLinkSet">http://purl.org/query/voidext#ComplexLinkSet</a>
-<ul>
-<li>Added: SubClass of http://purl.org/query/voidext#VirtualLink</li>
-</ul>
-</li>
-
-
-
-<li><a href="#http://purl.org/query/voidext#LinkSetIntersection">http://purl.org/query/voidext#LinkSetIntersection</a>
-</li>
-
-<li><a href="#http://purl.org/query/voidext#SimpleLinkSet">http://purl.org/query/voidext#SimpleLinkSet</a>
-<ul>
-<li>Added: SubClass of http://purl.org/query/voidext#VirtualLink</li>
-</ul>
-</li>
-
-<li><a href="#http://www.w3.org/ns/sparql-service-description#Graph">http://www.w3.org/ns/sparql-service-description#Graph</a>
-<ul>
-<li>Added: SubClass of http://rdfs.org/ns/void#Dataset</li>
-</ul>
-</li>
-
 <li><a href="#http://www.w3.org/ns/sparql-service-description#Dataset">http://www.w3.org/ns/sparql-service-description#Dataset</a>
 <ul>
 <li>Added: SubClass of http://rdfs.org/ns/void#Dataset</li>
 </ul>
 </li>
-
-
-</ul><p><u>Deleted classes</u></p>
-<ul><li><a href="#http://www.w3.org/ns/adms#SemanticDistribution">http://www.w3.org/ns/adms#SemanticDistribution</a>
-</li>
-</ul><h3 id="changeProp" class="list">Object Properties</h3>
-<p><u>Modified properties</u></p>
-<ul><li><a href="#http://rdfs.org/ns/void#objectsTarget">http://rdfs.org/ns/void#objectsTarget</a>
+<li><a href="#SharedInstanceSet">http://purl.org/query/voidext#SharedInstanceSet</a>
 <ul>
-<li>Added: <http://purl.org/dc/terms/created> "2010-01-26"^^xsd:date</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#keiale</li>
-<li>Added: domain http://purl.org/query/voidext#VirtualLink</li>
-<li>Added: <http://purl.org/dc/terms/modified> "2019-01-30"^^xsd:date</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#Michael%20Hausenblas</li>
-<li>Added: <http://purl.org/dc/terms/contributor> http://purl.org/query/tarcisiomf</li>
-<li>Added: rdfs:comment "The dataset describing the objects of the triples contained in the virtual link."^^xsd:string</li>
-<li>Added: <http://purl.org/dc/terms/provenance> http://purl.org/query/voidext#MODIFIED_TARGET</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#junzha</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#cygri</li>
-</ul>
-<ul>
-<li>Deleted: domain http://rdfs.org/ns/void#Linkset</li>
-<li>Deleted: rdfs:comment "The dataset describing the objects of the triples contained in the Linkset."^^xsd:string</li>
+<li>Added: SubClass of http://rdfs.org/ns/void#Dataset</li>
 </ul>
 </li>
-<li><a href="#http://rdfs.org/ns/void#dataDump">http://rdfs.org/ns/void#dataDump</a>
+<li><a href="#VirtualLinkSet">http://purl.org/query/voidext#VirtualLinkSet</a>
+</li>
+<li><a href="#http://www.w3.org/ns/prov#Entity">http://www.w3.org/ns/prov#Entity</a>
+</li>
+<li><a href="#http://www.w3.org/ns/sparql-service-description#Graph">http://www.w3.org/ns/sparql-service-description#Graph</a>
 <ul>
-<li>Added: rdfs:isDefinedBy http://vocab.deri.ie/void</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#keiale</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#cygri</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#junzha</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#Michael%20Hausenblas</li>
+<li>Added: SubClass of http://rdfs.org/ns/void#Dataset</li>
 </ul>
 </li>
+<li><a href="#SimpleLinkSet">http://purl.org/query/voidext#SimpleLinkSet</a>
+<ul>
+<li>Added: EquivalentClasses EquivalentClasses(&lt;http://purl.org/query/voidext#SimpleLinkSet&gt; ObjectUnionOf(ObjectIntersectionOf(&lt;http://purl.org/query/voidext#SharedInstanceSet&gt; ObjectComplementOf(ObjectExactCardinality(1 &lt;http://purl.org/query/voidext#isSubsetOf&gt; &lt;http://rdfs.org/ns/void#Dataset&gt;))) ObjectIntersectionOf(&lt;http://rdfs.org/ns/void#Linkset&gt; ObjectComplementOf(ObjectSomeValuesFrom(&lt;http://rdfs.org/ns/void#target&gt; &lt;http://rdfs.org/ns/void#Linkset&gt;)))) )</li>
+<li>Added: SubClass of http://purl.org/query/voidext#VirtualLinkSet</li>
+</ul>
+</li>
+<li><a href="#ComplexLinkSet">http://purl.org/query/voidext#ComplexLinkSet</a>
+<ul>
+<li>Added: DisjointClasses DisjointClasses(&lt;http://purl.org/query/voidext#ComplexLinkSet&gt; &lt;http://rdfs.org/ns/void#Dataset&gt;)</li>
+<li>Added: SubClass of http://purl.org/query/voidext#VirtualLinkSet</li>
+<li>Added: EquivalentClasses EquivalentClasses(&lt;http://purl.org/query/voidext#ComplexLinkSet&gt; ObjectIntersectionOf(ObjectUnionOf(ObjectExactCardinality(2 &lt;http://purl.org/query/voidext#intersectAt&gt; &lt;http://purl.org/query/voidext#SharedInstanceSet&gt;) ObjectExactCardinality(2 &lt;http://purl.org/query/voidext#intersectAt&gt; &lt;http://rdfs.org/ns/void#Linkset&gt;)) ObjectComplementOf(&lt;http://purl.org/query/voidext#SimpleLinkSet&gt;)) )</li>
+</ul>
+</li>
+<li><a href="#http://mex.aksw.org/mex-perf#ClassificationMeasure">http://mex.aksw.org/mex-perf#ClassificationMeasure</a>
+<ul>
+<li>Added: SubClass of http://mex.aksw.org/mex-perf#PerformanceMeasure</li>
+</ul>
+</li>
+<li><a href="#LinkSetIntersection">http://purl.org/query/voidext#LinkSetIntersection</a>
+</li>
+<li><a href="#http://mex.aksw.org/mex-perf#PerformanceMeasure">http://mex.aksw.org/mex-perf#PerformanceMeasure</a>
+<ul>
+<li>Added: SubClass of http://www.w3.org/ns/prov#Entity</li>
+</ul>
+</li>
+<li><a href="#LINK_SHAREDINSTANCE_SET">http://purl.org/query/voidext#LINK_SHAREDINSTANCE_SET</a>
+<ul>
+<li>Added: EquivalentClasses EquivalentClasses(&lt;http://purl.org/query/voidext#LINK_SHAREDINSTANCE_SET&gt; ObjectUnionOf(&lt;http://purl.org/query/voidext#SharedInstanceSet&gt; &lt;http://rdfs.org/ns/void#Linkset&gt;) )</li>
+</ul>
+</li>
+</ul>
+<h3 id="changeProp" class="list">Object Properties</h3>
+<p><u>Major modified properties</u></p>
+<ul>
 <li><a href="#http://rdfs.org/ns/void#target">http://rdfs.org/ns/void#target</a>
 <ul>
-<li>Added: <http://purl.org/dc/terms/provenance> http://purl.org/query/voidext#MODIFIED_TARGET</li>
-<li>Added: domain http://purl.org/query/voidext#VirtualLink</li>
-<li>Added: <http://purl.org/dc/terms/modified> "2019-01-30"^^xsd:date</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#Michael%20Hausenblas</li>
-<li>Added: <http://purl.org/dc/terms/created> "2010-01-26"^^xsd:date</li>
-<li>Added: rdfs:comment "One of the two datasets linked by the virtual link."^^xsd:string</li>
-<li>Added: <http://purl.org/dc/terms/contributor> http://purl.org/query/tarcisiomf</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#keiale</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#junzha</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#cygri</li>
+<li>Added: domain http://purl.org/query/voidext#LINK_SHAREDINSTANCE_SET</li>
+<li>Added: <http://purl.org/dc/terms/modified> "2019-06-30"^^xsd:date</li>
+<li>Added: <http://purl.org/dc/terms/provenance> http://purl.org/query/voidext#MODIFIED_TARGET_1</li>
+<li>Added: rdfs:comment "One of the two datasets linked by the Linkset or the Shared instance set."^^xsd:string</li>
 </ul>
 <ul>
 <li>Deleted: domain http://rdfs.org/ns/void#Linkset</li>
 <li>Deleted: rdfs:comment "One of the two datasets linked by the Linkset."^^xsd:string</li>
 </ul>
 </li>
-<li><a href="#http://rdfs.org/ns/void#exampleResource">http://rdfs.org/ns/void#exampleResource</a>
-<ul>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#cygri</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#junzha</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#keiale</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#Michael%20Hausenblas</li>
-<li>Added: rdfs:isDefinedBy http://vocab.deri.ie/void</li>
-</ul>
-</li>
-<li><a href="#http://rdfs.org/ns/void#inDataset">http://rdfs.org/ns/void#inDataset</a>
-<ul>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#Michael%20Hausenblas</li>
-<li>Added: rdfs:isDefinedBy http://vocab.deri.ie/void</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#cygri</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#junzha</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#keiale</li>
-</ul>
-</li>
-<li><a href="#http://rdfs.org/ns/void#classPartition">http://rdfs.org/ns/void#classPartition</a>
-<ul>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#cygri</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#junzha</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#keiale</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#Michael%20Hausenblas</li>
-<li>Added: rdfs:isDefinedBy http://vocab.deri.ie/void</li>
-</ul>
-</li>
-<li><a href="#http://rdfs.org/ns/void#property">http://rdfs.org/ns/void#property</a>
-<ul>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#cygri</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#junzha</li>
-<li>Added: rdfs:isDefinedBy http://vocab.deri.ie/void</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#keiale</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#Michael%20Hausenblas</li>
-</ul>
-</li>
-<li><a href="#http://rdfs.org/ns/void#feature">http://rdfs.org/ns/void#feature</a>
-<ul>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#keiale</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#Michael%20Hausenblas</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#cygri</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#junzha</li>
-<li>Added: rdfs:isDefinedBy http://vocab.deri.ie/void</li>
-</ul>
-</li>
-<li><a href="#http://rdfs.org/ns/void#class">http://rdfs.org/ns/void#class</a>
-<ul>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#Michael%20Hausenblas</li>
-<li>Added: rdfs:isDefinedBy http://vocab.deri.ie/void</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#cygri</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#keiale</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#junzha</li>
-</ul>
-</li>
+</ul><p><u>Minor modified properties</u></p><ul>
 <li><a href="#http://rdfs.org/ns/void#linkPredicate">http://rdfs.org/ns/void#linkPredicate</a>
 <ul>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#keiale</li>
 <li>Added: rdfs:isDefinedBy http://vocab.deri.ie/void</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#Michael%20Hausenblas</li>
 <li>Added: rdfs:comment "It specifies the RDF predicate in a given dataset that relates to another dataset. In other words, the link predicate is the RDF property in the predicate position of an RDF triple that links two datasets."^^xsd:string</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#junzha</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#cygri</li>
-</ul>
-</li>
-<li><a href="#http://rdfs.org/ns/void#propertyPartition">http://rdfs.org/ns/void#propertyPartition</a>
-<ul>
-<li>Added: rdfs:isDefinedBy http://vocab.deri.ie/void</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#keiale</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#Michael%20Hausenblas</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#cygri</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#junzha</li>
-</ul>
-</li>
-<li><a href="#http://rdfs.org/ns/void#openSearchDescription">http://rdfs.org/ns/void#openSearchDescription</a>
-<ul>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#Michael%20Hausenblas</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#keiale</li>
-<li>Added: rdfs:isDefinedBy http://vocab.deri.ie/void</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#cygri</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#junzha</li>
 </ul>
 </li>
 <li><a href="#http://rdfs.org/ns/void#subset">http://rdfs.org/ns/void#subset</a>
 <ul>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#Michael%20Hausenblas</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#keiale</li>
-<li>Added: rdfs:isDefinedBy http://vocab.deri.ie/void</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#cygri</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#junzha</li>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;http://purl.org/query/voidext#isSubsetOf&gt; &lt;http://rdfs.org/ns/void#subset&gt;)</li>
 </ul>
 </li>
-<li><a href="#http://rdfs.org/ns/void#subjectsTarget">http://rdfs.org/ns/void#subjectsTarget</a>
-<ul>
-<li>Added: rdfs:comment "The dataset describing the subjects of triples contained in the virtual link."^^xsd:string</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#cygri</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#junzha</li>
-<li>Added: domain http://purl.org/query/voidext#VirtualLink</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#keiale</li>
-<li>Added: <http://purl.org/dc/terms/contributor> http://purl.org/query/tarcisiomf</li>
-<li>Added: <http://purl.org/dc/terms/created> "2010-01-26"^^xsd:date</li>
-<li>Added: <http://purl.org/dc/terms/modified> "2019-01-30"^^xsd:date</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#Michael%20Hausenblas</li>
-<li>Added: <http://purl.org/dc/terms/provenance> http://purl.org/query/voidext#MODIFIED_TARGET</li>
-</ul>
-<ul>
-<li>Deleted: domain http://rdfs.org/ns/void#Linkset</li>
-<li>Deleted: rdfs:comment "The dataset describing the subjects of triples contained in the Linkset."^^xsd:string</li>
-</ul>
-</li>
+
 </ul><p><u>Added properties</u></p>
-<ul>
-
-
-
-<li><a href="#http://purl.org/query/voidext#linkPredicateDomain">http://purl.org/query/voidext#linkPredicateDomain</a>
-<ul>
-<li>Added: domain http://rdfs.org/ns/void#Linkset</li>
-<li>Added: Range http://www.w3.org/2000/01/rdf-schema#Class</li>
-</ul>
-</li>
-
-
-
-<li><a href="#http://purl.org/query/voidext#recommendedMapping">http://purl.org/query/voidext#recommendedMapping</a>
-<ul>
-<li>Added: domain http://purl.org/query/voidext#ComplexLinkSet</li>
-<li>Added: FunctionalObjectProperty FunctionalObjectProperty(&lt;http://purl.org/query/voidext#recommendedMapping&gt;)</li>
-<li>Added: Range http://purl.org/query/voidext#SimpleLinkSet</li>
-</ul>
-</li>
-
-<li><a href="#http://purl.org/query/voidext#intersectionType">http://purl.org/query/voidext#intersectionType</a>
-<ul>
-<li>Added: Range http://purl.org/query/voidext#LinkSetIntersection</li>
-<li>Added: domain http://purl.org/query/voidext#ComplexLinkSet</li>
-</ul>
-</li>
-<li><a href="#http://purl.org/query/voidext#linkPredicateRange">http://purl.org/query/voidext#linkPredicateRange</a>
-<ul>
-<li>Added: Range http://www.w3.org/2000/01/rdf-schema#Class</li>
-<li>Added: domain http://rdfs.org/ns/void#Linkset</li>
-</ul>
-</li>
-
-
-
-<li><a href="#http://purl.org/query/voidext#sharedInstanceType">http://purl.org/query/voidext#sharedInstanceType</a>
+<ul><li><a href="#sharedInstanceType">http://purl.org/query/voidext#sharedInstanceType</a>
 <ul>
 <li>Added: domain http://purl.org/query/voidext#SharedInstanceSet</li>
 <li>Added: Range http://www.w3.org/2000/01/rdf-schema#Class</li>
 </ul>
 </li>
-<li><a href="#http://purl.org/query/voidext#intersectAt">http://purl.org/query/voidext#intersectAt</a>
+<li><a href="#intersectAt">http://purl.org/query/voidext#intersectAt</a>
 <ul>
 <li>Added: domain http://purl.org/query/voidext#ComplexLinkSet</li>
-<li>Added: Range http://purl.org/query/voidext#SimpleLinkSet</li>
+<li>Added: Range http://purl.org/query/voidext#LINK_SHAREDINSTANCE_SET</li>
+</ul>
+</li>
+<li><a href="#recommendedMapping">http://purl.org/query/voidext#recommendedMapping</a>
+<ul>
+<li>Added: Range http://purl.org/query/voidext#LINK_SHAREDINSTANCE_SET</li>
+<li>Added: domain http://purl.org/query/voidext#ComplexLinkSet</li>
+<li>Added: FunctionalObjectProperty FunctionalObjectProperty(&lt;http://purl.org/query/voidext#recommendedMapping&gt;)</li>
+</ul>
+</li>
+<li><a href="#linkPredicateRange">http://purl.org/query/voidext#linkPredicateRange</a>
+<ul>
+<li>Added: Range http://www.w3.org/2000/01/rdf-schema#Class</li>
+<li>Added: domain http://rdfs.org/ns/void#Linkset</li>
+</ul>
+</li>
+<li><a href="#hasPerformanceMeasure">http://purl.org/query/voidext#hasPerformanceMeasure</a>
+<ul>
+<li>Added: domain http://purl.org/query/voidext#VirtualLinkSet</li>
+<li>Added: Range http://mex.aksw.org/mex-perf#PerformanceMeasure</li>
+</ul>
+</li>
+<li><a href="#isSubsetOf">http://purl.org/query/voidext#isSubsetOf</a>
+<ul>
+<li>Added: InverseObjectProperties InverseObjectProperties(&lt;http://purl.org/query/voidext#isSubsetOf&gt; &lt;http://rdfs.org/ns/void#subset&gt;)</li>
+<li>Added: domain http://rdfs.org/ns/void#Dataset</li>
+<li>Added: Range http://rdfs.org/ns/void#Dataset</li>
+</ul>
+</li>
+<li><a href="#intersectionType">http://purl.org/query/voidext#intersectionType</a>
+<ul>
+<li>Added: Range http://purl.org/query/voidext#LinkSetIntersection</li>
+<li>Added: domain http://purl.org/query/voidext#ComplexLinkSet</li>
+</ul>
+</li>
+<li><a href="#linkPredicateDomain">http://purl.org/query/voidext#linkPredicateDomain</a>
+<ul>
+<li>Added: domain http://rdfs.org/ns/void#Linkset</li>
+<li>Added: Range http://www.w3.org/2000/01/rdf-schema#Class</li>
 </ul>
 </li>
 </ul><h3 id="changeDataProp" class="list">Data Properties</h3>
-<p><u>Modified data properties</u></p>
-<ul><li><a href="#http://rdfs.org/ns/void#distinctSubjects">http://rdfs.org/ns/void#distinctSubjects</a>
-<ul>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#cygri</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#junzha</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#keiale</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#Michael%20Hausenblas</li>
-<li>Added: rdfs:isDefinedBy http://vocab.deri.ie/void</li>
-</ul>
-</li>
-<li><a href="#http://rdfs.org/ns/void#entities">http://rdfs.org/ns/void#entities</a>
-<ul>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#cygri</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#Michael%20Hausenblas</li>
-<li>Added: rdfs:isDefinedBy http://vocab.deri.ie/void</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#keiale</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#junzha</li>
-</ul>
-</li>
-<li><a href="#http://rdfs.org/ns/void#classes">http://rdfs.org/ns/void#classes</a>
-<ul>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#Michael%20Hausenblas</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#keiale</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#cygri</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#junzha</li>
-<li>Added: rdfs:isDefinedBy http://vocab.deri.ie/void</li>
-</ul>
-</li>
-<li><a href="#http://rdfs.org/ns/void#distinctObjects">http://rdfs.org/ns/void#distinctObjects</a>
-<ul>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#junzha</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#cygri</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#keiale</li>
-<li>Added: rdfs:isDefinedBy http://vocab.deri.ie/void</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#Michael%20Hausenblas</li>
-</ul>
-</li>
-<li><a href="#http://rdfs.org/ns/void#properties">http://rdfs.org/ns/void#properties</a>
-<ul>
-<li>Added: rdfs:isDefinedBy http://vocab.deri.ie/void</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#Michael%20Hausenblas</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#cygri</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#junzha</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#keiale</li>
-</ul>
-</li>
-<li><a href="#http://rdfs.org/ns/void#documents">http://rdfs.org/ns/void#documents</a>
-<ul>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#cygri</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#junzha</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#keiale</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#Michael%20Hausenblas</li>
-<li>Added: rdfs:isDefinedBy http://vocab.deri.ie/void</li>
-</ul>
-</li>
-<li><a href="#http://rdfs.org/ns/void#uriSpace">http://rdfs.org/ns/void#uriSpace</a>
-<ul>
-<li>Added: rdfs:isDefinedBy http://vocab.deri.ie/void</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#Michael%20Hausenblas</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#keiale</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#junzha</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#cygri</li>
-</ul>
-</li>
-<li><a href="#http://rdfs.org/ns/void#triples">http://rdfs.org/ns/void#triples</a>
-<ul>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#keiale</li>
-<li>Added: rdfs:isDefinedBy http://vocab.deri.ie/void</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#Michael%20Hausenblas</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#junzha</li>
-<li>Added: dcterms:creator http://vocab.deri.ie/void#cygri</li>
-</ul>
-</li>
+
 </ul><p><u>Added data properties</u></p>
-<ul><li><a href="#http://purl.org/query/voidext#resourceMapping">http://purl.org/query/voidext#resourceMapping</a>
+<ul><li><a href="#supportFederatedQuery">http://purl.org/query/voidext#supportFederatedQuery</a>
 <ul>
-<li>Added: Domain http://purl.org/query/voidext#SimpleLinkSet</li>
+<li>Added: Range http://www.w3.org/2001/XMLSchema#boolean</li>
+<li>Added: Domain http://rdfs.org/ns/void#Dataset</li>
+</ul>
+</li>
+<li><a href="#resourceMapping">http://purl.org/query/voidext#resourceMapping</a>
+<ul>
+<li>Added: Domain http://purl.org/query/voidext#LINK_SHAREDINSTANCE_SET</li>
 <li>Added: FunctionalDataProperty FunctionalDataProperty(&lt;http://purl.org/query/voidext#resourceMapping&gt;)</li>
 <li>Added: Range http://www.w3.org/2000/01/rdf-schema#Literal</li>
 </ul>

@@ -8,6 +8,7 @@
 @prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
 @prefix voidext: <http://purl.org/query/voidext#> .
 @prefix bioquery: <http://purl.org/query/bioquery#> .
+@prefix ex: <http://example.org/voidext#> .
 @prefix obo: <http://purl.obolibrary.org/obo/> .
 @prefix lscr: <http://purl.org/lscr#> .
 @prefix orth:<http://purl.org/net/orth#> .
@@ -18,6 +19,8 @@
 @prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
 @prefix drugbank: <http://wifo5-04.informatik.uni-mannheim.de/drugbank/resource/drugbank/>.
 @prefix oboowl: <http://www.geneontology.org/formats/oboInOwl#> .
+@prefix mex: <http://mex.aksw.org/mex-perf#ClassificationMeasure> .
+
 	    
 ##############################################################
 ######### RDF Metadata Instances Bio-Query project ###########
@@ -56,21 +59,24 @@ bioquery:BGEE a void:Dataset;
 
 bioquery:OMA_EBI-ENSEMBL a void:Linkset;
              void:subjectsTarget bioquery:OMA;
-             void:objectsTarget bioquery:EBI;
+             void:objectsTarget bioquery:UNIPROT_EBI-ENSEMBL;
              void:linkPredicate lscr:xrefEnsemblGene;
              voidext:linkPredicateDomain <http://purl.org/net/orth#Gene>;
              voidext:linkPredicateRange <http://purl.obolibrary.org/obo/SO_0000704>;
-             dcterms:issued  "2019-06-28"^^xsd:date;
-             void:subset bioquery:OMA.
+             dcterms:issued  "2019-06-30"^^xsd:date;
+             voidext:isSubsetOf bioquery:OMA.
 
 bioquery:OMA_BGEE_1 a void:Linkset;
              void:subjectsTarget bioquery:OMA;
              void:objectsTarget bioquery:BGEE_OMA_4 ;
              void:linkPredicate dcterms:identifier;
-             voidext:linkPredicateDomain [ owl:unionOf (orth:Protein orth:Gene) ] ;
+             voidext:linkPredicateDomain bioquery:Protein_Gene ;
              voidext:linkPredicateRange rdfs:Literal;
              dcterms:issued  "2019-06-28"^^xsd:date;
              voidext:isSubsetOf bioquery:OMA.
+             
+bioquery:Protein_Gene a owl:Class;
+					  owl:unionOf (orth:Protein orth:Gene) .
 
 bioquery:BGEE_OMA_4 a void:Linkset;
              void:subjectsTarget bioquery:BGEE;
@@ -86,14 +92,14 @@ bioquery:BGEE_OMA_1_4 a voidext:ComplexLinkSet;
 			 voidext:intersectAt bioquery:BGEE_OMA_4 ;
              dcterms:issued  "2019-06-28"^^xsd:date;
 			 voidext:intersectionType voidext:OBJECT_OBJECT .	
-###To continue from here
-bioquery:OMA_BGEE_2 a voidext:SharedInstanceSet;
+
+bioquery:OMA_BGEE_2 a voidext:SharedInstanceSet, voidext:SimpleLinkSet;
              void:target bioquery:OMA;
              void:target bioquery:BGEE;
              dcterms:issued  "2019-06-28"^^xsd:date;
              voidext:sharedInstanceType orth:Gene.
 
-bioquery:OMA_BGEE_3 a voidext:SharedInstanceSet;
+bioquery:OMA_BGEE_3 a voidext:SharedInstanceSet, voidext:SimpleLinkSet;
              void:target bioquery:OMA;
              void:target bioquery:BGEE;
              dcterms:issued  "2019-06-28"^^xsd:date;
@@ -102,26 +108,24 @@ bioquery:OMA_BGEE_3 a voidext:SharedInstanceSet;
 
 bioquery:OMA_BGEE_4 a void:Linkset;
              void:subjectsTarget bioquery:OMA;
-             void:objectsTarget bioquery:BGEE;
+             void:objectsTarget bioquery:BGEE_OMA_1;
              void:linkPredicate rdfs:label;
              voidext:linkPredicateDomain orth:Protein;
              voidext:linkPredicateRange rdfs:Literal;
              dcterms:issued  "2019-06-28"^^xsd:date;
-             void:subset bioquery:OMA.
+             voidext:isSubsetOf bioquery:OMA.
 
 
 bioquery:BGEE_OMA_1 a void:Linkset;
              void:subjectsTarget bioquery:BGEE;
-             void:objectsTarget bioquery:OMA;
+             void:objectsTarget bioquery:OMA_BGEE_4;
              void:linkPredicate rdfs:label;
              voidext:linkPredicateDomain orth:Gene;
              voidext:linkPredicateRange rdfs:Literal;
              dcterms:issued  "2019-06-28"^^xsd:date;
-             void:subset bioquery:BGEE.
+             voidext:isSubsetOf bioquery:BGEE.
 
 bioquery:BGEE_OMA_2 a voidext:ComplexLinkSet;
-			void:target bioquery:OMA;
-            void:target bioquery:BGEE;
 			voidext:intersectAt bioquery:BGEE_OMA_1 ;
 			voidext:intersectAt bioquery:OMA_BGEE_4 ;
             dcterms:issued  "2019-06-28"^^xsd:date;
@@ -129,16 +133,14 @@ bioquery:BGEE_OMA_2 a voidext:ComplexLinkSet;
 			
 bioquery:BGEE_UNIPROT_3 a void:Linkset;
              void:subjectsTarget bioquery:BGEE;
-             void:objectsTarget bioquery:UNIPROT;
+             void:objectsTarget bioquery:UNIPROT_BGEE_6;
              void:linkPredicate rdfs:label;
              voidext:linkPredicateDomain orth:Gene;
              voidext:linkPredicateRange rdfs:Literal;
              dcterms:issued  "2019-06-28"^^xsd:date;
-             void:subset bioquery:BGEE.
+             voidext:isSubsetOf bioquery:BGEE.
              
 bioquery:BGEE_UNIPROT_4 a voidext:ComplexLinkSet;
-			void:target bioquery:UNIPROT;
-            void:target bioquery:BGEE;
 			voidext:intersectAt bioquery:BGEE_UNIPROT_3 ;
 			voidext:intersectAt bioquery:UNIPROT_BGEE_6 ;
             dcterms:issued  "2019-06-28"^^xsd:date;
@@ -146,70 +148,65 @@ bioquery:BGEE_UNIPROT_4 a voidext:ComplexLinkSet;
              
 bioquery:UNIPROT_EBI-ENSEMBL a void:Linkset;
              void:subjectsTarget bioquery:UNIPROT;
-             void:objectsTarget bioquery:EBI;
+             void:objectsTarget bioquery:OMA_EBI-ENSEMBL;
              void:linkPredicate up:transcribedFrom;
              voidext:linkPredicateDomain up:Transcript_Resource;
              voidext:linkPredicateRange obo:SO_0000704;
              dcterms:issued  "2019-06-28"^^xsd:date;
-             void:subset bioquery:UNIPROT.
+             voidext:isSubsetOf bioquery:UNIPROT.
 
 bioquery:UNIPROT_OMA_2 a voidext:ComplexLinkSet;
-			void:target bioquery:OMA;
-            void:target bioquery:UNIPROT;
 			voidext:intersectAt bioquery:UNIPROT_EBI-ENSEMBL ;
 			voidext:intersectAt bioquery:OMA_EBI-ENSEMBL ;
-            dcterms:issued  "2019-06-28"^^xsd:date;
+            dcterms:issued  "2019-06-30"^^xsd:date;
 			voidext:intersectionType voidext:OBJECT_OBJECT .
 
 
 
-bioquery:OMA_UNIPROT_1 a void:Linkset;
+bioquery:OMA_UNIPROT_1 a void:Linkset, voidext:SimpleLinkSet;
              void:objectsTarget   bioquery:UNIPROT;
              void:subjectsTarget  bioquery:OMA;
              void:linkPredicate lscr:xrefUniprot;
              voidext:linkPredicateDomain orth:Protein;
              voidext:linkPredicateRange up:Protein;
              dcterms:issued  "2019-06-28"^^xsd:date;
-             void:subset bioquery:OMA.
+             voidext:isSubsetOf bioquery:OMA.
 
+             
 bioquery:OMA_UNIPROT_4 a void:Linkset;
              void:subjectsTarget bioquery:OMA;
-             void:objectsTarget bioquery:UNIPROT;
+             void:objectsTarget bioquery:UNIPROT_OMA_6;
              void:linkPredicate rdfs:label;
              voidext:linkPredicateDomain orth:Protein;
              voidext:linkPredicateRange rdfs:Literal;
              dcterms:issued  "2019-06-28"^^xsd:date;
-             void:subset bioquery:OMA.   
+             voidext:isSubsetOf bioquery:OMA.   
 
 bioquery:UNIPROT_OMA_3 a voidext:ComplexLinkSet;
-			void:target bioquery:OMA;
-            void:target bioquery:UNIPROT;
-			voidext:intersectAt bioquery:OMA_UNIPROT_2 ;
+   			voidext:intersectAt bioquery:OMA_UNIPROT_2 ;
 			voidext:intersectAt bioquery:UNIPROT_OMA_4 ;
             dcterms:issued  "2019-06-28"^^xsd:date;
 			voidext:intersectionType voidext:OBJECT_OBJECT .      
 
 bioquery:UNIPROT_OMA_6 a void:Linkset;
              void:subjectsTarget bioquery:UNIPROT;
-             void:objectsTarget bioquery:OMA;
+             void:objectsTarget bioquery:OMA_UNIPROT_4;
              void:linkPredicate skos:prefLabel;
              voidext:linkPredicateDomain up:Gene;
              voidext:linkPredicateRange rdfs:Literal;
              dcterms:issued  "2019-06-28"^^xsd:date;
-             void:subset bioquery:UNIPROT.
+             voidext:isSubsetOf bioquery:UNIPROT.
 
 bioquery:UNIPROT_BGEE_6 a void:Linkset;
              void:subjectsTarget bioquery:UNIPROT;
-             void:objectsTarget bioquery:BGEE;
+             void:objectsTarget bioquery:BGEE_UNIPROT_3;
              void:linkPredicate skos:prefLabel;
              voidext:linkPredicateDomain up:Gene;
              voidext:linkPredicateRange rdfs:Literal;
              dcterms:issued  "2019-06-28"^^xsd:date;
-             void:subset bioquery:UNIPROT.
+             voidext:isSubsetOf bioquery:UNIPROT.
 
 bioquery:UNIPROT_OMA_5 a voidext:ComplexLinkSet;
-			void:target bioquery:OMA;
-            void:target bioquery:UNIPROT;
 			voidext:intersectAt bioquery:UNIPROT_OMA_6 ;
 			voidext:intersectAt bioquery:OMA_UNIPROT_4 ;
             dcterms:issued  "2019-06-28"^^xsd:date;
@@ -217,14 +214,14 @@ bioquery:UNIPROT_OMA_5 a voidext:ComplexLinkSet;
 			
 bioquery:OMA_UNIPROT_2 a void:Linkset;
              void:subjectsTarget bioquery:OMA;
-             void:objectsTarget bioquery:UNIPROT;
+             void:objectsTarget bioquery:UNIPROT_OMA_4;
              void:linkPredicate oma:swissProtId;
              voidext:linkPredicateDomain orth:Protein;
              voidext:linkPredicateRange rdfs:Literal;
              dcterms:issued  "2019-06-28"^^xsd:date;
-             void:subset bioquery:OMA.   
+             voidext:isSubsetOf bioquery:OMA.   
 
-bioquery:OMA_UNIPROT_3 a voidext:SharedInstanceSet;
+bioquery:OMA_UNIPROT_3 a voidext:SharedInstanceSet, voidext:SimpleLinkSet;
              void:target bioquery:OMA;
              void:target bioquery:UNIPROT;
              dcterms:issued  "2019-06-28"^^xsd:date;
@@ -232,55 +229,72 @@ bioquery:OMA_UNIPROT_3 a voidext:SharedInstanceSet;
 
 bioquery:UNIPROT_OMA_4 a void:Linkset;
              void:subjectsTarget bioquery:UNIPROT;
-             void:objectsTarget bioquery:OMA;
+             void:objectsTarget bioquery:OMA_UNIPROT_2;
              void:linkPredicate up:mnemonic;
              voidext:linkPredicateDomain up:Protein;
              voidext:linkPredicateRange rdfs:Literal;
              dcterms:issued  "2019-06-28"^^xsd:date;
-             void:subset bioquery:UNIPROT.     
+             voidext:isSubsetOf bioquery:UNIPROT.     
              
 bioquery:BGEE_UNIPROT_1 a voidext:ComplexLinkSet;
-			void:target bioquery:BGEE;
-            void:target bioquery:UNIPROT;
-			voidext:intersectAt bioquery:BGEE_EBI-ENSEMBL ;
-			voidext:intersectAt bioquery:UNIPROT_EBI-ENSEMBL ;
+			voidext:intersectAt bioquery:BGEE_UNIPROT-EBI-ENSEMBL ;
+			voidext:intersectAt bioquery:UNIPROT_BGEE_EBI-ENSEMBL ;
             dcterms:issued  "2019-06-28"^^xsd:date;
 			voidext:intersectionType voidext:OBJECT_OBJECT .      
+
+bioquery:UNIPROT_BGEE_EBI-ENSEMBL a void:Linkset;
+             void:subjectsTarget bioquery:UNIPROT;
+             void:objectsTarget bioquery:BGEE_UNIPROT-EBI-ENSEMBL;
+             void:linkPredicate up:transcribedFrom;
+             voidext:linkPredicateDomain up:Transcript_Resource;
+             voidext:linkPredicateRange obo:SO_0000704;
+             dcterms:issued  "2019-06-30"^^xsd:date;
+             voidext:isSubsetOf bioquery:UNIPROT.
 			
-bioquery:BGEE_UNIPROT_2 a voidext:SharedInstanceSet;
+bioquery:BGEE_UNIPROT_2 a voidext:SharedInstanceSet, voidext:SimpleLinkSet;
              void:target bioquery:BGEE;
              void:target bioquery:UNIPROT;
              dcterms:issued  "2019-06-28"^^xsd:date;
              voidext:sharedInstanceType up:Taxon.
              
+bioquery:BGEE_UNIPROT-EBI-ENSEMBL a void:Linkset;
+             void:subjectsTarget bioquery:BGEE;
+             void:objectsTarget bioquery:UNIPROT_EBI-ENSEMBL;
+             void:linkPredicate lscr:xrefEnsemblGene;
+             voidext:linkPredicateDomain <http://purl.org/net/orth#Gene>;
+             voidext:linkPredicateRange <http://purl.obolibrary.org/obo/SO_0000704>;
+             dcterms:issued  "2019-06-30"^^xsd:date;
+             voidext:isSubsetOf bioquery:BGEE.  
+
 bioquery:BGEE_EBI-ENSEMBL a void:Linkset;
              void:subjectsTarget bioquery:BGEE;
-             void:objectsTarget bioquery:EBI;
+             void:objectsTarget bioquery:OMA_BGEE-ENSEMBL;
              void:linkPredicate lscr:xrefEnsemblGene;
              voidext:linkPredicateDomain <http://purl.org/net/orth#Gene>;
              voidext:linkPredicateRange <http://purl.obolibrary.org/obo/SO_0000704>;
              dcterms:issued  "2019-06-28"^^xsd:date;
-             void:subset bioquery:BGEE.   
+             voidext:isSubsetOf bioquery:BGEE.   
+
+bioquery:OMA_BGEE-ENSEMBL a void:Linkset;
+             void:subjectsTarget bioquery:OMA;
+             void:objectsTarget bioquery:BGEE_EBI-ENSEMBL;
+             void:linkPredicate lscr:xrefEnsemblGene;
+             voidext:linkPredicateDomain <http://purl.org/net/orth#Gene>;
+             voidext:linkPredicateRange <http://purl.obolibrary.org/obo/SO_0000704>;
+             dcterms:issued  "2019-06-30"^^xsd:date;
+             voidext:isSubsetOf bioquery:OMA.
 
  bioquery:BGEE_OMA_3 a voidext:ComplexLinkSet;
-			void:target bioquery:BGEE;
-            void:target bioquery:OMA;
 			voidext:intersectAt bioquery:BGEE_EBI-ENSEMBL ;
-			voidext:intersectAt bioquery:OMA_EBI-ENSEMBL ;
+			voidext:intersectAt bioquery:OMA_BGEE-ENSEMBL ;
             dcterms:issued  "2019-06-28"^^xsd:date;
 			voidext:intersectionType voidext:OBJECT_OBJECT .
+
 
 
 ##############################################################
 ########  RDF Metadata VoIDext specification examples   ######
 ##############################################################
-
-bioquery:EBI a void:Dataset;
-    dcterms:title "Linked Open Data platform for EBI data.";
-    dcterms:description "The EBI RDF Platform aims to bring together the efforts of a number of EMBL-EBI resources that provide access to their data using Semantic Web technologies.";
-    void:sparqlEndpoint <https://www.ebi.ac.uk/rdf/services/sparql>;
-    dcterms:modified "2017-07-10"^^xsd:date;
-    foaf:homepage <https://www.ebi.ac.uk/rdf/>.
 
 bioquery:ORDO sd:name <http://rdf.ebi.ac.uk/dataset/ordo>;
               a sd:Graph.
@@ -297,14 +311,8 @@ bioquery:EBI_ORDO a sd:Dataset, void:Dataset;
     void:sparqlEndpoint <https://www.ebi.ac.uk/rdf/services/sparql>;
     dcterms:modified "2017-07-10"^^xsd:date;
     foaf:homepage <https://www.ebi.ac.uk/rdf/>;
-    void:subset bioquery:EBI.
+    voidext:isSubsetOf bioquery:EBI.
 
-bioquery:UNIPROT a void:Dataset;
-    dcterms:title "The Universal Protein Resource (UniProt)";
-    dcterms:description "High-quality and freely accessible resource of protein sequence and functional information.";
-    void:sparqlEndpoint <https://sparql.uniprot.org/sparql/>;
-    dcterms:modified "2018-11-01"^^xsd:date;
-    foaf:homepage <https://www.uniprot.org>.    
     
 bioquery:DRUGBANK a void:Dataset;
     dcterms:title "Drug Bank RDF";
@@ -313,90 +321,259 @@ bioquery:DRUGBANK a void:Dataset;
     dcterms:modified "2011-01-01"^^xsd:date;
     foaf:homepage <http://wifo5-04.informatik.uni-mannheim.de/drugbank/>.
 
-bioquery:OMA a void:Dataset;
-    dcterms:title "Orthologous Matrix (OMA)";
-    dcterms:description "RDF data extracted from OMA HDF5 file.";
-    void:sparqlEndpoint <https://sparql.omabrowser.org/sparql>;
-    dcterms:modified "2018-06-01"^^xsd:date;
-    foaf:homepage <https://omabrowser.org/>.
 
 bioquery:EBI_UNIPROT_10 a voidext:SharedInstanceSet;
              void:target bioquery:EBI;
              void:target bioquery:UNIPROT;
-             void:subset bioquery:EBI;
+             voidext:isSubsetOf bioquery:EBI;
              voidext:resourceMapping '''?IRI_EBI a <http://www.biopax.org/release/biopax-level3.owl#BioSource>.
 BIND(IRI(CONCAT("http://purl.uniprot.org/taxonomy/",
          STRAFTER(STR(?IRI_EBI),"http://identifiers.org/taxonomy/"))) as ?IRI_UNIPROT)
 
 FILTER(STRSTARTS(STR(?IRI_EBI),"http://identifiers.org/taxonomy/"))''';
-             voidext:sharedInstanceType biopax:BioSource.
+             voidext:sharedInstanceType biopax:BioSource;
+		     dcterms:issued  "2019-06-30"^^xsd:date . 
 
 bioquery:EBI_UNIPROT_11 a voidext:SharedInstanceSet;
              void:target bioquery:EBI;
              void:target bioquery:UNIPROT;
-             void:subset bioquery:UNIPROT;
+             voidext:isSubsetOf bioquery:UNIPROT;
              voidext:resourceMapping 
              '''?IRI_UNIPROT a <http://purl.uniprot.org/core/Taxon>.
 BIND(IRI(CONCAT("http://identifiers.org/taxonomy/",
          STRAFTER(STR(?IRI_UNIPROT),"http://purl.uniprot.org/taxonomy/"))) as ?IRI_EBI)
 
 FILTER(STRSTARTS(STR(?IRI_UNIPROT),"http://purl.uniprot.org/taxonomy/"))''';
-             dcterms:issued  "2019-06-28"^^xsd:date;
-             voidext:sharedInstanceType up:Taxon . 
+             voidext:sharedInstanceType up:Taxon ;
+		     dcterms:issued  "2019-06-30"^^xsd:date .  
              
 bioquery:EBI_UNIPROT_12 a voidext:ComplexLinkSet;
-             rdfs:comment "A virtual link between EBI and UniProt that share similar organism taxonomy instances. Being UniProt the most complete in terms of organism taxonomy in RDF.";
-             void:target bioquery:EBI;
-             void:target bioquery:UNIPROT;
+             rdfs:label "Links between EBI and UniProt considering shared similar instances of organism taxonomy"@en;
+             rdfs:comment "A virtual link set between EBI and UniProt that share similar organism taxonomy instances. Being UniProt the most complete in terms of organism taxonomy in RDF.";
              voidext:intersectAt bioquery:EBI_UNIPROT_11 ;
 			 voidext:intersectAt bioquery:EBI_UNIPROT_10 ; 
-             dcterms:issued  "2019-06-28"^^xsd:date;
-			 voidext:recommendedMapping bioquery:EBI_UNIPROT_10 .             
+			 voidext:recommendedMapping bioquery:EBI_UNIPROT_10 ;
+		     dcterms:issued  "2019-06-30"^^xsd:date .              
              
 bioquery:DRUGBANK_EBI-ORDO a void:Linkset;
              void:subjectsTarget bioquery:DRUGBANK;
              rdfs:label "The link predicate description from drugbank dataset to the ORDO/EBI rare diseases dataset.";
-             rdfs:comment "It is a simple virtual link  from ORDO/EBI rare diseases dataset to the drugbank dataset that is part of the bioquery:DRUGBANK_EBI-ORDO_VL complex virtual link. )";
-             void:objectsTarget bioquery:EBI_ORDO;
+             rdfs:comment "It is a linkset from the drugbank dataset to ORDO/EBI rare diseases dataset that is part of the bioquery:DRUGBANK_EBI-ORDO_VL complex link set.";
+             void:objectsTarget bioquery:EBI-ORDO_DRUGBANK;
              void:linkPredicate drugbank:swissprotId;
              voidext:linkPredicateDomain drugbank:targets;
-             dcterms:issued  "2019-06-28"^^xsd:date;
-             void:subset bioquery:DRUGBANK.   
+             voidext:isSubsetOf bioquery:DRUGBANK;
+		     dcterms:issued  "2019-06-30"^^xsd:date .    
              
 bioquery:EBI-ORDO_DRUGBANK a void:Linkset;
              rdfs:label "The link predicate description from ORDO/EBI rare diseases dataset to the drugbank dataset.";
-             rdfs:comment "It is a simple virtual link  from ORDO/EBI rare diseases dataset to the drugbank dataset that is part of the bioquery:DRUGBANK_EBI-ORDO_VL complex virtual link. )";
-             void:objectsTarget bioquery:DRUGBANK;
+             rdfs:comment "It is a linkset  from ORDO/EBI rare diseases dataset to the drugbank dataset that is part of the bioquery:DRUGBANK_EBI-ORDO_VL complex link set.";
+             void:objectsTarget bioquery:DRUGBANK_EBI-ORDO;
              void:subjectsTarget bioquery:EBI_ORDO;
              void:linkPredicate oboowl:hasDbXref;
              voidext:linkPredicateRange xsd:string ;
              voidext:resourceMapping '''?g <http://www.geneontology.org/formats/oboInOwl#hasDbXref> ?i.
  BIND( IRI(CONCAT("http://bio2rdf.org/uniprot:",STRAFTER(?i,"SwissProt:"))) as ?NEW_IRI)
  FILTER (CONTAINS(?i, "SwissProt:" ))''';
-             dcterms:issued  "2019-06-28"^^xsd:date;
-             void:subset bioquery:EBI_ORDO.
+             voidext:isSubsetOf bioquery:EBI_ORDO;
+		     dcterms:issued  "2019-06-30"^^xsd:date .  
 
  bioquery:DRUGBANK_EBI-ORDO_VL a voidext:ComplexLinkSet;
-            rdfs:label "Virtual link for rare diseases (ORDO/EBI dataset) and drug targets (drugbank dataset).";
-            rdfs:comment "Virtual link between the Orphanet rare disease terms stored as a subset in the EBI RDF store and the drug targets in DrugBank dataset. They have in common swissprot identifiers but they are represented in a different way. One is a string and another one an URI both of them containing a swissprot identifier.";
-			void:target bioquery:DRUGBANK;
-            void:target bioquery:EBI_ORDO;
+            rdfs:label "Virtual links for rare diseases (ORDO/EBI dataset) and drug targets (drugbank dataset).";
+            rdfs:comment "Virtual links between the Orphanet rare disease terms stored as a subset in the EBI RDF store and the drug targets in DrugBank dataset. They have in common swissprot identifiers but they are represented in a different way. One is a string and another one an URI both of them containing a swissprot identifier.";
 			voidext:intersectAt bioquery:EBI-ORDO_DRUGBANK ;
 			voidext:intersectAt bioquery:DRUGBANK_EBI-ORDO ;
 			voidext:intersectionType voidext:OBJECT_OBJECT ;
-            dcterms:issued  "2019-06-28"^^xsd:date;
-		    voidext:recommendedMapping bioquery:EBI-ORDO_DRUGBANK . 
+		    voidext:recommendedMapping bioquery:EBI-ORDO_DRUGBANK;
+		    dcterms:issued  "2019-06-30"^^xsd:date . 
 
 
-             
-bioquery:OMA_UNIPROT_1 a void:Linkset;
-             void:objectsTarget   bioquery:UNIPROT;
-             void:subjectsTarget  bioquery:OMA;
-             void:linkPredicate lscr:xrefUniprot;
-             voidext:linkPredicateDomain orth:Protein;
-             voidext:linkPredicateRange up:Protein;
-             dcterms:issued  "2019-06-28"^^xsd:date;
-             void:subset bioquery:OMA.
 
 
+#################
+########### Non life sciences virtual link set examples
+#################     
+
+
+ex:DBPEDIA a void:Dataset;
+    dcterms:title "DBpedia";
+    dcterms:description "The RDF dataset based on the Wikipedia dumps dating from October 2016.";
+    void:sparqlEndpoint <http://dbpedia.org/sparql>;
+    dcterms:modified "2016-10-01"^^xsd:date;
+    foaf:homepage <https://dbpedia.org>.
+    
+ex:MUSICBRAINZ a void:Dataset;
+    dcterms:title "MusicBrainz";
+    dcterms:description "MusicBrainz - The Open Music Encyclopedia in RDF";
+    void:sparqlEndpoint <http://dbtune.org/musicbrainz/sparql>;
+    dcterms:modified "2011-07-01"^^xsd:date;
+    foaf:homepage <https://wiki.musicbrainz.org/LinkedBrainz>.
+
+ex:LINDAS  a void:Dataset;
+    dcterms:title "LINDAS Linked Data Service - Swiss Government Data";
+    dcterms:description "Swiss authorities can use LINDAS Linked Data Service to make their data available as RDF";
+    void:sparqlEndpoint <https://lindas-data.ch/sparql>;
+    foaf:homepage <https://lindas-data.ch/>.
+
+ex:DBPEDIA_MUSICBRAINZ  a void:Linkset;
+             void:subjectsTarget ex:DBPEDIA;
+             rdfs:label "A link set for artists and bands from DBpedia to MusicBrainz dataset.";
+             rdfs:comment "It is a linkset from DBpedia to MusicBrainz dataset that is part of the ex:DBPEDIA_MUSICBRAINZ_VL complex link set. It describes a mapping function to cast the type of rdfs:label assertions stated to instances of dbpedia:Band, dbpedia:Artist and dbpedia_yago:Artist109812338 types to be equivalent to literals in MusicBrainz dataset. These types are also stated as voidext:linkPredicateDomain(s) of the link predicate (rdfs:label) in this linkset.";
+             void:objectsTarget ex:MUSICBRAINZ_DBPEDIA;
+             void:linkPredicate rdfs:label;
+             voidext:linkPredicateDomain ex:Artist_Band;
+             voidext:resourceMapping 
+'''{?a a <http://dbpedia.org/class/yago/Artist109812338>.} 
+    UNION {?a a <http://dbpedia.org/ontology/Band>. }
+    UNION{ ?a a <http://dbpedia.org/ontology/Artist>.}
+    ?a <http://www.w3.org/2000/01/rdf-schema#label> ?v.
+    BIND(str(?v) as ?new_name )''';
+             voidext:isSubsetOf ex:DBPEDIA;
+             dcterms:issued  "2019-06-30"^^xsd:date.   
  
+ex:Artist_Band a owl:Class; 
+ 	owl:unionOf  (<http://dbpedia.org/ontology/Artist>   <http://dbpedia.org/class/yago/Artist109812338>  <http://dbpedia.org/ontology/Band>) .
+ 	             
+ex:MUSICBRAINZ_DBPEDIA a void:Linkset;
+             rdfs:label "A link set for musical artists (that includes bands) from  MusicBrainz dataset to DBpedia dataset.";
+             rdfs:comment "It is a linkset from MusicBrainz dataset to the DBpedia dataset. This link set is part of the ex:DBPEDIA_MUSICBRAINZ_VL complex virtual link. ";
+             void:objectsTarget ex:DBPEDIA_MUSICBRAINZ;
+             void:subjectsTarget ex:MUSICBRAINZ;
+             void:linkPredicate foaf:name;
+             voidext:linkPredicateRange rdfs:Literal ;
+             voidext:linkPredicateDomain <http://purl.org/ontology/mo/MusicArtist>;
+             voidext:isSubsetOf ex:MUSICBRAINZ;
+             dcterms:issued  "2019-06-30"^^xsd:date.
+
+ ex:DBPEDIA_MUSICBRAINZ_VL a voidext:ComplexLinkSet;
+            rdfs:label "A virtual link set for musical artists and bands in both DBpedia and MusicBraiz datasets.";
+            rdfs:comment "A set of virtual links is established between the objects of foaf:name assigned to mo:MusicArtist types and the objects of rdfs:label assigned to instances of dbpedia:Band, dbpedia:Artist and dbpedia_yago:Artist109812338 types. They have in common artists/bands' names but they are represented in a different way. One is a literal and another one a literal with a language tag. In this virtual link set, the knowlege domain of intersection is about artists and bands. Thus, rdfs:label(s) and foaf:name(s) are restricted to this domain.";
+			voidext:intersectAt ex:MUSICBRAINZ_DBPEDIA ;
+			voidext:intersectAt ex:DBPEDIA_MUSICBRAINZ ;
+			voidext:intersectionType voidext:OBJECT_OBJECT ;
+		    voidext:recommendedMapping ex:DBPEDIA_MUSICBRAINZ;
+		    dcterms:issued  "2019-06-30"^^xsd:date. 
+
+
+ex:MUSICBRAINZ_DBPEDIA_SAMEAS a void:Linkset, voidext:SimpleLinkSet;
+             rdfs:label "A link set based on owl:sameAs assertions for musical artists (that includes bands) from  MusicBrainz dataset to DBpedia dataset.";
+             rdfs:comment "It is a simple link set from MusicBrainz dataset to the DBpedia dataset based on owl:sameAs assertions stated in the MusicBrainz dataset where the owl:sameAs objects are described in DBpedia. Although more precise, this link set has a lower coverage than ex:DBPEDIA_MUSICBRAINZ_VL .";
+             void:objectsTarget ex:DBPEDIA;
+             void:subjectsTarget ex:MUSICBRAINZ;
+             void:linkPredicate owl:sameAs;
+             voidext:linkPredicateRange ex:Artist_Band;
+             voidext:linkPredicateDomain <http://purl.org/ontology/mo/MusicArtist>;
+             voidext:isSubsetOf ex:MUSICBRAINZ;
+             dcterms:issued  "2019-06-30"^^xsd:date.    
+ 
+ 
+ ex:DBPEDIA_LINDAS_SWISSCANTON  a void:Linkset;
+             void:subjectsTarget ex:DBPEDIA;
+             rdfs:label "A link set for Swiss cantons from DBpedia to Swiss government LINDAS dataset.";
+             rdfs:comment "It is a simple link set from DBpedia to Swiss government LINDAS dataset that is part of the ex:DBPEDIA_LINDAS_SWISSCANTON_VL complex link set. The subject of the void:linkPredicate can be any IRI. However, because this link set is about cantons of Switzerland, the mapping function restricts the subjects' IRIs to those resources that also assert dbpedia:Category:Cantons_of_Switzerland to the dct:subject property.";
+             void:objectsTarget ex:LINDAS_DBPEDIA_SWISSCANTON;
+             void:linkPredicate <http://dbpedia.org/property/shortName>;
+             voidext:linkPredicateRange rdf:langString ;
+             voidext:resourceMapping 
+'''
+?dbpedia_place <http://purl.org/dc/terms/subject> <http://dbpedia.org/resource/Category:Cantons_of_Switzerland>.
+?dbpedia_place <http://dbpedia.org/property/shortName> ?c.
+BIND(IF(str(?c)="Grisons", "Graubünden / Grigioni / Grischun",
+      IF(str(?c)="Geneva", "Genève",
+      IF(str(?c)="Lucerne", "Luzern",
+      IF(str(?c)="Valais", "Valais / Wallis",
+      IF(str(?c)="Bern", "Bern / Berne",
+      IF(str(?c)="Fribourg", "Fribourg / Freiburg", str(?c) ))))))
+        as ?new_name)''';
+             voidext:isSubsetOf ex:DBPEDIA;
+             dcterms:issued  "2019-06-30"^^xsd:date.
+   
+ ex:LINDAS_DBPEDIA_SWISSCANTON  a void:Linkset;
+             rdfs:label "A link set for Swiss cantons from  LINDAS Swiss government dataset to DBpedia dataset.";
+             rdfs:comment "It is a simple link set from LINDAS dataset to the DBpedia dataset. This link set is part of the ex:DBPEDIA_LINDAS_VL complex link set. ";
+             void:objectsTarget ex:DBPEDIA_LINDAS_SWISSCANTON;
+             void:subjectsTarget ex:LINDAS;
+             void:linkPredicate <https://gont.ch/longName>;
+             voidext:linkPredicateRange rdfs:Literal ;
+             voidext:linkPredicateDomain  <https://gont.ch/Canton>  ;
+             voidext:resourceMapping 
+'''?x a  <https://gont.ch/Canton>.
+?x <https://gont.ch/longName> ?c.
+BIND(IF(contains(?c,"Graubünden"), "Grisons"^^<http://www.w3.org/1999/02/22-rdf-syntax-ns#langString>,
+      IF( ?c="Genève", "Geneva"^^<http://www.w3.org/1999/02/22-rdf-syntax-ns#langString>,
+      IF( ?c="Luzern", "Lucerne"^^<http://www.w3.org/1999/02/22-rdf-syntax-ns#langString>,
+      IF(contains(?c, "/"), STRDT(STRBEFORE(?c, " /"),<http://www.w3.org/1999/02/22-rdf-syntax-ns#langString>),
+            STRDT(?c,<http://www.w3.org/1999/02/22-rdf-syntax-ns#langString>)))))
+        as ?new_name)''';
+             voidext:isSubsetOf ex:LINDAS;
+             dcterms:issued  "2019-06-30"^^xsd:date.
+
+
+ ex:DBPEDIA_LINDAS_SWISSCANTON_VL a voidext:ComplexLinkSet;
+            rdfs:label "A virtual link set for cantons in both DBpedia and LINDAS Swiss government datasets.";
+            rdfs:comment "A set of virtual links is established between the objects of lindas.longName assigned to instances of lindas.Canton, and the objects of dbpedia.shortName assigned to instances related to the dbpedia:Category:Cantons_of_Switzerland resource. They have in common canton' names but they are represented in a different way. Indeed, the names are of different data types (e.g. literal, langString), multi-value strings (e.g. 'Bern / Berne'), and multiple languages. In this virtual link set, the knowlege domain of intersection is about cantons in Switzerland. Thus, dbpedia.shortName(s) and lindas.longName(s) are restricted to this subdomain.";
+			voidext:intersectAt ex:LINDAS_DBPEDIA_SWISSCANTON ;
+			voidext:intersectAt ex:DBPEDIA_LINDAS_SWISSCANTON;
+			voidext:intersectionType voidext:OBJECT_OBJECT ;
+		    voidext:recommendedMapping ex:LINDAS_DBPEDIA_SWISSCANTON;
+		    dcterms:issued  "2019-06-30"^^xsd:date. 
+
+
+ex:LINDAS_DBPEDIA_CITY_1 a void:Linkset, voidext:SimpleLinkSet ;
+             rdfs:label "A simple link set for Swiss municipalities from LINDAS Swiss government dataset to DBpedia dataset.";
+             rdfs:comment "It is a simple link set from LINDAS dataset to the DBpedia dataset. This link set covers 2352 out of 3428 municipalities in LINDAS dataset.";
+             void:objectsTarget ex:DBPEDIA;
+             void:subjectsTarget ex:LINDAS;
+             void:linkPredicate rdfs:seeAlso;
+             voidext:linkPredicateRange  <http://dbpedia.org/ontology/PopulatedPlace>;
+             voidext:linkPredicateDomain  <https://gont.ch/Municipality> ;
+             voidext:resourceMapping '''
+?city a <https://gont.ch/Municipality>.
+?city <http://www.w3.org/2000/01/rdf-schema#seeAlso> ?dbpedia_city.
+BIND(?dbpedia_city as ?dbpedia_city_new)
+FILTER(CONTAINS(STR(?dbpedia_city), "dbpedia"))''';
+             voidext:isSubsetOf ex:LINDAS;
+             voidext:hasPerformanceMeasure ex:LINDAS_DBPEDIA_CITY1_P ;
+             dcterms:issued  "2019-06-30"^^xsd:date. 
+
+ex:LINDAS_DBPEDIA_CITY_2 a void:Linkset, voidext:SimpleLinkSet;
+             rdfs:label "A simple link set for Swiss municipalities from LINDAS Swiss government dataset to DBpedia dataset.";
+             rdfs:comment "It is a simple link set from LINDAS dataset to the DBpedia dataset. This link set covers 2350 out of 3428 municipalities in LINDAS dataset.";
+             void:objectsTarget ex:DBPEDIA;
+             void:subjectsTarget ex:LINDAS;
+             void:linkPredicate rdfs:seeAlso;
+             voidext:linkPredicateRange  ex:LINDAS_DBPEDIA_CITY2_RANGE ;
+             voidext:linkPredicateDomain  <https://gont.ch/Municipality> ;
+             voidext:hasPerformanceMeasure ex:LINDAS_DBPEDIA_CITY2_P ;
+             voidext:isSubsetOf ex:LINDAS;
+             voidext:isSubsetOf ex:LINDAS_DBPEDIA_CITY_1 ;
+             voidext:resourceMapping '''
+?city a <https://gont.ch/Municipality>.
+?city <http://www.w3.org/2000/01/rdf-schema#seeAlso> ?dbpedia_city.
+BIND(?dbpedia_city as ?dbpedia_city_new)
+FILTER(CONTAINS(STR(?dbpedia_city), "dbpedia"))''';
+             dcterms:issued  "2019-06-30"^^xsd:date.
+            
+
+ex:LINDAS_DBPEDIA_CITY2_RANGE 
+rdf:type owl:Class ;
+owl:unionOf ( [ rdf:type owl:Restriction ;
+                  owl:onProperty <http://dbpedia.org/ontology/type> ;
+                  owl:someValuesFrom <http://dbpedia.org/resource/Municipalities_of_Switzerland>] 
+                 [  rdf:type owl:Class ;
+     				owl:intersectionOf (
+     				   <http://dbpedia.org/class/yago/Municipality108626283> 
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty <http://dbpedia.org/ontology/country> ;
+                 	  	   owl:someValuesFrom <http://dbpedia.org/resource/Switzerland>] ) ]  ) .
+                                   
+                                                       
+ex:LINDAS_DBPEDIA_CITY1_P 
+	a mex:ClassificationMeasure;
+	mex:precision 1.0;
+	mex:recall 0.6861.                                  	
+ 
+ ex:LINDAS_DBPEDIA_CITY2_P 
+	a mex:ClassificationMeasure;
+	mex:precision 1.0;
+	mex:recall 0.6855. 

@@ -32,22 +32,21 @@ extension is a meta-ontology that describes semantic  links between RDF datasets
 according to the <a href="http://rdfs.org/ns/void">VoID specification</a>. RDF datasets are often  independent
  and distributed on the Web. A virtual link is a connection between common resources such as literals and
   instances from two  different RDF datasets. Semantic relaxation is also considered when identifying common 
-   resources between datasets. Semantic relaxation is the capacity of ignoring semantic and data heterogeneities 
-   for the sake of interoperability. For example, the datasets might use different prefix namespaces for similar 
-   instances in a given domain scope. 
+   resources between datasets. For example, the datasets might use different prefix namespaces for similar 
+   instances in a given domain scope.
 </p>
 <p> A virtual link can be interpreted as an intersection data point between two datasets. In addition,
  a virtual link is not explicitly and concretely stored. The link may be physically established, for example,
   during a conjunctive federated query execution. Virtual links can simply be predicates (i.e. relations) 
   in one dataset where subjects and objects of the triples are present in disparate datasets. The types of
    resources involved in a virtual link can be also a valuable information. Another type of virtual 
-   link set can be stated when two datasets share the same instances of a given type. These instances 
+   link can be stated when two datasets share the same instances of a given type. These instances 
    usually do not have exactly the same description or context in each dataset.
 </p>
 <p> 
 Moreover, distinct datasets can state different predicates with the same or similar subjects and objects. 
 By considering these subjects and objects that are in common, the RDF graphs from these datasets may establish
- three types of intersection nodes (i.e. matched nodes): object-object, subject-subject, and subject-object. 
+ two types of intersection nodes (i.e. matched nodes): object-object, subject-subject, and subject-object. 
  For example, given the following RDF triples T<sub>a</sub> = (S<sub>a</sub>,P<sub>a</sub>, O<sub>a</sub>) in dataset "a" and 
   T<sub>b</sub>=(S<sub>b</sub>,P<sub>b</sub>, O<sub>b</sub>) in dataset b; if O<sub>a</sub> &equiv; O<sub>b</sub> then we can state a virtual link between
    O<sub>a</sub> and O<sub>b</sub&gt;; and if S<sub>a</sub> &equiv; S<sub>a</sub> then we can state a virtual link between S<sub>a</sub> and S<sub>b</sub&gt;; 
@@ -60,17 +59,13 @@ By considering these subjects and objects that are in common, the RDF graphs fro
        predicates to contextualize a similar resource in different datasets and domain scopes. 
 </p>
 
-<p>Finally, we can also mention the fact of two separated datasets sharing similar instance IRIs, 
+<p>Finally, we can also mention the fact of two separated datasets sharing the same instance IRIs, 
 nevertheless they are asserted as instances of unlike classes (i.e. types). Yet, a virtual link can be 
 stated between these instances. This fact might be because of distinct domain scopes and constraints such
  as legacy information systems. 
 </p>
 <p>Although the  examples in this specification are based on existing life sciences RDF datasets on the Web, 
-<b>VoIDext can be applied to any knowledge domain</b>, such as the examples involving 
-<a href="https://wiki.dbpedia.org">DBpedia</a>, <a href="https://wiki.musicbrainz.org/LinkedBrainz">MusicBrainz</a>
-<a href="https://lindas-data.ch/indexEN.html">LIDAS Swiss e-government platform</a> and so on that are serialised in RDF/Turtle  in 
-<a href="https://github.com/biosoda/voidext/blob/master/ABox_examplar_data/ABox_doc_examples.ttl">VoIDext git examples</a>. 
-The RDF data may be accessible through SPARQL endpoints.
+<b>VoIDext can be applied to any knowledge domain</b>. The RDF data may be accessible through SPARQL endpoints.
  The considered datasets in this specification are as follows:
  <a href="https://omabrowser.org">OMA (Orthologous MAtrix)</a> , 
  <a href="https://uniprot.org">UniProtKB (UniProt Knowledgebase)</a>,
@@ -90,7 +85,7 @@ The RDF data may be accessible through SPARQL endpoints.
 <tr><td><b>RDF Dataset</b></td><td><b>SPARQL endpoint</b></td></tr>
 <tr><td>OMA</td><td>https://sparql.omabrowser.org/sparql</td></tr>
 <tr><td>UniProtKB</td><td>https://sparql.uniprot.org/sparql</td></tr>
-<tr><td>Bgee</td><td>http://biosoda.expasy.org:8080/rdf4j-server/repositories/bgeelight_mysql</td></tr>
+<tr><td>Bgee</td><td>http://biosoda.expasy.org:8080/rdf4j-server/repositories/bgeelight</td></tr>
 <tr><td>Drugbank</td><td>http://wifo5-04.informatik.uni-mannheim.de/drugbank/sparql</td></tr>
 <tr><td>EBI RDF</td><td>https://www.ebi.ac.uk/rdf/services/sparql</td></tr>
 
@@ -99,31 +94,21 @@ The RDF data may be accessible through SPARQL endpoints.
 
 </div>
 
-<p>A virtual link set (VL) can be classified as simple or complex. A simple VL set must contain in its definition, 
-either exactly one link predicate such as in <a href="#ex1_ttl">Case 1</a> or exactly one shared instance type (i.e. class) - <a href="#ex2_ttl">Case 2</a>.
-This VL set type is defined with the <a href="#SimpleLinkSet">voidext:SimpleLinkSet<a> class.
-A complex virtual link set is composed of exactly either two link predicates (i.e. <a href="#ex4_ttl">Case 4</a>)  or two shared instance types 
-(i.e. <a href="#ex3_ttl">Case 3</a>). 
-This VL set type is defined with the <a href="#ComplexLinkSet">voidext:ComplexLinkSet<a> class.
+<p>A virtual link (VL) can be classified as simple or complex. A simple VL must contain in its definition, 
+either exactly one link predicate such as in <a href="#ex1_ttl">Example 1</a> or exactly one shared instance type (i.e. class).
+This VL type is defined with the <a href="#SimpleLinkSet">voidext:SimpleLinkSet<a> subclasses.
+A complex virtual link is composed of exactly either two link predicates (e.g. <a href="#ex1_ttl">Example 4</a>)  or two shared instance types (e.g. <a href="#ex1_ttl">Example 3</a>) . 
+This VL type is defined with <a href="#ComplexLinkSet">voidext:ComplexLinkSet<a> class.
 </p>
 	
-<div  align="center">
-<figure id="fig44">
-<p><img src="images/VL_types.png" class="imagedesc"/>
-<figcaption><a href="#fig44">Figure 5</a>. Virtual link set types. (i) an instance of voidext:ComplexLinkSet composed of two void:Linkset(s) (i.e. <a href="#ex4_ttl">Case 4</a>);
- (ii) an instance of voidext:ComplexLinkSet composed of two voidext:SharedInstanceSet(s) (i.e. <a href="#ex3_ttl">Case 3</a>);
- (iii) an instance of void:Linkset that is also a voidext:SimpleLinkSet (<a href="#ex1_ttl">Case 1</a>);
-  and (iv) an instance of voidext:SharedInstanceSet that is also a voidext:SimpleLinkSet (<a href="#ex2_ttl">Case 2</a>).</figcaption>
-</figure>
-</div>
 
-<h4 id="ex1" class="list">Case 1: directed link predicates between datasets. <span class="backlink"> back to <a href="#toc">ToC</a></span></h4>
+<h4 id="ex1" class="list">Example 1: directed link predicates between datasets. <span class="backlink"> back to <a href="#toc">ToC</a></span></h4>
 
 A dataset can contain property assertions involving IRIs which are also present in another dataset. These IRIs in common, 
 that are referred as instances of a given class, often do not necessary have the same set of properties or context in 
 different datasets, however they are frequently complementary. For example, let us consider the OMA and UniProt RDF datasets. 
 <a href="#fig1">Fig. 1</a> illustrates a triple in OMA where the predicate is a cross-reference property 
-(i.e. <a href="http://purl.org/lscr#xrefUniprot">lscr:xrefUniprot</a>) that assigns as value an IRI in common with UniProt. 
+(i.e. <a href="http://purl.org/lscr#xrefUniprot">lscr:xrefUniprot</a>) that assigns as value an IRI in common with Uniprot. 
 By considering this, a direct virtual link such as the one shown in <a href="#fig1">Fig. 1</a> can be stated where the subject of 
 <a href="http://purl.org/lscr#xrefUniprot">lscr:xrefUniprot</a> is described in OMA and 
 the object is further depicted in UniProt. To find out if the virtual link exists, we need to know which dataset contains the triples 
@@ -151,14 +136,13 @@ the link predicate (e.g. <a href="http://purl.org/lscr#xrefUniprot">lscr:xrefUni
  must be the object of the <a href="https://www.w3.org/TR/rdf-schema/#ch_type">rdf:type</a> property in the first dataset.
  <div>
 <pre class="example" id="ex1_ttl">
- bioquery:OMA_UNIPROT_1 a void:Linkset, voidext:SimpleLinkSet;
+ bioquery:OMA_UNIPROT_1 rdf:type void:Linkset;
              void:objectsTarget   bioquery:UNIPROT;
              void:subjectsTarget  bioquery:OMA;
              void:linkPredicate lscr:xrefUniprot;
              voidext:linkPredicateDomain orth:Protein;
              voidext:linkPredicateRange up:Protein;
-             voidext:isSubsetOf bioquery:OMA ;
-		     dcterms:issued  "2019-06-28"^^xsd:date . 
+             void:subset bioquery:OMA.
              
   bioquery:UNIPROT a void:Dataset;
     dcterms:title "The Universal Protein Resource (UniProt)";
@@ -176,22 +160,18 @@ the link predicate (e.g. <a href="http://purl.org/lscr#xrefUniprot">lscr:xrefUni
  </pre>
 </div> 
 <p>
-In <a href="#ex1_ttl">Case 1</a>, the void:subjectsTarget and void:objectsTarget properties define the subject-object direction of the links explicitly 
+In <a href="#ex1_ttl">Example 1</a>, the void:subjectsTarget and void:objectsTarget properties define the subject-object direction of the links explicitly 
 	as described in the <a href="https://www.w3.org/TR/void/#target">VoID RDF schema vocabulary specification</a>. 
-In addition, the voidext:isSubsetOf property states which dataset contains the link predicate assertions. voidext:isSubsetOf is inverse of void:subset - labelled "has subset". 
+In addition, the void:subset property states which dataset contains the link predicate assertions.   
 </p>
 <p>Once directed virtual links are serialised with triple patterns such as the example  <a href="#ex1_ttl">above</a>,
  we can answer the following question:</p>
- <p> <b>Question (1)</b>: which are the directed virtual link sets between two RDF datasets? In other words, the <a href="#SimpleLinkSet">simple link sets</a> composed of exactly one link predicate (non rdf:type).</p> 
-<p>To  answer this question, the SPARQL query template 1 (<a href="#q1">SQ<sub>1</sub></a>) below can be executed.  
-The <a href=#SimpleLinkSet>voidext:SimpleLinkSet</a> class is annotated with this query template by asserting the <a href=#queryLinkset>voidext:queryLinkset</a> property.
- For example, 
+ <p> <b>Question (1)</b>: which are the set of directed virtual links between two RDF datasets?</p> 
+<p>To  answer this question, the SPARQL query template 1 (<a href="#q1">SQ<sub>1</sub></a>) below can be executed. For example, 
  we can retrieve the virtual link illustrated in <a href="#fig1">Fig. 1</a> by executing <a href="#q1">SQ<sub>1</sub></a> on the <a href="http://biosoda.expasy.org:8890/sparql">SPARQL endpoint here</a>. 
  </p>
 
 <pre class="query" id="q1">
-#<a href="http://biosoda.expasy.org:8890/sparql?default-graph-uri=&query=prefix+void%3A++++%3Chttp%3A%2F%2Frdfs.org%2Fns%2Fvoid%23%3E%0D%0Aprefix+bioquery%3A+%3Chttp%3A%2F%2Fpurl.org%2Fquery%2Fbioquery%23%3E%0D%0Aprefix+voidext%3A%3Chttp%3A%2F%2Fpurl.org%2Fquery%2Fvoidext%23%3E%0D%0Aprefix+dcterms%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0D%0A%0D%0ASELECT+distinct+%3Flinks++%3Fsource++%3Fpredicate_from_endpoint+%3Fsubj_from+%3Fsubj_type+%3Fpredicate+%0D%0A+%3Fobj_type++%3Fobj_from++%3FresourceMapping+%7B%0D%0A%0D%0A%23%23%23if+we+want+to+specify+the+target+datasets+that+contain+one+of+the+resources%0D%0A%23%23%23related+with+a+virtual+link.%0D%0A%23values%28%3Fdataset_link_subj%29%7B++%28bioquery%3AOMA%29++%7D%0D%0A%23values%28%3Fdataset_link_obj%29%7B++%28bioquery%3AUNIPROT%29++%7D%0D%0A%0D%0A%3Flinks++a+void%3ALinkset.%0D%0A%7B%0D%0A+%3Flinks+void%3AsubjectsTarget+%3Fdataset_link_subj+.%0D%0A+%3Flinks+void%3AobjectsTarget+%3Fdataset_link_obj.++%0D%0A%7D+UNION+%7B%0D%0A+%3Flinks+void%3Atarget+%3Fdataset_link_subj.%0D%0A+%3Flinks+void%3Atarget+%3Fdataset_link_obj+.%7D%0D%0A+%3Flinks+void%3AlinkPredicate+%3Fpredicate%3B%0D%0A++++++++voidext%3AisSubsetOf+%3Fsource_db.%0D%0A+%3Fdataset_link_subj+void%3AsparqlEndpoint+%3Fsubj_from.%0D%0A+%3Fdataset_link_obj+void%3AsparqlEndpoint+%3Fobj_from.%0D%0A+%3Fsource_db+dcterms%3Atitle+%3Fsource%3B%0D%0A++++++++++++void%3AsparqlEndpoint+%3Fpredicate_from_endpoint.%0D%0A%0D%0A+optional+%7B%3Flinks++voidext%3AlinkPredicateRange+%3Fobj_type%7D.%0D%0A+optional+%7B%3Flinks+voidext%3AlinkPredicateDomain+%3Fsubj_type.+%7D%0D%0A+optional%7B+%3Flinks+voidext%3AresourceMapping++%3FresourceMapping%7D%0D%0A%0D%0Afilter+not+exists+%7B+%3FcomplexLink++voidext%3AintersectAt+%3Flinks.%7D+++++++%0D%0Afilter+%28+%3Fdataset_link_subj++%21%3D++%3Fdataset_link_obj+%29+++++++%0D%0A%0D%0A%7D+order+by+%3Flinks&format=text%2Fhtml&timeout=0"><b>Click here to <font size="5">run this query</font> over our exemplar dataset.</b></a>
-
 prefix void:    &lt;http://rdfs.org/ns/void#&gt;
 prefix bioquery: &lt;http://purl.org/query/bioquery#&gt;
 prefix voidext:&lt;http://purl.org/query/voidext#&gt;
@@ -213,7 +193,7 @@ SELECT distinct ?links  ?source  ?predicate_from_endpoint ?subj_from ?subj_type 
  ?links void:target ?dataset_link_subj.
  ?links void:target ?dataset_link_obj .}
  ?links void:linkPredicate ?predicate;
-        voidext:isSubsetOf ?source_db.
+        void:subset ?source_db.
  ?dataset_link_subj void:sparqlEndpoint ?subj_from.
  ?dataset_link_obj void:sparqlEndpoint ?obj_from.
  ?source_db dcterms:title ?source;
@@ -226,58 +206,53 @@ SELECT distinct ?links  ?source  ?predicate_from_endpoint ?subj_from ?subj_type 
 filter not exists { ?complexLink  voidext:intersectAt ?links.}       
 filter ( ?dataset_link_subj  !=  ?dataset_link_obj )       
 
-} order by ?links </pre>
- 
-  
+} order by ?links
+
+#<a href="http://biosoda.expasy.org:8890/sparql?default-graph-uri=&query=prefix+void%3A++++%3Chttp%3A%2F%2Frdfs.org%2Fns%2Fvoid%23%3E%0D%0Aprefix+bioquery%3A+%3Chttp%3A%2F%2Fpurl.org%2Fquery%2Fbioquery%23%3E%0D%0Aprefix+voidext%3A%3Chttp%3A%2F%2Fpurl.org%2Fquery%2Fvoidext%23%3E%0D%0Aprefix+dcterms%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0D%0A%0D%0ASELECT+distinct+%3Flinks++%3Fsource++%3Fpredicate_from_endpoint+%3Fsubj_from+%3Fsubj_type+%3Fpredicate+%0D%0A+%3Fobj_type++%3Fobj_from++%3FresourceMapping+%7B%0D%0A%0D%0A%23%23%23if+we+want+to+specify+the+target+datasets+that+contain+one+of+the+resources%0D%0A%23%23%23related+with+a+virtual+link.%0D%0A%23values%28%3Fdataset_link_subj%29%7B++%28bioquery%3AOMA%29++%7D%0D%0A%23values%28%3Fdataset_link_obj%29%7B++%28bioquery%3AUNIPROT%29++%7D%0D%0A%0D%0A%3Flinks++a+void%3ALinkset.%0D%0A%7B%0D%0A+%3Flinks+void%3AsubjectsTarget+%3Fdataset_link_subj+.%0D%0A+%3Flinks+void%3AobjectsTarget+%3Fdataset_link_obj.++%0D%0A%7D+UNION+%7B%0D%0A+%3Flinks+void%3Atarget+%3Fdataset_link_subj.%0D%0A+%3Flinks+void%3Atarget+%3Fdataset_link_obj+.%7D%0D%0A+%3Flinks+void%3AlinkPredicate+%3Fpredicate%3B%0D%0A++++++++void%3Asubset+%3Fsource_db.%0D%0A+%3Fdataset_link_subj+void%3AsparqlEndpoint+%3Fsubj_from.%0D%0A+%3Fdataset_link_obj+void%3AsparqlEndpoint+%3Fobj_from.%0D%0A+%3Fsource_db+dcterms%3Atitle+%3Fsource%3B%0D%0A++++++++++++void%3AsparqlEndpoint+%3Fpredicate_from_endpoint.%0D%0A%0D%0A+optional+%7B%3Flinks++voidext%3AlinkPredicateRange+%3Fobj_type%7D.%0D%0A+optional+%7B%3Flinks+voidext%3AlinkPredicateDomain+%3Fsubj_type.+%7D%0D%0A+optional%7B+%3Flinks+voidext%3AresourceMapping++%3FresourceMapping%7D%0D%0A%0D%0Afilter+not+exists+%7B+%3FcomplexLink++voidext%3AintersectAt+%3Flinks.%7D+++++++%0D%0Afilter+%28+%3Fdataset_link_subj++%21%3D++%3Fdataset_link_obj+%29+++++++%0D%0A%0D%0A%7D+order+by+%3Flinks&should-sponge=&format=text%2Fhtml&timeout=0&debug=on"><b>Click here to execute this query over our exemplar dataset.</b></a>
+ </pre>
 <p> 
 The outcome of this query is a set of tuples <i>T<sub>1</sub> = (?links, ?source, ?predicate_from_endpoint,
- ?subj_from, ?subj_type, ?predicate, ?obj_type,  ?obj_from  ?resourceMapping)</i> where <i>?links</i> is the direct simple link set IRI; <i>?source</i> is the 
+ ?subj_from, ?subj_type, ?predicate, ?obj_type,  ?obj_from  ?resourceMapping)</i> where <i>?links</i> is the direct virtual link IRI; <i>?source</i> is the 
  dataset source name where the link predicates are asserted; <i>?predicate_from_endpoint</i> is the access method to the link predicate assertions
   (e.g. an SPARQL endpoint); <i>?subj_from</i> is the access method to the link predicate' subject; <i>?subj_type</i> is the subject type;
    <i>?predicate</i> is the link predicate; <i>?obj_type</i> is the object type;  <i>?obj_from</i> is the access method to the link predicate's object;
     <i>?resourceMapping</i> is the resource mapping procedure, if any. 
     <i>?resourceMapping</i> must be applied to the <i> ?predicate</i> predicate' object in the dataset <i>?source</i> if <i>?predicate_from_endpoint &ne; ?obj_from</i>, 
     otherwise the mapping is applied to the <i>?predicate</i>' subject in <i>?source</i>. In addition, the  <i>?subj_type</i> xor <i>?obj_type</i> statements and the
-     <i>?predicate</i> are in  different datasets (e.g. SPARQL endpoints) where "xor" is the "exclusive or". 
-     Note that subjects' and objects' type can be defined as a class expression with OWL 2 DL language -- e.g. ex:Type_O owl:intersectionOf ( ex:TypeA  ex:TypeB ). <p>
+     <i>?predicate</i> are in  different datasets (e.g. SPARQL enpoints) where "xor" is the "exclusive or".   <p>
 <p>	One of this tuple could be as follows:  <i>T<sub>1</sub><sup>1</sup>=(bioquery:OMA_UNIPROT_1,  "Orthologous Matrix (OMA)", 
 	&lt;https://sparql.omabrowser.org/sparql&gt;,  &lt;https://sparql.omabrowser.org/sparql&gt;,  orth:Protein, lscr:xrefUniprot, up:Protein,	 
 	&lt;https://sparql.uniprot.org/sparql/&gt;, &Phi;)</i> where &Phi; represents an empty value. 
 </p>
 
-<p id="ex2"><b>Case 2: equivalent instances between datasets</b></p>
+<p id="ex2"><b>Example 2: equivalent instances between datasets</b></p>
 
 <p>
 OMA and UniProt RDF data stores have the same instance IRIs of the same class (namely <a href="https://www.uniprot.org/core/Taxon">up:Taxon</a>)to represent the organism species, however UniProtKB contains more information related
 to taxonomic lineage for organisms when compared to OMA. Thus, these two datasets can be bridged by establishing a virtual link between the instances in common. In other words,
 between the subject of the rdf:type property stated in each dataset. To do so, we can serialise in <a href="https://www.w3.org/TR/turtle/">RDF 1.1 Turtle</a>
- this simple virtual link as below (<a href="ex2_ttl">Case 2</a>).
+ this simple virtual link as below (<a href="ex2_ttl">Example 2</a>).
 </p>
 
 
  
 <pre class="example" id="ex2_ttl">
-bioquery:OMA_UNIPROT_3 a voidext:SharedInstanceSet, voidext:SimpleLinkSet;
+bioquery:OMA_UNIPROT_3 a voidext:SharedInstanceSet;
              void:target bioquery:OMA;
              void:target bioquery:UNIPROT;
-             dcterms:issued  "2019-06-28"^^xsd:date;
              voidext:sharedInstanceType up:Taxon.
  </pre>
  
  
 <p>Once virtual links between instances are serialised with triple patterns such as the example  <a href="#ex2_ttl">above</a>,
  we can answer the following question:</p>
- <p> <b>Question (2)</b>: which are the set of virtual links between two shared instances of the same class in different RDF datasets?
- In other words, the <a href="#SimpleLinkSet">simple link sets</a> that are also a <a href="#SharedInstanceSet">Shared instance set</a></p> 
+ <p> <b>Question (2)</b>: which are the set of virtual links between two shared instances of the same class in different RDF datasets?</p> 
 <p>To  answer this question, the SPARQL query template 2 (<a href="#q2">SQ<sub>2</sub></a>) below can be executed. For example, 
  we can retrieve the virtual link between equivalent up:Taxon instances in both datasets by executing <a href="#q2">SQ<sub>2</sub></a>
   on the <a href="http://biosoda.expasy.org:8890/sparql">SPARQL endpoint here</a>. 
-  The <a href=#SimpleLinkSet>voidext:SimpleLinkSet</a> class is annotated with this query template by asserting the <a href=#querySharedInstanceSet>voidext:querySharedInstanceSet</a> property.
  </p>
 
 <pre class="query" id="q2">
-<a href="http://biosoda.expasy.org:8890/sparql?default-graph-uri=&query=prefix+void%3A++++%3Chttp%3A%2F%2Frdfs.org%2Fns%2Fvoid%23%3E%0D%0Aprefix+bioquery%3A+%3Chttp%3A%2F%2Fpurl.org%2Fquery%2Fbioquery%23%3E%0D%0Aprefix+voidext%3A%3Chttp%3A%2F%2Fpurl.org%2Fquery%2Fvoidext%23%3E%0D%0Aprefix+dcterms%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0D%0ASELECT+distinct+%3Flinks+%3Fdataset1_name++%3Fdataset2_name++%3FsharedType++%0D%0A+++++++++++++++++++++++%3Fdataset1_endpoint+%3Fdataset2_endpoint+%7B%0D%0A++%0D%0A+%23values%28%3Fdataset1%29%7B+%28bioquery%3ABGEE%29+%7D%0D%0A+%23values%28%3Fdataset2%29%7B+%28bioquery%3AOMA%29+%7D%0D%0A%0D%0A%3Flinks+a+voidext%3ASharedInstanceSet.%0D%0A%3Flinks+void%3Atarget+%3Fdataset1.%0D%0A%3Flinks+void%3Atarget+%3Fdataset2.%0D%0A%3Flinks+voidext%3AsharedInstanceType+%3FsharedType.+%0D%0A%3Fdataset1+++dcterms%3Atitle+%3Fdataset1_name%3B%0D%0A+++++++++++++++++++void%3AsparqlEndpoint+%3Fdataset1_endpoint.%0D%0A%3Fdataset2++dcterms%3Atitle+%3Fdataset2_name%3B%0D%0A+++++++++++++++++++void%3AsparqlEndpoint+%3Fdataset2_endpoint.%0D%0A%0D%0Afilter+not+exists+%7B+%3FcomplexLink+voidext%3AintersectAt+%3Flinks+.%7D++%0D%0Afilter%28%3Fdataset1+%21%3D+%3Fdataset2%29+++++++++++++++++++++%0D%0A%7D+order+by+%3Flinks&format=text%2Fhtml&timeout=0"><b>Click here to <font size=5>run this query</font> over our exemplar dataset.</b></a>
-
 prefix void:    &lt;http://rdfs.org/ns/void#&gt;
 prefix bioquery: &lt;http://purl.org/query/bioquery#&gt;
 prefix voidext:&lt;http://purl.org/query/voidext#&gt;
@@ -301,22 +276,24 @@ SELECT distinct ?links ?dataset1_name  ?dataset2_name  ?sharedType
 filter not exists { ?complexLink voidext:intersectAt ?links .}  
 filter(?dataset1 != ?dataset2)                     
 } order by ?links
+
+<a href="http://biosoda.expasy.org:8890/sparql?default-graph-uri=&query=prefix+void%3A++++%3Chttp%3A%2F%2Frdfs.org%2Fns%2Fvoid%23%3E%0D%0Aprefix+bioquery%3A+%3Chttp%3A%2F%2Fpurl.org%2Fquery%2Fbioquery%23%3E%0D%0Aprefix+voidext%3A%3Chttp%3A%2F%2Fpurl.org%2Fquery%2Fvoidext%23%3E%0D%0Aprefix+dcterms%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0D%0A%0D%0ASELECT+distinct+%3Flinks+%3Fdataset1_name++%3Fdataset2_name++%3FsharedType++%3Fdataset1_endpoint+%3Fdataset2_endpoint+%7B%0D%0A++%0D%0A+%23values%28%3Fdataset1%29%7B+%28bioquery%3ABGEE%29+%7D%0D%0A+%23values%28%3Fdataset2%29%7B+%28bioquery%3AOMA%29+%7D%0D%0A%0D%0A%3Flinks+a+voidext%3ASharedInstanceSet.%0D%0A%3Flinks+void%3Atarget+%3Fdataset1.%0D%0A%3Flinks+void%3Atarget+%3Fdataset2.%0D%0A%3Flinks+voidext%3AsharedInstanceType+%3FsharedType.+%0D%0A%3Fdataset1+++dcterms%3Atitle+%3Fdataset1_name%3B%0D%0A+++++++++++++++++++void%3AsparqlEndpoint+%3Fdataset1_endpoint.%0D%0A%3Fdataset2++dcterms%3Atitle+%3Fdataset2_name%3B%0D%0A+++++++++++++++++++void%3AsparqlEndpoint+%3Fdataset2_endpoint.%0D%0A%0D%0Afilter+not+exists+%7B+%3FcomplexLink+voidext%3AintersectAt+%3Flinks+.%7D++%0D%0Afilter%28%3Fdataset1+%21%3D+%3Fdataset2%29+++++++++++++++++++++%0D%0A%7D+order+by+%3Flinks%0D%0A&should-sponge=&format=text%2Fhtml&timeout=0&debug=on"><b>Click here to execute this query over our exemplar dataset.</b></a>
  </pre>
 <p> 
 
 <p>Indeed, the answer to the Question 2 is a set of tuples T<sub>2</sub> = (<i>?links</i>, <i>?dataset1_name</i>, <i>?dataset2_name</i>, 
  <i>?sharedType</i>, <i>?dataset1_endpoint</i>, <i>?dataset2_endpoint</i>) where <i>?links</i> is the virtual link IRI; 
  <i>?dataset1_name</i> and <i>?dataset2_name</i> are the name of the datasets that contain the instance IRIs in common;
-  <i>?sharedType</i> is the type of the instances in common - defined as an OWL 2 DL class expression (e.g. owl:intersectionOf);  <i>?dataset1_endpoint</i> and <i>?dataset2_endpoint</i> 
+  <i>?sharedType</i> is the type of the instances in common;  <i>?dataset1_endpoint</i> and <i>?dataset2_endpoint</i> 
   are the access methods such as SPARQL endpoints to the <i>?dataset1_name</i> and <i>?dataset2_name</i> datasets, respectively. For example,
   T<sub>2</sub><sup>1</sup> = (
 	bioquery:OMA_BGEE_2, "Bgee - a database of gene expression",
-	"Orthologous Matrix (OMA)", up:Taxon,  &lt;http://biosoda.expasy.org:8080/rdf4j-server/repositories/bgeelight_mysql&gt;, 
+	"Orthologous Matrix (OMA)", up:Taxon,  &lt;http://biosoda.cloudlab.zhaw.ch:8080/rdf4j-server/repositories/bgeelight&gt;, 
 	&lt;https://sparql.omabrowser.org/sparql&gt; ).
 	
 </p>
 
-<p id="ex3"><b>Case 3: similar instances between datasets</b></p>
+<p id="ex3"><b>Example 3: similar instances between datasets</b></p>
 
 <p>
 EBI and UniProt RDF data stores use different instance IRIs and classes to represent the organism species, and in a more general way, the taxonomic lineage for organisms. 
@@ -327,7 +304,7 @@ To exemplify this, let us consider the <i>&lt;http://identifiers.org/taxonomy/96
   between these two instances. This link is illustrated in <a href="#fig3">Fig. 2</a>. To establish this link, we need to define an IRI mapping function 
   (i.e. <i>f<sub>m</sub>(r)</i>) either to the EBI or UniProt species-related instances ---  either f<sub>m</sub>(<i>&lt;http://identifiers.org/taxonomy/9606&gt;</i>) 
   &equiv; <i>&lt;http://purl.uniprot.org/taxonomy/9606&gt;</i> or f<sub>m</sub>(<i>&lt;http://identifiers.org/taxonomy/9606&gt;</i>) 
-  &equiv; <i>&lt;http://purl.uniprot.org/taxonomy/9606&gt;</i>.   
+  &equiv; <i>&lt;http://identifiers.org/taxonomy/9606&gt;</i>.   
 
 </p>
 
@@ -338,46 +315,43 @@ To exemplify this, let us consider the <i>&lt;http://identifiers.org/taxonomy/96
 </figure>
 </div>
 
-<p>The  <a href="https://www.w3.org/TR/turtle/">RDF 1.1 Turtle</a> serialisation of <a href="#ex3">Case 3</a> 
+The  <a href="https://www.w3.org/TR/turtle/">RDF 1.1 Turtle</a> serialisation of <a href="#ex3">Example 3</a> 
 according to VoIDext vocabulary is defined <a href="#ex3_ttl">below</a>. 
-When the virtual links are stated between the <a href="https://www.w3.org/TR/rdf-schema/#ch_type">rdf:type</a> subjects in a first dataset (e.g. EBI) and the 
-<a href="https://www.w3.org/TR/rdf-schema/#ch_type">rdf:type</a> subjects from a second dataset (e.g. UniProtKB), and if the instances (i.e. subjects) are of different 
-types such as illustrated in <a href="#fig3">Fig. 2</a>), we classify the set of virtual links as  a <a href="#ComplexLinkSet">complex link set</a>.
-Note that a type can be defined as a class expression with OWL 2 DL language -- e.g. ex:Type_AB owl:unionOf ( ex:TypeA  ex:TypeB ) .
-
-</p> 
+When the virtual link is stated between the <a href="https://www.w3.org/TR/rdf-schema/#ch_type">rdf:type</a> subject in a first dataset (e.g. EBI) and the 
+<a href="https://www.w3.org/TR/rdf-schema/#ch_type">rdf:type</a> subject from a second dataset (e.g. UniProtKB), and if the instances are from different 
+types such as illustrated in <a href="#fig3">Fig. 2</a>), we classify this virtual link as a <a href="#ComplexLinkSet">complex link set</a>. 
+ 
 <pre class="example" id="ex3_ttl">
 bioquery:EBI_UNIPROT_10 a voidext:SharedInstanceSet;
              void:target bioquery:EBI;
              void:target bioquery:UNIPROT;
-             voidext:isSubsetOf bioquery:EBI;
-             voidext:resourceMapping '''
-                 ?IRI_EBI a &lt;http://www.biopax.org/release/biopax-level3.owl#BioSource&gt;.
-                 BIND(IRI(CONCAT("http://purl.uniprot.org/taxonomy/",
-                 STRAFTER(STR(?IRI_EBI),"http://identifiers.org/taxonomy/"))) as ?IRI_UNIPROT)
-                 FILTER(STRSTARTS(STR(?IRI_EBI),"http://identifiers.org/taxonomy/"))''';
-             voidext:sharedInstanceType biopax:BioSource ;
-             dcterms:issued  "2019-06-30"^^xsd:date . 
+             void:subset bioquery:EBI;
+             voidext:resourceMapping 
+             '''?IRI_EBI a &lt;http://www.biopax.org/release/biopax-level3.owl#BioSource&gt;.
+                BIND(IRI(CONCAT("http://purl.uniprot.org/taxonomy/",
+                STRAFTER(STR(?IRI_EBI),"http://identifiers.org/taxonomy/"))) as ?IRI_UNIPROT)
+                FILTER(STRSTARTS(STR(?IRI_EBI),"http://identifiers.org/taxonomy/"))''';
+             voidext:sharedInstanceType biopax:BioSource.
 
 bioquery:EBI_UNIPROT_11 a voidext:SharedInstanceSet;
              void:target bioquery:EBI;
              void:target bioquery:UNIPROT;
-             voidext:isSubsetOf bioquery:UNIPROT;
+             void:subset bioquery:UNIPROT;
              voidext:resourceMapping 
              '''?IRI_UNIPROT a &lt;http://purl.uniprot.org/core/Taxon&gt;.
-                 BIND(IRI(CONCAT("http://identifiers.org/taxonomy/",
-                 STRAFTER(STR(?IRI_UNIPROT),"http://purl.uniprot.org/taxonomy/"))) as ?IRI_EBI)
-                 FILTER(STRSTARTS(STR(?IRI_UNIPROT),"http://purl.uniprot.org/taxonomy/"))''';
-             voidext:sharedInstanceType up:Taxon ;
-             dcterms:issued  "2019-06-30"^^xsd:date .  
+                BIND(IRI(CONCAT("http://identifiers.org/taxonomy/",
+                STRAFTER(STR(?IRI_UNIPROT),"http://purl.uniprot.org/taxonomy/"))) as ?IRI_EBI)
+                FILTER(STRSTARTS(STR(?IRI_UNIPROT),"http://purl.uniprot.org/taxonomy/"))''';
+             voidext:sharedInstanceType up:Taxon . 
              
 bioquery:EBI_UNIPROT_12 a voidext:ComplexLinkSet;
-             rdfs:label "Links between EBI and UniProt considering shared similar instances of organism taxonomy"@en;
-             rdfs:comment "A virtual link set between EBI and UniProt that share similar organism taxonomy instances. Being UniProt the most complete in terms of organism taxonomy in RDF.";
+             rdfs:comment "A virtual link between EBI and UniProt that share similar organism taxonomy instances. 
+                             Being UniProt the most complete in terms of organism taxonomy in RDF.";
+             void:target bioquery:EBI;
+             void:target bioquery:UNIPROT;
              voidext:intersectAt bioquery:EBI_UNIPROT_11 ;
-             voidext:intersectAt bioquery:EBI_UNIPROT_10 ; 
-             voidext:recommendedMapping bioquery:EBI_UNIPROT_10 ;
-             dcterms:issued  "2019-06-30"^^xsd:date .
+			 voidext:intersectAt bioquery:EBI_UNIPROT_10 ; 
+			 voidext:recommendedMapping bioquery:EBI_UNIPROT_10 .  
 
 bioquery:EBI a void:Dataset.
  </pre>
@@ -386,17 +360,12 @@ bioquery:EBI a void:Dataset.
  
 <p>Once virtual links between instances are serialised with triple patterns such as the example  <a href="#ex3_ttl">above</a>,
  we can answer the following question:</p>
- <p> <b>Question (3)</b>:  which are the set of virtual links between two similar or equivalent instances of unlike types in different 
- RDF datasets? In other words, <a href="#ComplexLinkSet">complex link sets</a> composed of two <a href="#SharedInstanceSet">Shared instance sets</a></p> 
+ <p> <b>Question (3)</b>:  which are the set of virtual links between two similar or equivalent instances of unlike types in different RDF datasets?</p> 
 <p>To  answer this question, the SPARQL query template 3 (<a href="#q3">SQ<sub>3</sub></a>) below can be executed. For example, 
- we can retrieve the virtual link set that "contains" the virtual link  illustrated in <a href="#fig3">Fig. 2</a> by executing <a href="#q3">SQ<sub>3</sub></a> on the <a href="http://biosoda.expasy.org:8890/sparql">SPARQL endpoint here</a>. 
-The <a href=#ComplexLinkSet>voidext:ComplexLinkSet</a> class is annotated with this query template by asserting the <a href=#querySharedInstanceSet>voidext:querySharedInstanceSet</a> property.
-
-</p>
+ we can retrieve the virtual link illustrated in <a href="#fig3">Fig. 2</a> by executing <a href="#q3">SQ<sub>3</sub></a> on the <a href="http://biosoda.expasy.org:8890/sparql">SPARQL endpoint here</a>. 
+ </p>
 
 <pre class="query" id="q3">
-#<a href="http://biosoda.expasy.org:8890/sparql?default-graph-uri=&query=prefix+void%3A++++%3Chttp%3A%2F%2Frdfs.org%2Fns%2Fvoid%23%3E%0D%0Aprefix+bioquery%3A+%3Chttp%3A%2F%2Fpurl.org%2Fquery%2Fbioquery%23%3E%0D%0Aprefix+voidext%3A%3Chttp%3A%2F%2Fpurl.org%2Fquery%2Fvoidext%23%3E%0D%0Aprefix+dcterms%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0D%0A%0D%0A%0D%0ASELECT+distinct+%3Flinks+%3Fsource_dataset1_name+%3Ftarget_dataset2_name+%3FsharedType%0D%0A++%3FresourceMapping+%3Fsource_endpoint+%3Ftarget_endpoint%7B%0D%0A++%0D%0A+%23values%28%3Fsource_db%29%7B+%28bioquery%3AEBI%29+%7D%0D%0A+%23values%28%3Ftarget_db%29%7B+%28bioquery%3AUNIPROT%29+%7D%0D%0A%0D%0A+%3Flinks+a+voidext%3AComplexLinkSet.%0D%0A+%3Flinks+voidext%3AintersectAt+%3Fset1%3B+voidext%3AintersectAt+%3Fset2.%0D%0A+%3Fset1++voidext%3AisSubsetOf+%3Ftarget_db.%0D%0A+%3Ftarget_db+dcterms%3Atitle+%3Ftarget_dataset2_name%3B%0D%0A+++++++++++void%3AsparqlEndpoint+%3Ftarget_endpoint.%0D%0A+%3Fset2+voidext%3AsharedInstanceType++%3FsharedType+.%0D%0A+%3Fset2+voidext%3AisSubsetOf+%3Fsource_db+.%0D%0A+%3Fsource_db+dcterms%3Atitle+%3Fsource_dataset1_name%3B%0D%0A++++++++++++void%3AsparqlEndpoint+%3Fsource_endpoint.%0D%0A%0D%0A+optional%7B+++%3Flinks+voidext%3ArecommendedMapping+%3Fset2.%0D%0A+++++++++++++%3Fset2+voidext%3AresourceMapping++%3FresourceMapping%7D%0D%0A+filter%28%3Ftarget_db+%21%3D+%3Fsource_db%29++++++++%0D%0A+++++++++++++++++++++++++%0D%0A%7D+order+by+%3Flinks&format=text%2Fhtml&timeout=0"><b>Click here to <font size=5>run this query</font> over our exemplar dataset.</b></a>
-
 prefix void:    &lt;http://rdfs.org/ns/void#&gt;
 prefix bioquery: &lt;http://purl.org/query/bioquery#&gt;
 prefix voidext:&lt;http://purl.org/query/voidext#&gt;
@@ -405,37 +374,40 @@ prefix dcterms: &lt;http://purl.org/dc/terms/&gt;
 SELECT distinct ?links ?source_dataset1_name ?target_dataset2_name ?sharedType
   ?resourceMapping ?source_endpoint ?target_endpoint{
   
- #values(?source_db){ (bioquery:EBI) }
- #values(?target_db){ (bioquery:UNIPROT) }
+ #values(?dataset1){ (bioquery:EBI) }
+ #values(?dataset2){ (bioquery:UNIPROT) }
 
  ?links a voidext:ComplexLinkSet.
- ?links voidext:intersectAt ?set1; voidext:intersectAt ?set2.
- ?set1  voidext:isSubsetOf ?target_db.
+ ?links void:target ?dataset1, ?dataset2 .
+ ?links voidext:intersectAt ?points;
+        void:target ?target_db.
  ?target_db dcterms:title ?target_dataset2_name;
            void:sparqlEndpoint ?target_endpoint.
- ?set2 voidext:sharedInstanceType  ?sharedType .
- ?set2 voidext:isSubsetOf ?source_db .
+ ?points voidext:sharedInstanceType  ?sharedType .
+ ?points void:subset ?source_db .
  ?source_db dcterms:title ?source_dataset1_name;
             void:sparqlEndpoint ?source_endpoint.
 
- optional{   ?links voidext:recommendedMapping ?set2.
-             ?set2 voidext:resourceMapping  ?resourceMapping}
- filter(?target_db != ?source_db)        
+ optional{   ?links voidext:recommendedMapping ?points.
+             ?points voidext:resourceMapping  ?resourceMapping}
+ filter(?source_db != ?target_db)        
                          
 } order by ?links
-</pre>
+
+#<a href="http://biosoda.expasy.org:8890/sparql?default-graph-uri=&query=prefix+void%3A++++%3Chttp%3A%2F%2Frdfs.org%2Fns%2Fvoid%23%3E%0D%0Aprefix+bioquery%3A+%3Chttp%3A%2F%2Fpurl.org%2Fquery%2Fbioquery%23%3E%0D%0Aprefix+voidext%3A%3Chttp%3A%2F%2Fpurl.org%2Fquery%2Fvoidext%23%3E%0D%0Aprefix+dcterms%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0D%0A%0D%0ASELECT+distinct+%3Flinks+%3Fsource_dataset1_name+%3Ftarget_dataset2_name+%3FsharedType++%3FresourceMapping+%3Fsource_endpoint+%3Ftarget_endpoint%7B%0D%0A++%0D%0A+%23values%28%3Fdataset1%29%7B+%28bioquery%3AEBI%29+%7D%0D%0A+%23values%28%3Fdataset2%29%7B+%28bioquery%3AUNIPROT%29+%7D%0D%0A%0D%0A+%3Flinks+a+voidext%3AComplexLinkSet.%0D%0A+%3Flinks+void%3Atarget+%3Fdataset1%2C+%3Fdataset2+.%0D%0A+%3Flinks++voidext%3AintersectAt+%3Fpoints%3B%0D%0A++++++++++++void%3Atarget+%3Ftarget_db.%0D%0A%3Ftarget_db+dcterms%3Atitle+%3Ftarget_dataset2_name%3B%0D%0A++++++++++++++++++++void%3AsparqlEndpoint+%3Ftarget_endpoint.%0D%0A+%3Fpoints+voidext%3AsharedInstanceType++%3FsharedType+.%0D%0A+%3Fpoints+void%3Asubset+%3Fsource_db+.%0D%0A+%3Fsource_db+dcterms%3Atitle+%3Fsource_dataset1_name%3B%0D%0A++++++++++++++++++++void%3AsparqlEndpoint+%3Fsource_endpoint.%0D%0A%0D%0A+optional%7B+++%3Flinks+voidext%3ArecommendedMapping+%3Fpoints.%0D%0A++++++++++++%3Fpoints+voidext%3AresourceMapping++%3FresourceMapping%7D%0D%0A+%0D%0Afilter%28%3Fsource_db+%21%3D+%3Ftarget_db%29++++++++%0D%0A+++++++++++++++++++++++++%0D%0A%7D+order+by+%3Flinks&should-sponge=&format=text%2Fhtml&timeout=0&debug=on"><b>Click here to execute this query over our exemplar dataset.</b></a>
+ </pre>
 <p> 
 
 
 
-<p id="ex4"><b>Case 4: complex links between datasets composed of two link predicates.</b></p>
+<p id="ex4"><b>Example 4: complex links between datasets composed of two link predicates.</b></p>
 
 <p>
-It is often preferable or only possible to define a VL between two datasets if we know the two link predicates (non rdf:type) from each dataset 
+It is often preferable or only possible to define a VL between two datasets if we know the two link predicates from each dataset 
 --- i.e. a complex virtual link. This is because a complex VL is required whenever the matched subject or object of predicates in different datasets are 
 not typed (i.e. missing <a href="https://www.w3.org/TR/rdf-schema/#ch_type">rdf:type</a> assertions) or the matched object is a literal. 
-Furthermore, depending on the aim of the virtual link set, one can prefer to describe the virtual link set according to link predicates instead of instance types 
-for the case where both virtual link set descriptions are possible. 
+Furthermore, depending on the aim of the virtual link, one can prefer to describe the virtual link according to link predicates instead of instance types 
+for the case where both virtual link descriptions are possible. 
 <a href="#fig4">Fig. 3</a> exemplifies a complex VL between the DrugBank and EBI RDF datasets.
 </p>
 
@@ -445,49 +417,50 @@ for the case where both virtual link set descriptions are possible.
 <figcaption><a href="#fig4">Figure 3</a>. A virtual link between datasets based on similar IRIs of different types.</figcaption>
 </figure>
 </div>
-<p>
-The  <a href="https://www.w3.org/TR/turtle/">RDF 1.1 Turtle</a> serialisation of <a href="#ex4">Case 4</a> 
-according to VoIDext vocabulary is defined <a href="#ex4_ttl">below</a>. This serialisation also shows that the interlinks are between the DrugBank dataset
+
+The  <a href="https://www.w3.org/TR/turtle/">RDF 1.1 Turtle</a> serialisation of <a href="#ex4">Example 4</a> 
+according to VoIDext vocabulary is defined <a href="#ex4_ttl">below</a>. This serialisation also shows that the link is between the DrugBank dataset
 and a subset of the EBI dataset about rare diseases.
 When the virtual link is stated between the link predicate's subject/object in a first dataset (e.g. EBI) and the link predicate's subject/object from a second dataset (e.g. UniProtKB)
-such as illustrated in <a href="#fig4">Fig. 3</a>, we classify this virtual link as being complex, and consequently, part of a <a href="#ComplexLinkSet">complex link set</a>.
- Note that the link predicate MUST NOT be the <a href="https://www.w3.org/TR/rdf-schema/#ch_type">rdf:type</a> predicate. 
-
-</p> 
+such as illustrated in <a href="#fig4">Fig. 3</a>, we classify this virtual link as a <a href="#ComplexLinkSet">complex link set</a>. Note that the link predicate must
+not be the <a href="https://www.w3.org/TR/rdf-schema/#ch_type">rdf:type</a> predicate. 
+ 
 <pre class="example" id="ex4_ttl">
 bioquery:DRUGBANK_EBI-ORDO a void:Linkset;
-             void:subjectsTarget bioquery:DRUGBANK;
-             rdfs:label "The link predicate description from drugbank dataset to the ORDO/EBI rare diseases dataset.";
-             rdfs:comment "It is a linkset from the drugbank dataset to ORDO/EBI rare diseases dataset that is part of the bioquery:DRUGBANK_EBI-ORDO_VL complex link set.";
-             void:objectsTarget bioquery:EBI-ORDO_DRUGBANK;
-             void:linkPredicate drugbank:swissprotId;
-             voidext:linkPredicateDomain drugbank:targets;
-             voidext:isSubsetOf bioquery:DRUGBANK ;
-		     dcterms:issued  "2019-06-30"^^xsd:date .    
+            void:subjectsTarget bioquery:DRUGBANK;
+            rdfs:label "The link predicate description from drugbank dataset to the ORDO/EBI rare diseases dataset.";
+            rdfs:comment "It is a simple virtual link  from the drugbank dataset to the ORDO/EBI rare diseases dataset
+                          that is part of the bioquery:DRUGBANK_EBI-ORDO_VL complex virtual link.";
+            void:objectsTarget bioquery:EBI_ORDO;
+            void:linkPredicate drugbank:swissprotId;
+            voidext:linkPredicateDomain drugbank:targets;
+            void:subset bioquery:DRUGBANK.   
              
 bioquery:EBI-ORDO_DRUGBANK a void:Linkset;
-             rdfs:label "The link predicate description from ORDO/EBI rare diseases dataset to the drugbank dataset.";
-             rdfs:comment "It is a linkset  from ORDO/EBI rare diseases dataset to the drugbank dataset that is part of the bioquery:DRUGBANK_EBI-ORDO_VL complex link set.";
-             void:objectsTarget bioquery:DRUGBANK_EBI-ORDO;
-             void:subjectsTarget bioquery:EBI_ORDO;
-             void:linkPredicate oboowl:hasDbXref;
-             voidext:linkPredicateRange xsd:string ;
-             voidext:resourceMapping '''
-                 ?g &lt;http://www.geneontology.org/formats/oboInOwl#hasDbXref&gt; ?i.
-                  BIND( IRI(CONCAT("http://bio2rdf.org/uniprot:",STRAFTER(?i,"SwissProt:"))) as ?NEW_IRI)
-                  FILTER (CONTAINS(?i, "SwissProt:" ))''';
-             voidext:isSubsetOf bioquery:EBI_ORDO ;
-		     dcterms:issued  "2019-06-30"^^xsd:date . 
+            rdfs:label "The link predicate description from ORDO/EBI rare diseases dataset to the drugbank dataset.";
+            rdfs:comment "It is a simple virtual link  from ORDO/EBI rare diseases dataset to the drugbank dataset 
+                           that is part of the bioquery:DRUGBANK_EBI-ORDO_VL complex virtual link.";
+            void:objectsTarget bioquery:DRUGBANK;
+            void:subjectsTarget bioquery:EBI_ORDO;
+            void:linkPredicate oboowl:hasDbXref;
+            voidext:linkPredicateRange xsd:string ;
+            voidext:resourceMapping '''?g &lt;http://www.geneontology.org/formats/oboInOwl#hasDbXref&gt; ?i.
+ BIND( IRI(CONCAT("http://bio2rdf.org/uniprot:",STRAFTER(?i,"SwissProt:"))) as ?NEW_IRI)
+ FILTER (CONTAINS(?i, "SwissProt:" ))''';
+            void:subset bioquery:EBI_ORDO.
 
  bioquery:DRUGBANK_EBI-ORDO_VL a voidext:ComplexLinkSet;
-            rdfs:label "Virtual links for rare diseases (ORDO/EBI dataset) and drug targets (drugbank dataset).";
-            rdfs:comment "Virtual links between the Orphanet rare disease terms stored as a subset in the EBI RDF store and the drug targets in DrugBank dataset. They have in common swissprot identifiers but they are represented in a different way. One is a string and another one an URI both of them containing a swissprot identifier.";
-			voidext:intersectAt bioquery:EBI-ORDO_DRUGBANK ;
-			voidext:intersectAt bioquery:DRUGBANK_EBI-ORDO ;
-			voidext:intersectionType voidext:OBJECT_OBJECT ;
-		    voidext:recommendedMapping bioquery:EBI-ORDO_DRUGBANK ;
-		    dcterms:issued  "2019-06-30"^^xsd:date . 
-
+            rdfs:label "Virtual link for rare diseases (ORDO/EBI dataset) and drug targets (drugbank dataset).";
+            rdfs:comment "Virtual link between the Orphanet rare disease terms stored as a subset in the EBI RDF
+               store and the drug targets in DrugBank dataset. They have in common swissprot identifiers but they
+               are represented in a different way. One is a string and another one an URI both of them containing
+               a swissprot identifier.";
+            void:target bioquery:DRUGBANK;
+            void:target bioquery:EBI_ORDO;
+            voidext:intersectAt bioquery:EBI-ORDO_DRUGBANK ;
+            voidext:intersectAt bioquery:DRUGBANK_EBI-ORDO ;
+            voidext:intersectionType voidext:OBJECT_OBJECT ;
+            voidext:recommendedMapping bioquery:EBI-ORDO_DRUGBANK . 
 
 bioquery:EBI a void:Dataset.
 bioquery:DRUGBANK a void:Dataset.
@@ -509,23 +482,20 @@ bioquery:EBI_ORDO a sd:Dataset, void:Dataset;
  
 	
  
-<p>Once virtual links between resources are serialised with triple patterns such as the example  <a href="#ex4_ttl">above</a>,
+<p>Once virtual links between instances are serialised with triple patterns such as the example  <a href="#ex4_ttl">above</a>,
  we can answer the following question:</p>
- <p> <b>Question (4)</b>: Which are the sets of complex virtual links between two similar or equivalent resources that are either subject or object of different predicates in distinct RDF datasets? In other words, Which are the complex virtual link sets composed of two link predicates stored in distinct datasets? </p> 
+ <p> <b>Question (4)</b>: Which are the set of complex virtual links between two similar or equivalent resources that are either subject or object of different predicates in distinct RDF datasets? </p> 
 <p>To  answer this question, the SPARQL query template 4 (<a href="#q4">SQ<sub>4</sub></a>) below can be executed. For example, 
- we can retrieve the virtual link set that contains the VL illustrated in <a href="#fig4">Fig. 3</a> by executing <a href="#q4">SQ<sub>4</sub></a> on the <a href="http://biosoda.expasy.org:8890/sparql">SPARQL endpoint here</a>. 
- The <a href=#ComplexLinkSet>voidext:ComplexLinkSet</a> class is annotated with this query template by asserting the <a href=#queryLinkset>voidext:queryLinkset</a> property.
-
+ we can retrieve the virtual link illustrated in <a href="#fig4">Fig. 3</a> by executing <a href="#q4">SQ<sub>4</sub></a> on the <a href="http://biosoda.expasy.org:8890/sparql">SPARQL endpoint here</a>. 
  </p>
 
 <pre class="query" id="q4">
-#<a href="http://biosoda.expasy.org:8890/sparql?default-graph-uri=&query=prefix+void%3A++++%3Chttp%3A%2F%2Frdfs.org%2Fns%2Fvoid%23%3E%0D%0Aprefix+bioquery%3A+%3Chttp%3A%2F%2Fpurl.org%2Fquery%2Fbioquery%23%3E%0D%0Aprefix+voidext%3A%3Chttp%3A%2F%2Fpurl.org%2Fquery%2Fvoidext%23%3E%0D%0Aprefix+dcterms%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0D%0A%0D%0ASELECT+distinct+%3Flinks+%3Fsource_dataset1_name+%3Ftarget_dataset2_name+%3Fpredicate+%0D%0A+%3Fintersection_type+%3Fsubj_type+%3Fobj_type++%3Fsource_endpoint+%3Ftarget_endpoint+%0D%0A+%3FresourceMapping+%7B%0D%0A++%0D%0A+%23values%28%3Fdataset1%29%7B+%28bioquery%3AEBI_ORDO%29+%7D%0D%0A+%23values%28%3Fdataset2%29%7B+%28bioquery%3ADRUGBANK%29+%7D%0D%0A%0D%0A+%3Flinks+a+voidext%3AComplexLinkSet.%0D%0A+%3Flinks++voidext%3AintersectAt+%3Fset2%3B%0D%0A+++++++++voidext%3AintersectionType%2Frdfs%3Alabel+%3Fintersection_type.%0D%0A+%3Fset2+++voidext%3AisSubsetOf+%3Ftarget_db.%0D%0A+%3Ftarget_db+dcterms%3Atitle+%3Ftarget_dataset2_name%3B%0D%0A++++++++++++void%3AsparqlEndpoint+%3Ftarget_endpoint.%0D%0A+%3Fset2+void%3AlinkPredicate+%3Fpredicate2+.%0D%0A+%0D%0A%0D%0A+%3Flinks++voidext%3AintersectAt+%3Fset1.%0D%0A+%3Fset1+void%3AlinkPredicate+%3Fpredicate+.%0D%0A+%3Fset1+voidext%3AisSubsetOf+%3Fsource_db+.%0D%0A+%3Fsource_db+dcterms%3Atitle+%3Fsource_dataset1_name%3B%0D%0A++++++++++++void%3AsparqlEndpoint+%3Fsource_endpoint.%0D%0Aoptional%7B+%3Fset1+voidext%3AlinkPredicateDomain+%3Fsubj_type%7D%0D%0Aoptional%7B+%3Fset1+voidext%3AlinkPredicateRange+%3Fobj_type.%7D%0D%0Aoptional%7B+%3Flinks+voidext%3ArecommendedMapping+%3Fset1.%0D%0A+++++++++++++++%3Fset1+voidext%3AresourceMapping++%3FresourceMapping%7D%0D%0Afilter%28%3Fsource_db+%21%3D+%3Ftarget_db%29++++++++%0D%0A+++++++++++++++++++++++++%0D%0A%7D+order+by+%3Flinks%0D%0A&format=text%2Fhtml&timeout=0"><b>Click here to <font size=5>run this query</font> over our exemplar dataset.</b></a>
 prefix void:    &lt;http://rdfs.org/ns/void#&gt;
 prefix bioquery: &lt;http://purl.org/query/bioquery#&gt;
 prefix voidext:&lt;http://purl.org/query/voidext#&gt;
 prefix dcterms: &lt;http://purl.org/dc/terms/&gt;
 
-SELECT distinct ?links ?source_dataset1_name ?target_dataset2_name ?predicate 
+SELECT distinct ?links ?source_dataset1_name ?target_dataset2_name ?predicate
  ?intersection_type ?subj_type ?obj_type  ?source_endpoint ?target_endpoint 
  ?resourceMapping {
   
@@ -533,26 +503,27 @@ SELECT distinct ?links ?source_dataset1_name ?target_dataset2_name ?predicate
  #values(?dataset2){ (bioquery:DRUGBANK) }
 
  ?links a voidext:ComplexLinkSet.
- ?links  voidext:intersectAt ?set2;
-         voidext:intersectionType/rdfs:label ?intersection_type.
- ?set2   voidext:isSubsetOf ?target_db.
- ?target_db dcterms:title ?target_dataset2_name;
-            void:sparqlEndpoint ?target_endpoint.
- ?set2 void:linkPredicate ?predicate2 .
- 
-
- ?links  voidext:intersectAt ?set1.
- ?set1 void:linkPredicate ?predicate .
- ?set1 voidext:isSubsetOf ?source_db .
+ ?links void:target ?dataset1, ?dataset2 .
+ ?links  voidext:intersectAt ?points;
+            voidext:intersectionType/rdfs:label ?intersection_type;
+            void:target ?target_db.
+?target_db dcterms:title ?target_dataset2_name;
+                    void:sparqlEndpoint ?target_endpoint.
+ ?points void:linkPredicate ?predicate .
+ ?points void:subset ?source_db .
  ?source_db dcterms:title ?source_dataset1_name;
-            void:sparqlEndpoint ?source_endpoint.
-optional{ ?set1 voidext:linkPredicateDomain ?subj_type}
-optional{ ?set1 voidext:linkPredicateRange ?obj_type.}
-optional{ ?links voidext:recommendedMapping ?set1.
-               ?set1 voidext:resourceMapping  ?resourceMapping}
+                    void:sparqlEndpoint ?source_endpoint.
+optional{ ?points voidext:linkPredicateDomain ?subj_type}
+optional{ ?points voidext:linkPredicateRange ?obj_type.}
+optional{ ?links voidext:recommendedMapping ?points.
+               ?points voidext:resourceMapping  ?resourceMapping}
+ 
 filter(?source_db != ?target_db)        
                          
-} order by ?links </pre>
+} order by ?links
+
+#<a href="http://biosoda.expasy.org:8890/sparql?default-graph-uri=&query=prefix+void%3A++++%3Chttp%3A%2F%2Frdfs.org%2Fns%2Fvoid%23%3E%0D%0Aprefix+bioquery%3A+%3Chttp%3A%2F%2Fpurl.org%2Fquery%2Fbioquery%23%3E%0D%0Aprefix+voidext%3A%3Chttp%3A%2F%2Fpurl.org%2Fquery%2Fvoidext%23%3E%0D%0Aprefix+dcterms%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0D%0A%0D%0ASELECT+distinct+%3Flinks+%3Fsource_dataset1_name+%3Ftarget_dataset2_name+%3Fpredicate+%3Fintersection_type+%3Fsubj_type+%3Fobj_type++%3Fsource_endpoint+%3Ftarget_endpoint+%3FresourceMapping+%7B%0D%0A++%0D%0A+%23values%28%3Fdataset1%29%7B+%28bioquery%3AEBI_ORDO%29+%7D%0D%0A+%23values%28%3Fdataset2%29%7B+%28bioquery%3ADRUGBANK%29+%7D%0D%0A%0D%0A+%3Flinks+a+voidext%3AComplexLinkSet.%0D%0A+%3Flinks+void%3Atarget+%3Fdataset1%2C+%3Fdataset2+.%0D%0A+%3Flinks++voidext%3AintersectAt+%3Fpoints%3B%0D%0A++++++++++++voidext%3AintersectionType%2Frdfs%3Alabel+%3Fintersection_type%3B%0D%0A++++++++++++void%3Atarget+%3Ftarget_db.%0D%0A%3Ftarget_db+dcterms%3Atitle+%3Ftarget_dataset2_name%3B%0D%0A++++++++++++++++++++void%3AsparqlEndpoint+%3Ftarget_endpoint.%0D%0A+%3Fpoints+void%3AlinkPredicate+%3Fpredicate+.%0D%0A+%3Fpoints+void%3Asubset+%3Fsource_db+.%0D%0A+%3Fsource_db+dcterms%3Atitle+%3Fsource_dataset1_name%3B%0D%0A++++++++++++++++++++void%3AsparqlEndpoint+%3Fsource_endpoint.%0D%0Aoptional%7B+%3Fpoints+voidext%3AlinkPredicateDomain+%3Fsubj_type%7D%0D%0Aoptional%7B+%3Fpoints+voidext%3AlinkPredicateRange+%3Fobj_type.%7D%0D%0Aoptional%7B+%3Flinks+voidext%3ArecommendedMapping+%3Fpoints.%0D%0A+++++++++++++++%3Fpoints+voidext%3AresourceMapping++%3FresourceMapping%7D%0D%0A+%0D%0Afilter%28%3Fsource_db+%21%3D+%3Ftarget_db%29++++++++%0D%0A+++++++++++++++++++++++++%0D%0A%7D+order+by+%3Flinks&should-sponge=&format=text%2Fhtml&timeout=0&debug=on"><b>Click here to execute this query over our exemplar dataset.</b></a>
+ </pre>
 
 <br>
 
@@ -568,12 +539,12 @@ In this example, OMA and Bgee datasets share the same instance Internationalized
 Indeed, OMA instances are reused as part of the Bgee RDF graph rather than creating new Bgee ones. </p>
 
  <pre class="example" id="fig5">
-  bioquery:OMA_BGEE_2 a <a href="#SharedInstanceSet">voidext:SharedInstanceSet</a>, <a href="#SimpleLinkSet">voidext:SimpleLinkSet</a>; 
+  bioquery:OMA_BGEE_2 a <a href="#SharedInstanceSet">voidext:SharedInstanceSet</a>; #rdfs:subClassOf <a href="#VirtualLinks">voidext:VirtualLinks</a> .
             <a href="#http://rdfs.org/ns/void#target">void:target</a> bioquery:OMA;
             <a href="#http://rdfs.org/ns/void#target">void:target</a> bioquery:BGEE;
             <a href="#sharedInstanceType">voidext:sharedInstanceType</a> <a href="http://qfo.github.io/OrthologyOntology/#Gene">orth:Gene</a>.
   
-  bioquery:OMA_BGEE_3 a <a href="#SharedInstanceSet">voidext:SharedInstanceSet</a>, <a href="#SimpleLinkSet">voidext:SimpleLinkSet</a>;
+  bioquery:OMA_BGEE_3 a <a href="#SharedInstanceSet">voidext:SharedInstanceSet</a>;
              <a href="#http://rdfs.org/ns/void#target">void:target</a> bioquery:OMA;
              <a href="#http://rdfs.org/ns/void#target">void:target</a> bioquery:BGEE;
              <a href="#sharedInstanceType">voidext:sharedInstanceType</a> <a href="https://www.uniprot.org/core/#http://purl.uniprot.org/core/Taxon">up:Taxon</a>.           
@@ -610,46 +581,62 @@ This example illustrates how to instantiate virtual links of type <a href="#Comp
 <div>	
 <pre class="example" id="ex5_ttl">
 bioquery:UNIPROT_OMA_2 a <a href="#ComplexLinkSet">voidext:ComplexLinkSet</a>; ### The filled gray circle in <a href="#fig5">Figure 4</a>
+			<a href="#http://rdfs.org/ns/void#target">void:target</a> bioquery:OMA;
+			<a href="#http://rdfs.org/ns/void#target">void:target</a> bioquery:UNIPROT;
 			<a href="#intersectAt">voidext:intersectAt</a> bioquery:UNIPROT_EBI-ENSEMBL ;
 			<a href="#intersectAt">voidext:intersectAt</a> bioquery:OMA_EBI-ENSEMBL ;
 			<a href="#intersectionType">voidext:intersectionType</a> <a href="#OBJECT_OBJECT">voidext:OBJECT_OBJECT</a> .
 
 bioquery:UNIPROT_EBI-ENSEMBL a  <a href="#http://rdfs.org/ns/void#Linkset">void:Linkset</a>; ### The filled black circle in <a href="#fig5">Figure 4</a>
              <a href="#http://rdfs.org/ns/void#subjectsTarget">void:subjectsTarget</a> bioquery:UNIPROT;
-             <a href="#http://rdfs.org/ns/void#objectsTarget">void:objectsTarget</a> bioquery:OMA_EBI-ENSEMBL;
+             <a href="#http://rdfs.org/ns/void#objectsTarget">void:objectsTarget</a> bioquery:EBI;
              <a href="#http://rdfs.org/ns/void#linkPredicate">void:linkPredicate</a> <a href="https://www.uniprot.org/core/#http://purl.uniprot.org/core/transcribedFrom">up:transcribedFrom</a>;
              <a href="#linkPredicateDomain">voidext:linkPredicateDomain</a> <a href="https://www.uniprot.org/core/#http://purl.uniprot.org/core/Transcript_Resource">up:Transcript_Resource</a>;
              <a href="#linkPredicateRange">voidext:linkPredicateRange</a> <a href="http://www.ontobee.org/ontology/SO?iri=http://purl.obolibrary.org/obo/SO_0000704">obo:SO_0000704</a>;
-			 <a href="#isSubsetOf">voidext:isSubsetOf</a> bioquery:UNIPROT.
+			 <a href="#linkPredicateRange">void:subset</a> bioquery:UNIPROT.
 
 bioquery:OMA_EBI-ENSEMBL a <a href="#http://rdfs.org/ns/void#Linkset">void:Linkset</a>; ### The white circle in <a href="#fig5">Figure 4</a>
              <a href="#http://rdfs.org/ns/void#subjectsTarget">void:subjectsTarget</a> bioquery:OMA;
-             <a href="#http://rdfs.org/ns/void#objectsTarget">void:objectsTarget</a> bioquery:UNIPROT_EBI-ENSEMBL;
+             <a href="#http://rdfs.org/ns/void#objectsTarget">void:objectsTarget</a> bioquery:EBI;
              <a href="#http://rdfs.org/ns/void#linkPredicate">void:linkPredicate</a> lscr:xrefEnsemblGene;
              <a href="#linkPredicateDomain">voidext:linkPredicateDomain</a> <a href="http://qfo.github.io/OrthologyOntology/#Gene">orth:Gene</a>;
              <a href="#linkPredicateRange">voidext:linkPredicateRange</a> <a href="http://www.ontobee.org/ontology/SO?iri=http://purl.obolibrary.org/obo/SO_0000704">obo:SO_0000704</a>;
-   			 <a href="#isSubsetOf">voidext:isSubsetOf</a> bioquery:OMA.
-
+   			 <a href="#linkPredicateRange">void:subset</a> bioquery:OMA.
+	
 bioquery:OMA a  <a href="#http://rdfs.org/ns/void#Dataset">void:Dataset</a>.
 bioquery:UNIPROT a  <a href="#http://rdfs.org/ns/void#Dataset">void:Dataset</a>.
 bioquery:EBI a  <a href="#http://rdfs.org/ns/void#Dataset">void:Dataset</a>.		
 </pre>
 </div>	
 <p>
-For further instantiation examples serialised with RDF/Turtle syntax, please refer to the <a href="http://purl.org/query/bioquery">BioQuery RDF federation metadata file</a>. 
+For further instantiation examples serialised with Turtle syntax, please refer to the <a href="http://purl.org/query/bioquery">BioQuery RDF federation metadata file</a>. 
 </p>
 <br>	
 
 <h3 id="voidext_void" class="list">VoIDext <i>vs</i> VoID: main changes <span class="backlink"> back to <a href="#toc">ToC</a></span></h3>
 
-<p>
- VoID instances (ABox) are fully backward compatible with the VoIDext schema since we add new terms without modifying the original VoID TBox.
-  The only performed modification concerns the <a href="https://www.w3.org/TR/void/#target">void:target</a> property domain.
-  In VoIDext, this domain is the union of <a href="#http://rdfs.org/ns/void#Linkset">void:Linkset</a> and <a href="#SharedInstanceSet">voidext:SharedInstanceSet</a> 
-  classes instead of solely <a href="#http://rdfs.org/ns/void#Linkset">void:Linkset</a>, as stated in VoID. 
-  We did this to avoid the replication of a similar property to state target datasets to shared instance sets.
-   Despite this modification, assertions of \textit{void:target} based on VoID remain compatible with VoIDext. 
-   Minor modifications are reported in the end of this document.  </p>
-
+<p>We built the VoIDext TBox based on the <a href="https://www.w3.org/TR/rdf-schema/">RDF schema 1.1</a> and the already existing <a 
+href="http://vocab.deri.ie/void">VoID RDF schema vocabulary</a>.
+Unlike VoID, we stated the <a href="#http://rdfs.org/ns/void#Linkset">void:Linkset</a> class as a subclass of the new <a href="#SimpleLinkSet">voidext:SimpleLinkSet</a> class instead of the
+   <a href="#Dataset">void:Dataset</a> class as it was previously stated. The <a href="#SimpleLinkSet">voidext:SimpleLinkSet</a> is a class to represent the simple virtual links and 
+   <a href="#SimpleLinkSet">voidext:SimpleLinkSet</a> &#8849; <a href="#Dataset">void:Dataset</a>, where the symbol &#8849; reads as "is subsumed by". Then, we can infer 
+   that <a href="#http://rdfs.org/ns/void#Linkset">void:Linkset</a> &#8849; <a href="#Dataset">void:Dataset</a> what makes VoID instances (ABox) fully compatible with the VoIDext schema. In 
+   addition to the <a href="#http://rdfs.org/ns/void#Linkset">void:Linkset</a> term,  in spite of the fact that we modified <a href="#http://rdfs.org/ns/void#target">void:target</a>
+   , <a href="#http://rdfs.org/ns/void#subjectsTarget">void:subjectsTarget</a> and 
+   <a href="#http://rdfs.org/ns/void#objectsTarget">void:objectsTarget</a> property domains  from <a href="#http://rdfs.org/ns/void#Linkset">void:Linkset</a> to <a href="#VirtualLink">voidext:VirtualLink</a>, 
+   the VoIDext is still backward compatible with any VoID-based ABox since <a href="#http://rdfs.org/ns/void#Linkset">void:Linkset</a> &#8849; <a href="#VirtualLink">voidext:VirtualLink</a>. 
+   The <a href="#http://rdfs.org/ns/void#target">void:target</a> is assigned with one of the two datasets linked by the <i>virtual link</i> where <a href="#http://rdfs.org/ns/void#subjectsTarget">void:subjectsTarget</a> &#8849;
+    <a href="#http://rdfs.org/ns/void#target">void:target</a> and <a href="#http://rdfs.org/ns/void#objectsTarget">void:objectsTarget</a> &#8849; <a href="#http://rdfs.org/ns/void#target">void:target</a>. 
+    The <a href="#http://rdfs.org/ns/void#subjectsTarget">void:subjectsTarget</a>/<a href="#http://rdfs.org/ns/void#objectsTarget">void:objectsTarget</a> 
+    property asserts as its value the dataset that describes the subjects/objects of triples contained in the virtual link. 
+    By asserting these sub-target properties, we can state the subject-object direction of the links explicitly. <a href="#fig44">Fig. 5</a> illustrates VoIDext main concepts 
+    and an example of a complex link involving two link predicates. 
+</p>
+<div  align="center">
+<figure id="fig44">
+<p><img src="images/fig4.png" class="imagedesc2"/>
+<figcaption><a href="#fig44">Figure 5</a>. A portion of the VoIDext terminological and assertion boxes.</figcaption>
+</figure>
+</div>
 
 	

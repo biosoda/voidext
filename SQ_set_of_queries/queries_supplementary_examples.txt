@@ -1,5 +1,6 @@
-******** owl:sameAs
-
+############
+####### MUSICBRAINZ and DBPEDIA artists and bands 
+############
 http://dbpedia.org/sparql         1 of several <http://dbpedia.org/ontology/Artist> and (=) <http://www.wikidata.org/entity/Q483501> subclassOf dbpedia:ontology/Person foaf:Person
  http://dbtune.org/musicbrainz/sparql
 SELECT * WHERE {
@@ -11,46 +12,33 @@ service<http://dbpedia.org/sparql>{
 }
 }
 LIMIT 100
-
+############
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-select * where {
+select (count(distinct ?s) as ?b) where {
+  
 service<http://dbpedia.org/sparql>{
-select * where {
+select ?x where {
 
-#values(?a){(<http://dbpedia.org/resource/Wolfgang_Amadeus_Mozart>)}
 { 
 ?a a <http://dbpedia.org/class/yago/Artist109812338>.
 }UNION {
 ?a a <http://dbpedia.org/ontology/Band>.
 }UNION{
 ?a a <http://dbpedia.org/ontology/Artist>.
-
 }
+
 ?a rdfs:label ?v.
 BIND(str(?v) as ?x )
-values(?x){("Wolfgang Amadeus Mozart")}
+#values(?x){("Wolfgang Amadeus Mozart")}
 
 }}
 
 service<http://dbtune.org/musicbrainz/sparql>{
 select * where {
 ?s foaf:name ?x.
-}
-
-}
-
-} LIMIT 100
-
-
-
-
-dbpedia:ontology/Band [http]	-
-rdf:type [http]	dbpedia:ontology/Group [http]	-
-rdf:type [http]	dbpedia:ontology/Organisation 
-3520
-
-711 with labels
-530 with owl same as
+  ?s a <http://purl.org/ontology/mo/MusicArtist>.
+}}}
+############
 
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -68,6 +56,10 @@ service<http://dbpedia.org/sparql>{
 select * where {
 ?a rdf:type ?v.
 }}} 
+
+
+812 count by considering artist/band name labels
+530 count by considering artist/band owl:sameAs assertions in MUSICBRAINZ
 
 ############### Example 2 ###############
 ######## Links between DBpedia and Swiss government RDF Platform LINDAS regarding the Swiss cantons. 
@@ -121,10 +113,15 @@ service<https://lindas-data.ch/sparql>{
 
 }
 ######## CITIES
-
-2340 out of 2767 municipalities (with dbpedia valid seeAlso links) out of 3428 (total LIDAS)  >2863(total DBPedia)
-P: 100%
-R: 2340/3428
+2350 (count for optional part commented of the query (Dbpedia inner join LINDAS)
+2352 count by considering dbo:PopulatedPlace in (Dbpedia inner join LINDAS)
+2352 
+-out of 2752 municipalities (with dbpedia valid seeAlso links) 
+-out of 3428 (total LIDAS)  ~2863+2(total DBPedia of swiss cities) + http://dbpedia.org/resource/Lucerne http://dbpedia.org/resource/Sent
+P: 100% 
+R: 2352/2865 = 0.8209
+R2: 2350/2865 = 0.8202
+coverage: 2352 out of 3428 results
 
 select  *  where { 
 
@@ -220,3 +217,24 @@ ex:LINDAS_DBPEDIA a void:Linkset;
 			voidext:intersectAt ex:DBPEDIA_LINDAS;
 			voidext:intersectionType voidext:OBJECT_OBJECT ;
 		    voidext:recommendedMapping ex:DBPEDIA_LINDAS . 
+
+
+####LIDAS to dbpedia links cities
+select  count(distinct ?city) where { 
+
+service<https://lindas-data.ch/sparql>{
+select ?city {
+?city a <https://gont.ch/Municipality>.
+?city <http://www.w3.org/2000/01/rdf-schema#seeAlso> ?dbpedia_city.
+BIND(?dbpedia_city as ?dbpedia_city_new)
+FILTER(CONTAINS(STR(?dbpedia_city), "dbpedia"))
+} }}
+
+####Count SWISS cities in DBPEDIA
+
+select  count(distinct ?dbpedia_city_new) where { 
+{?dbpedia_city_new a <http://dbpedia.org/ontology/PopulatedPlace>.  } UNION
+{?dbpedia_city_new <http://dbpedia.org/ontology/type>	<http://dbpedia.org/resource/Municipalities_of_Switzerland> }UNION {
+?dbpedia_city_new a <http://dbpedia.org/class/yago/Municipality108626283>.
+?dbpedia_city_new <http://dbpedia.org/ontology/country>	<http://dbpedia.org/resource/Switzerland>}
+}

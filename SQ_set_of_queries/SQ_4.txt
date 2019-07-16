@@ -1,8 +1,9 @@
 ################
-############# Query complex virtual links with 2 link predicates - competency question from Table 6.
-############# It answers the  Question (4):
-############# Which are the set of complex virtual link between two similar or equivalent 
-############# resources which are subject or object of different predicates in distinct RDF datasets?
+############# Query complex virtual links with 2 link predicates. voidext:ComplexLinkSet composed of two void:Linkset(s)
+############# Question (4):
+############# Which are the sets of complex virtual links between two similar or equivalent 
+############# resources that are either subject or object of different predicates in distinct RDF datasets? 
+############# In other words, Which are the complex virtual link sets composed of two link predicates stored in distinct datasets? 
 ################
 
 prefix void:    <http://rdfs.org/ns/void#>
@@ -10,27 +11,31 @@ prefix bioquery: <http://purl.org/query/bioquery#>
 prefix voidext:<http://purl.org/query/voidext#>
 prefix dcterms: <http://purl.org/dc/terms/>
 
-SELECT distinct ?links ?source_dataset1_name ?target_dataset2_name ?predicate ?intersection_type ?subj_type ?obj_type  ?source_endpoint ?target_endpoint ?resourceMapping {
+SELECT distinct ?links ?source_dataset1_name ?target_dataset2_name ?predicate 
+ ?intersection_type ?subj_type ?obj_type  ?source_endpoint ?target_endpoint 
+ ?resourceMapping {
   
  #values(?dataset1){ (bioquery:EBI_ORDO) }
  #values(?dataset2){ (bioquery:DRUGBANK) }
 
  ?links a voidext:ComplexLinkSet.
- ?links void:target ?dataset1, ?dataset2 .
- ?links  voidext:intersectAt ?points;
-            voidext:intersectionType/rdfs:label ?intersection_type;
-            void:target ?target_db.
-?target_db dcterms:title ?target_dataset2_name;
-                    void:sparqlEndpoint ?target_endpoint.
- ?points void:linkPredicate ?predicate .
- ?points void:subset ?source_db .
- ?source_db dcterms:title ?source_dataset1_name;
-                    void:sparqlEndpoint ?source_endpoint.
-optional{ ?points voidext:linkPredicateDomain ?subj_type}
-optional{ ?points voidext:linkPredicateRange ?obj_type.}
-optional{ ?links voidext:recommendedMapping ?points.
-               ?points voidext:resourceMapping  ?resourceMapping}
+ ?links  voidext:intersectAt ?set2;
+         voidext:intersectionType/rdfs:label ?intersection_type.
+ ?set2   voidext:isSubsetOf ?target_db.
+ ?target_db dcterms:title ?target_dataset2_name;
+            void:sparqlEndpoint ?target_endpoint.
+ ?set2 void:linkPredicate ?predicate2 .
  
+
+ ?links  voidext:intersectAt ?set1.
+ ?set1 void:linkPredicate ?predicate .
+ ?set1 voidext:isSubsetOf ?source_db .
+ ?source_db dcterms:title ?source_dataset1_name;
+            void:sparqlEndpoint ?source_endpoint.
+optional{ ?set1 voidext:linkPredicateDomain ?subj_type}
+optional{ ?set1 voidext:linkPredicateRange ?obj_type.}
+optional{ ?links voidext:recommendedMapping ?set1.
+               ?set1 voidext:resourceMapping  ?resourceMapping}
 filter(?source_db != ?target_db)        
                          
-} order by ?links
+} order by ?links 
