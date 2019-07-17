@@ -22,7 +22,10 @@ These SPARQL federated queries were defined according to the virtual link set me
 ## The set of SPARQL queries (SQ) along with the competency questions (CQ)
 The formal set of queries to answer the informal competency questions during the development of VoIDext is available in
  [SQ_set_of_queries](SQ_set_of_queries). 
-These queries can be executed on the [SPARQL endpoint here](http://biosoda.expasy.org:8890/sparql) (except "[SQ_5.txt](https://github.com/biosoda/voidext/blob/master/SQ_set_of_queries/SQ_5.txt)" that should be executed at https://www.ebi.ac.uk/rdf/services/sparql ). "[SQ_5.txt](https://github.com/biosoda/voidext/blob/master/SQ_set_of_queries/SQ_5.txt)" is actually a federated query to test a mapping function that solves heterogeneities at the ABox level.
+ 
+These queries can be executed on the [SPARQL endpoint here](http://biosoda.expasy.org:8890/sparql) where bioquery-related virtual link sets are in the named graph <http://purl.org/query/voidext> along with VoIDext and other virtual link sets (based on non-life-sciences link sets) are part of the named graph <http://example.org/voidext>.
+ 
+Exception: "[SQ_5.txt](https://github.com/biosoda/voidext/blob/master/SQ_set_of_queries/SQ_5.txt)" that should be executed at https://www.ebi.ac.uk/rdf/services/sparql ). "[SQ_5.txt](https://github.com/biosoda/voidext/blob/master/SQ_set_of_queries/SQ_5.txt)" is actually a federated query to test a mapping function that solves heterogeneities at the ABox level.
 
 The [queries_supplementary_examples.txt](ABox_examplar_data/queries_supplementary_examples.txt) file describes additional queries written during the development of the virtual link sets in "ABox_doc_examples.ttl" and complementary information about some link sets performance.
 
