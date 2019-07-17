@@ -571,9 +571,9 @@ owl:unionOf ( [ rdf:type owl:Restriction ;
 ex:LINDAS_DBPEDIA_CITY1_P 
 	a mex:ClassificationMeasure;
 	mex:precision 1.0;
-	mex:recall 0.6861.                                  	
+	mex:recall 0.8209.                                  	
  
  ex:LINDAS_DBPEDIA_CITY2_P 
 	a mex:ClassificationMeasure;
 	mex:precision 1.0;
-	mex:recall 0.6855. 
+	mex:recall 0.8202.  
