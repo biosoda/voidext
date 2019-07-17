@@ -24,7 +24,7 @@ The formal set of queries to answer the informal competency questions during the
  [SQ_set_of_queries](SQ_set_of_queries). 
 These queries can be executed on the [SPARQL endpoint here](http://biosoda.expasy.org:8890/sparql) (except "[SQ_5.txt](https://github.com/biosoda/voidext/blob/master/SQ_set_of_queries/SQ_5.txt)" that should be executed at https://www.ebi.ac.uk/rdf/services/sparql ). "[SQ_5.txt](https://github.com/biosoda/voidext/blob/master/SQ_set_of_queries/SQ_5.txt)" is actually a federated query to test a mapping function that solves heterogeneities at the ABox level.
 
-The [queries_supplementary_examples.txt](ABox_examplar_data/queries_supplementary_examples.txt) file describe additional queries written during the development of the virtual link sets in "ABox_doc_examples.ttl" and complementary information about some link sets performance.
+The [queries_supplementary_examples.txt](ABox_examplar_data/queries_supplementary_examples.txt) file describes additional queries written during the development of the virtual link sets in "ABox_doc_examples.ttl" and complementary information about some link sets performance.
 
 ## Additional Information
 The [voidext_with_import.ttl](https://github.com/biosoda/voidext/blob/master/voidext_with_import.ttl) file is the VoIDext RDF Turtle serialisation including imported ontologies.

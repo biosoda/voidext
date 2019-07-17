@@ -2,14 +2,14 @@
   "_comment" : "Created with OWL2VOWL (version 0.3.2-SNAPSHOT), http://vowl.visualdataweb.org",
   "header" : {
     "languages" : [ "en", "undefined" ],
-    "baseIris" : [ "http://www.w3.org/1999/02/22-rdf-syntax-ns", "http://rdfs.org/ns/void", "http://www.w3.org/ns/sparql-service-description", "http://www.w3.org/2000/01/rdf-schema", "http://purl.org/dc/terms", "http://www.w3.org/2001/XMLSchema", "http://purl.org/query/voidext", "http://xmlns.com/foaf/0.1", "http://www.w3.org/ns/adms" ],
+    "baseIris" : [ "http://mex.aksw.org/mex-perf", "http://www.w3.org/1999/02/22-rdf-syntax-ns", "http://rdfs.org/ns/void", "http://www.w3.org/ns/sparql-service-description", "http://www.w3.org/2000/01/rdf-schema", "http://www.w3.org/ns/prov", "http://purl.org/dc/terms", "http://www.w3.org/2001/XMLSchema", "http://purl.org/query/voidext", "http://xmlns.com/foaf/0.1", "http://www.w3.org/ns/adms" ],
     "title" : {
       "undefined" : "Extended Vocabulary of Interlinked Datasets (VoIDext)"
     },
     "iri" : "http://purl.org/query/voidext",
     "author" : [ "http://purl.org/query/tarcisiomf" ],
     "description" : {
-      "undefined" : "The Extension of the Vocabulary of Interlinked Datasets (VoID) RDF Schema to include the concept of virtual links. This extension enhances interoperability among heterogeneous and distributed RDF data sets by bridging them through explicitly defined virtual links."
+      "undefined" : "The Extension of the Vocabulary of Interlinked Datasets (VoID) RDF Schema that includes the concept of virtual links. This extension enhances interoperability among heterogeneous and distributed RDF data sets by bridging them through explicitly defined virtual links."
     },
     "other" : {
       "license" : [ {
@@ -36,17 +36,17 @@
         "value" : "voidext",
         "type" : "label"
       } ],
-      "publisher" : [ {
-        "identifier" : "publisher",
-        "language" : "undefined",
-        "value" : "",
-        "type" : "label"
-      } ],
       "modified" : [ {
         "identifier" : "modified",
         "language" : "undefined",
-        "value" : "2019-03-30",
+        "value" : "2019-06-30",
         "type" : "label"
+      } ],
+      "publisher" : [ {
+        "identifier" : "publisher",
+        "language" : "undefined",
+        "value" : "https://www.sib.swiss/about-sib/organization",
+        "type" : "iri"
       } ],
       "isVersionOf" : [ {
         "identifier" : "isVersionOf",
@@ -60,16 +60,22 @@
         "value" : "http://purl.org/query/voidext#",
         "type" : "label"
       } ],
+      "type" : [ {
+        "identifier" : "type",
+        "language" : "undefined",
+        "value" : "http://purl.org/adms/assettype/Ontology",
+        "type" : "iri"
+      } ],
       "title" : [ {
         "identifier" : "title",
         "language" : "undefined",
         "value" : "Extended Vocabulary of Interlinked Datasets (VoIDext)",
         "type" : "label"
       } ],
-      "type" : [ {
-        "identifier" : "type",
+      "homepage" : [ {
+        "identifier" : "homepage",
         "language" : "undefined",
-        "value" : "http://purl.org/adms/assettype/Ontology",
+        "value" : "http://purl.org/query/voidext",
         "type" : "iri"
       } ],
       "status" : [ {
@@ -77,91 +83,100 @@
         "language" : "undefined",
         "value" : "http://purl.org/adms/status/UnderDevelopment",
         "type" : "iri"
-      } ],
-      "homepage" : [ {
-        "identifier" : "homepage",
-        "language" : "undefined",
-        "value" : "http://purl.org/query/voidext",
-        "type" : "iri"
       } ]
     }
   },
   "namespace" : [ ],
   "metrics" : {
-    "classCount" : 19,
-    "objectPropertyCount" : 20,
-    "datatypePropertyCount" : 9,
+    "classCount" : 23,
+    "objectPropertyCount" : 22,
+    "datatypePropertyCount" : 10,
     "individualCount" : 15
   },
   "class" : [ {
-    "id" : "9",
+    "id" : "11",
     "type" : "owl:Class"
   }, {
-    "id" : "13",
-    "type" : "owl:Class"
-  }, {
-    "id" : "17",
+    "id" : "16",
     "type" : "owl:Class"
   }, {
     "id" : "20",
     "type" : "owl:Class"
   }, {
-    "id" : "4",
-    "type" : "owl:Class"
-  }, {
-    "id" : "25",
-    "type" : "owl:Class"
-  }, {
-    "id" : "26",
-    "type" : "owl:Class"
-  }, {
-    "id" : "34",
-    "type" : "owl:Class"
-  }, {
-    "id" : "32",
+    "id" : "15",
     "type" : "owl:Class"
   }, {
     "id" : "12",
     "type" : "owl:Class"
   }, {
-    "id" : "37",
+    "id" : "23",
+    "type" : "owl:Class"
+  }, {
+    "id" : "26",
+    "type" : "owl:Class"
+  }, {
+    "id" : "4",
+    "type" : "owl:Class"
+  }, {
+    "id" : "32",
+    "type" : "owl:Class"
+  }, {
+    "id" : "33",
+    "type" : "owl:Class"
+  }, {
+    "id" : "44",
+    "type" : "owl:Class"
+  }, {
+    "id" : "18",
+    "type" : "owl:Class"
+  }, {
+    "id" : "39",
+    "type" : "owl:Class"
+  }, {
+    "id" : "46",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "47",
     "type" : "owl:Class"
   }, {
     "id" : "1",
     "type" : "owl:Class"
   }, {
-    "id" : "19",
+    "id" : "9",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "16",
+    "id" : "51",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "10",
-    "type" : "owl:Class"
-  }, {
-    "id" : "44",
+    "id" : "25",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "45",
+    "id" : "22",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "46",
+    "id" : "54",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "47",
+    "id" : "55",
     "type" : "rdfs:Datatype"
   }, {
-    "id" : "41",
-    "type" : "rdfs:Literal"
+    "id" : "56",
+    "type" : "rdfs:Datatype"
   }, {
-    "id" : "43",
-    "type" : "owl:Class"
-  }, {
-    "id" : "52",
-    "type" : "rdfs:Literal"
+    "id" : "57",
+    "type" : "rdfs:Datatype"
   }, {
     "id" : "53",
-    "type" : "rdfs:Datatype"
+    "type" : "owl:Class"
+  }, {
+    "id" : "13",
+    "type" : "owl:Class"
+  }, {
+    "id" : "62",
+    "type" : "rdfs:Literal"
+  }, {
+    "id" : "28",
+    "type" : "owl:unionOf"
   }, {
     "id" : "6",
     "type" : "owl:Class"
@@ -169,42 +184,103 @@
     "id" : "7",
     "type" : "owl:Class"
   }, {
-    "id" : "33",
+    "id" : "40",
     "type" : "owl:Class"
   }, {
-    "id" : "50",
+    "id" : "59",
     "type" : "owl:Class"
   }, {
-    "id" : "28",
+    "id" : "36",
     "type" : "owl:Class"
   } ],
   "classAttribute" : [ {
+    "iri" : "http://mex.aksw.org/mex-perf#PerformanceMeasure",
+    "baseIri" : "http://mex.aksw.org/mex-perf",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "PerformanceMeasure"
+    },
+    "subClasses" : [ "13" ],
+    "attributes" : [ "external" ],
+    "id" : "11",
+    "superClasses" : [ "12" ]
+  }, {
     "iri" : "http://purl.org/query/voidext#ComplexLinkSet",
     "baseIri" : "http://purl.org/query/voidext",
     "instances" : 0,
+    "annotations" : {
+      "queryLinkset" : [ {
+        "identifier" : "queryLinkset",
+        "language" : "undefined",
+        "value" : "prefix void:    <http://rdfs.org/ns/void#>\nprefix voidext:<http://purl.org/query/voidext#>\nprefix dcterms: <http://purl.org/dc/terms/>\n\nSELECT distinct ?links ?source_dataset1_name ?target_dataset2_name ?predicate \n ?intersection_type ?subj_type ?obj_type  ?source_endpoint ?target_endpoint \n ?resourceMapping {\n  \n #values(?dataset1){ (bioquery:EBI_ORDO) }\n #values(?dataset2){ (bioquery:DRUGBANK) }\n\n ?links a voidext:ComplexLinkSet.\n ?links  voidext:intersectAt ?set2;\n         voidext:intersectionType/rdfs:label ?intersection_type.\n ?set2   voidext:isSubsetOf ?target_db.\n ?target_db dcterms:title ?target_dataset2_name;\n            void:sparqlEndpoint ?target_endpoint.\n ?set2 void:linkPredicate ?predicate2 .\n \n\n ?links  voidext:intersectAt ?set1.\n ?set1 void:linkPredicate ?predicate .\n ?set1 voidext:isSubsetOf ?source_db .\n ?source_db dcterms:title ?source_dataset1_name;\n            void:sparqlEndpoint ?source_endpoint.\noptional{ ?set1 voidext:linkPredicateDomain ?subj_type}\noptional{ ?set1 voidext:linkPredicateRange ?obj_type.}\noptional{ ?links voidext:recommendedMapping ?set1.\n               ?set1 voidext:resourceMapping  ?resourceMapping}\nfilter(?source_db != ?target_db)        \n                         \n} order by ?links",
+        "type" : "label"
+      } ],
+      "querySharedInstanceSet" : [ {
+        "identifier" : "querySharedInstanceSet",
+        "language" : "undefined",
+        "value" : "prefix void:    <http://rdfs.org/ns/void#>\nprefix voidext:<http://purl.org/query/voidext#>\nprefix dcterms: <http://purl.org/dc/terms/>\n\nSELECT distinct ?links ?source_dataset1_name ?target_dataset2_name ?sharedType\n  ?resourceMapping ?source_endpoint ?target_endpoint{\n  \n #values(?source_db){ (bioquery:EBI) }\n #values(?target_db){ (bioquery:UNIPROT) }\n\n ?links a voidext:ComplexLinkSet.\n ?links voidext:intersectAt ?set1; voidext:intersectAt ?set2.\n ?set1  voidext:isSubsetOf ?target_db.\n ?target_db dcterms:title ?target_dataset2_name;\n           void:sparqlEndpoint ?target_endpoint.\n ?set2 voidext:sharedInstanceType  ?sharedType .\n ?set2 voidext:isSubsetOf ?source_db .\n ?source_db dcterms:title ?source_dataset1_name;\n            void:sparqlEndpoint ?source_endpoint.\n\n optional{   ?links voidext:recommendedMapping ?set2.\n             ?set2 voidext:resourceMapping  ?resourceMapping}\n filter(?target_db != ?source_db)        \n                         \n} order by ?links",
+        "type" : "label"
+      } ]
+    },
     "label" : {
       "IRI-based" : "ComplexLinkSet",
       "en" : "Complex link set"
     },
     "comment" : {
-      "en" : "It is a complex virtual link. A complex link set is composed of exactly two link sets xor two shared instance sets where xor is the exclusive or. For example, two link sets that intersects at some graph node (e.g. the object nodes of link predicates)."
+      "en" : "It is a complex virtual link set. A complex link set is composed of exactly two link sets xor two shared instance sets where xor is the exclusive or. For example, two link sets that intersects at some graph node (e.g. the object nodes of link predicates)."
     },
-    "id" : "9",
-    "superClasses" : [ "10" ]
+    "id" : "16",
+    "superClasses" : [ "15" ]
   }, {
     "iri" : "http://purl.org/query/voidext#SimpleLinkSet",
     "baseIri" : "http://purl.org/query/voidext",
     "instances" : 0,
+    "annotations" : {
+      "queryLinkset" : [ {
+        "identifier" : "queryLinkset",
+        "language" : "undefined",
+        "value" : "prefix void:    <http://rdfs.org/ns/void#>\nprefix voidext:<http://purl.org/query/voidext#>\nprefix dcterms: <http://purl.org/dc/terms/>\n\nSELECT distinct ?links  ?source  ?predicate_from_endpoint ?subj_from ?subj_type ?predicate \n ?obj_type  ?obj_from  ?resourceMapping {\n\n###if we want to specify the target datasets that contain one of the resources\n###related with a virtual link.\n#values(?dataset_link_subj){  (bioquery:OMA)  }\n#values(?dataset_link_obj){  (bioquery:UNIPROT)  }\n\n?links  a void:Linkset.\n{\n ?links void:subjectsTarget ?dataset_link_subj .\n ?links void:objectsTarget ?dataset_link_obj.  \n} UNION {\n ?links void:target ?dataset_link_subj.\n ?links void:target ?dataset_link_obj .}\n ?links void:linkPredicate ?predicate;\n        void:subset ?source_db.\n ?dataset_link_subj void:sparqlEndpoint ?subj_from.\n ?dataset_link_obj void:sparqlEndpoint ?obj_from.\n ?source_db dcterms:title ?source;\n            void:sparqlEndpoint ?predicate_from_endpoint.\n\n optional {?links  voidext:linkPredicateRange ?obj_type}.\n optional {?links voidext:linkPredicateDomain ?subj_type. }\n optional{ ?links voidext:resourceMapping  ?resourceMapping}\n\nfilter not exists { ?complexLink  voidext:intersectAt ?links.}       \nfilter ( ?dataset_link_subj  !=  ?dataset_link_obj )       \n\n} order by ?links",
+        "type" : "label"
+      } ],
+      "querySharedInstanceSet" : [ {
+        "identifier" : "querySharedInstanceSet",
+        "language" : "undefined",
+        "value" : "prefix void:    <http://rdfs.org/ns/void#>\nprefix voidext:<http://purl.org/query/voidext#>\nprefix dcterms: <http://purl.org/dc/terms/>\n\nSELECT distinct ?links ?dataset1_name  ?dataset2_name  ?sharedType  \n                       ?dataset1_endpoint ?dataset2_endpoint {\n  \n #values(?dataset1){ (bioquery:BGEE) }\n #values(?dataset2){ (bioquery:OMA) }\n\n?links a voidext:SharedInstanceSet.\n?links void:target ?dataset1.\n?links void:target ?dataset2.\n?links voidext:sharedInstanceType ?sharedType. \n?dataset1   dcterms:title ?dataset1_name;\n                   void:sparqlEndpoint ?dataset1_endpoint.\n?dataset2  dcterms:title ?dataset2_name;\n                   void:sparqlEndpoint ?dataset2_endpoint.\n\nfilter not exists { ?complexLink voidext:intersectAt ?links .}  \nfilter(?dataset1 != ?dataset2)                     \n} order by ?links",
+        "type" : "label"
+      } ]
+    },
     "label" : {
       "IRI-based" : "SimpleLinkSet",
       "en" : "Simple link set"
     },
-    "subClasses" : [ "6", "12" ],
     "comment" : {
-      "en" : "A simple link set must contain in its definition, either exactly one link predicate (void:linkPredicate) or exactly one shared instance type (i.e. class). The instances of this class must be also instances of its subclasses (i.e. void:Linkset xor voidext:SharedInstanceSet - where xor is the exclusive or)."
+      "en" : "A simple link set must be a linkset that does not target another linkset (i.e. it has exactly one link predicate) or a set with exactly the same shared instances of the same type (i.e. class) in both datasets. The instances of this class must be also instances of either void:Linkset or voidext:SharedInstanceSet."
     },
-    "id" : "13",
-    "superClasses" : [ "10" ]
+    "id" : "20",
+    "superClasses" : [ "15" ]
+  }, {
+    "iri" : "http://purl.org/query/voidext#VirtualLinkSet",
+    "baseIri" : "http://purl.org/query/voidext",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "VirtualLinkSet",
+      "en" : "Virtual link set"
+    },
+    "subClasses" : [ "20", "16" ],
+    "comment" : {
+      "en" : "A set of virtual links between two datasets. A virtual link is a connection between resources such as literals and instances with some commonality. Each of these resources is from a different RDF dataset. A resource mapping can be also considered when defining common resources between datasets. For example, the datasets uses different prefix namespaces for similar instances in a given domain scope. A virtual link can be interpreted as an intersection data point between two datasets. In addition, a virtual link is not concretely stored. The link may be physically established during a federated query execution, for example. This class must only have instances of its subclasses. It is recommendable to comment (rdfs:comment) the scope of the virtual link set."
+    },
+    "id" : "15"
+  }, {
+    "iri" : "http://www.w3.org/ns/prov#Entity",
+    "baseIri" : "http://www.w3.org/ns/prov",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "Entity"
+    },
+    "subClasses" : [ "11" ],
+    "attributes" : [ "external" ],
+    "id" : "12"
   }, {
     "iri" : "http://www.w3.org/ns/sparql-service-description#Graph",
     "baseIri" : "http://www.w3.org/ns/sparql-service-description",
@@ -213,7 +289,7 @@
       "IRI-based" : "Graph"
     },
     "attributes" : [ "external" ],
-    "id" : "17",
+    "id" : "23",
     "superClasses" : [ "1" ]
   }, {
     "iri" : "http://www.w3.org/ns/adms#SemanticAsset",
@@ -230,7 +306,7 @@
       }
     } ],
     "attributes" : [ "external" ],
-    "id" : "20"
+    "id" : "26"
   }, {
     "iri" : "http://rdfs.org/ns/void#TechnicalFeature",
     "baseIri" : "http://rdfs.org/ns/void",
@@ -239,12 +315,12 @@
       "creator" : [ {
         "identifier" : "creator",
         "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#keiale",
+        "value" : "http://vocab.deri.ie/void#Michael%20Hausenblas",
         "type" : "iri"
       }, {
         "identifier" : "creator",
         "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#Michael%20Hausenblas",
+        "value" : "http://vocab.deri.ie/void#keiale",
         "type" : "iri"
       }, {
         "identifier" : "creator",
@@ -281,7 +357,7 @@
       "IRI-based" : "Dataset"
     },
     "attributes" : [ "external" ],
-    "id" : "25",
+    "id" : "32",
     "superClasses" : [ "1" ]
   }, {
     "iri" : "http://purl.org/dc/terms/Agent",
@@ -317,20 +393,46 @@
         "IRI-based" : "Department%20of%20Zoology%2C%20University%20of%20Oxford"
       }
     }, {
-      "iri" : "http://vocab.deri.ie/void#LiDRC",
-      "baseIri" : "http://vocab.deri.ie/void",
+      "iri" : "https://www.sib.swiss/about-sib/organization",
+      "baseIri" : "https://www.sib.swiss/about-sib",
       "annotations" : {
         "name" : [ {
           "identifier" : "name",
           "language" : "undefined",
-          "value" : "LiDRC",
+          "value" : "SIB Swiss Institute of Bioinformatics",
           "type" : "label"
         } ],
         "member" : [ {
           "identifier" : "member",
           "language" : "undefined",
+          "value" : "http://purl.org/query/tarcisiomf",
+          "type" : "iri"
+        } ],
+        "homepage" : [ {
+          "identifier" : "homepage",
+          "language" : "undefined",
+          "value" : "http://www.sib.swiss",
+          "type" : "iri"
+        } ]
+      },
+      "labels" : {
+        "IRI-based" : "organization"
+      }
+    }, {
+      "iri" : "http://vocab.deri.ie/void#LiDRC",
+      "baseIri" : "http://vocab.deri.ie/void",
+      "annotations" : {
+        "member" : [ {
+          "identifier" : "member",
+          "language" : "undefined",
           "value" : "http://vocab.deri.ie/void#Michael%20Hausenblas",
           "type" : "iri"
+        } ],
+        "name" : [ {
+          "identifier" : "name",
+          "language" : "undefined",
+          "value" : "LiDRC",
+          "type" : "label"
         } ],
         "homepage" : [ {
           "identifier" : "homepage",
@@ -346,17 +448,17 @@
       "iri" : "http://vocab.deri.ie/void#Talis",
       "baseIri" : "http://vocab.deri.ie/void",
       "annotations" : {
-        "name" : [ {
-          "identifier" : "name",
-          "language" : "undefined",
-          "value" : "Talis",
-          "type" : "label"
-        } ],
         "member" : [ {
           "identifier" : "member",
           "language" : "undefined",
           "value" : "http://vocab.deri.ie/void#keiale",
           "type" : "iri"
+        } ],
+        "name" : [ {
+          "identifier" : "name",
+          "language" : "undefined",
+          "value" : "Talis",
+          "type" : "label"
         } ],
         "homepage" : [ {
           "identifier" : "homepage",
@@ -372,17 +474,17 @@
       "iri" : "http://vocab.deri.ie/void#Digital%20Enterprise%20Research%20Institute%2C%20NUI%20Galway",
       "baseIri" : "http://vocab.deri.ie/void",
       "annotations" : {
-        "name" : [ {
-          "identifier" : "name",
-          "language" : "undefined",
-          "value" : "Digital Enterprise Research Institute, NUI Galway",
-          "type" : "label"
-        } ],
         "member" : [ {
           "identifier" : "member",
           "language" : "undefined",
           "value" : "http://vocab.deri.ie/void#cygri",
           "type" : "iri"
+        } ],
+        "name" : [ {
+          "identifier" : "name",
+          "language" : "undefined",
+          "value" : "Digital Enterprise Research Institute, NUI Galway",
+          "type" : "label"
         } ],
         "homepage" : [ {
           "identifier" : "homepage",
@@ -396,7 +498,7 @@
       }
     } ],
     "attributes" : [ "external" ],
-    "id" : "26"
+    "id" : "33"
   }, {
     "iri" : "http://purl.org/dc/terms/ProvenanceStatement",
     "baseIri" : "http://purl.org/dc/terms",
@@ -414,10 +516,10 @@
       "undefined" : "Provenance Statement"
     },
     "individuals" : [ {
-      "iri" : "http://purl.org/query/voidext#MODIFIED_TARGET",
+      "iri" : "http://purl.org/query/voidext#MODIFIED_TARGET_1",
       "baseIri" : "http://purl.org/query/voidext",
       "description" : {
-        "undefined" : "The void:target, void:subjectsTarget and void:objectsTarget VoID property domains were modified in voidext schema to be a superclass of void:Linkset, namely voidext:VirtualLink instead of void:Linkset class from the original VoID vocabulary. Therefore, all instances of voidext:VirtualLink including void:Linkset can use this property. The rdfs:comment assertion was also improved."
+        "undefined" : "The void:target property domain was modified in voidext schema to be the union of the classes: void:Linkset, and voidext:SharedInstanceSet instead of only the void:Linkset class from the original VoID vocabulary."
       },
       "annotations" : {
         "creator" : [ {
@@ -429,41 +531,60 @@
         "issued" : [ {
           "identifier" : "issued",
           "language" : "undefined",
-          "value" : "2019-01-30",
+          "value" : "2019-06-30",
           "type" : "label"
         } ]
       },
       "labels" : {
-        "IRI-based" : "MODIFIED_TARGET",
-        "undefined" : "modified property domain"
-      }
-    }, {
-      "iri" : "http://purl.org/query/voidext#MODIFIED_LINKSET",
-      "baseIri" : "http://purl.org/query/voidext",
-      "description" : {
-        "undefined" : "The void:Linkset class was modified in voidext schema to be a subclass of voidext:SimpleLinkSet (that is subclass of voidext:VirtualLink) instead of void:Dataset class from the original VoID vocabulary. In addition, the voidext:VirtualLink is a subclass of void:Dataset. The rdfs:comment assertion was also improved."
-      },
-      "annotations" : {
-        "creator" : [ {
-          "identifier" : "creator",
-          "language" : "undefined",
-          "value" : "http://purl.org/query/tarcisiomf",
-          "type" : "iri"
-        } ],
-        "issued" : [ {
-          "identifier" : "issued",
-          "language" : "undefined",
-          "value" : "2019-01-30",
-          "type" : "label"
-        } ]
-      },
-      "labels" : {
-        "IRI-based" : "MODIFIED_LINKSET",
-        "undefined" : "modified void:Linkset class"
+        "IRI-based" : "MODIFIED_TARGET_1",
+        "undefined" : "modified void:target domain"
       }
     } ],
     "attributes" : [ "external" ],
-    "id" : "34"
+    "id" : "44"
+  }, {
+    "iri" : "http://rdfs.org/ns/void#Linkset",
+    "baseIri" : "http://rdfs.org/ns/void",
+    "instances" : 0,
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://vocab.deri.ie/void#junzha",
+        "type" : "iri"
+      }, {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://vocab.deri.ie/void#Michael%20Hausenblas",
+        "type" : "iri"
+      }, {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://vocab.deri.ie/void#keiale",
+        "type" : "iri"
+      }, {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://vocab.deri.ie/void#cygri",
+        "type" : "iri"
+      } ],
+      "created" : [ {
+        "identifier" : "created",
+        "language" : "undefined",
+        "value" : "2010-01-26",
+        "type" : "label"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "Linkset",
+      "undefined" : "linkset"
+    },
+    "comment" : {
+      "undefined" : "A collection of RDF links between two void:Datasets."
+    },
+    "attributes" : [ "external" ],
+    "id" : "18",
+    "superClasses" : [ "1" ]
   }, {
     "iri" : "http://rdfs.org/ns/void#DatasetDescription",
     "baseIri" : "http://rdfs.org/ns/void",
@@ -472,12 +593,7 @@
       "creator" : [ {
         "identifier" : "creator",
         "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#keiale",
-        "type" : "iri"
-      }, {
-        "identifier" : "creator",
-        "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#junzha",
+        "value" : "http://vocab.deri.ie/void#Michael%20Hausenblas",
         "type" : "iri"
       }, {
         "identifier" : "creator",
@@ -487,7 +603,12 @@
       }, {
         "identifier" : "creator",
         "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#Michael%20Hausenblas",
+        "value" : "http://vocab.deri.ie/void#keiale",
+        "type" : "iri"
+      }, {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://vocab.deri.ie/void#junzha",
         "type" : "iri"
       } ],
       "isDefinedBy" : [ {
@@ -505,69 +626,16 @@
       "undefined" : "A web resource whose foaf:primaryTopic or foaf:topics include void:Datasets."
     },
     "attributes" : [ "external" ],
-    "id" : "32",
-    "superClasses" : [ "33" ]
+    "id" : "39",
+    "superClasses" : [ "40" ]
   }, {
-    "iri" : "http://rdfs.org/ns/void#Linkset",
-    "baseIri" : "http://rdfs.org/ns/void",
-    "instances" : 0,
-    "annotations" : {
-      "creator" : [ {
-        "identifier" : "creator",
-        "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#keiale",
-        "type" : "iri"
-      }, {
-        "identifier" : "creator",
-        "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#Michael%20Hausenblas",
-        "type" : "iri"
-      }, {
-        "identifier" : "creator",
-        "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#junzha",
-        "type" : "iri"
-      }, {
-        "identifier" : "creator",
-        "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#cygri",
-        "type" : "iri"
-      } ],
-      "provenance" : [ {
-        "identifier" : "provenance",
-        "language" : "undefined",
-        "value" : "http://purl.org/query/voidext#MODIFIED_LINKSET",
-        "type" : "iri"
-      } ],
-      "contributor" : [ {
-        "identifier" : "contributor",
-        "language" : "undefined",
-        "value" : "http://purl.org/query/tarcisiomf",
-        "type" : "iri"
-      } ],
-      "created" : [ {
-        "identifier" : "created",
-        "language" : "undefined",
-        "value" : "2010-01-26",
-        "type" : "label"
-      } ],
-      "modified" : [ {
-        "identifier" : "modified",
-        "language" : "undefined",
-        "value" : "2019-01-30",
-        "type" : "label"
-      } ]
-    },
+    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
+    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
+    "id" : "46",
     "label" : {
-      "IRI-based" : "Linkset",
-      "undefined" : "linkset"
-    },
-    "comment" : {
-      "undefined" : "A collection of simple virtual links between two RDF datasets (i.e. void:Dataset). This collection is defined with exactly one RDF link predicate."
-    },
-    "attributes" : [ "external" ],
-    "id" : "12",
-    "superClasses" : [ "13" ]
+      "IRI-based" : "Literal",
+      "undefined" : "Literal"
+    }
   }, {
     "iri" : "http://xmlns.com/foaf/0.1/Person",
     "baseIri" : "http://xmlns.com/foaf/0.1",
@@ -707,7 +775,7 @@
       }
     } ],
     "attributes" : [ "external" ],
-    "id" : "37"
+    "id" : "47"
   }, {
     "iri" : "http://rdfs.org/ns/void#Dataset",
     "baseIri" : "http://rdfs.org/ns/void",
@@ -716,22 +784,22 @@
       "creator" : [ {
         "identifier" : "creator",
         "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#cygri",
-        "type" : "iri"
-      }, {
-        "identifier" : "creator",
-        "language" : "undefined",
         "value" : "http://vocab.deri.ie/void#Michael%20Hausenblas",
         "type" : "iri"
       }, {
         "identifier" : "creator",
         "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#junzha",
+        "value" : "http://vocab.deri.ie/void#cygri",
         "type" : "iri"
       }, {
         "identifier" : "creator",
         "language" : "undefined",
         "value" : "http://vocab.deri.ie/void#keiale",
+        "type" : "iri"
+      }, {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://vocab.deri.ie/void#junzha",
         "type" : "iri"
       } ],
       "isDefinedBy" : [ {
@@ -745,75 +813,67 @@
       "IRI-based" : "Dataset",
       "undefined" : "dataset"
     },
-    "subClasses" : [ "17", "10", "25" ],
+    "subClasses" : [ "23", "6", "32", "18" ],
     "comment" : {
       "undefined" : "A set of RDF triples that are published, maintained or aggregated by a single provider."
     },
     "attributes" : [ "external" ],
     "id" : "1"
   }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#boolean",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "9",
+    "label" : {
+      "IRI-based" : "boolean"
+    }
+  }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#integer",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "19",
+    "id" : "51",
     "label" : {
       "IRI-based" : "integer"
     }
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#integer",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "16",
-    "label" : {
-      "IRI-based" : "integer"
-    }
-  }, {
-    "iri" : "http://purl.org/query/voidext#VirtualLink",
-    "baseIri" : "http://purl.org/query/voidext",
-    "instances" : 0,
-    "label" : {
-      "IRI-based" : "VirtualLink",
-      "en" : "Virtual link set"
-    },
-    "subClasses" : [ "13", "9" ],
-    "comment" : {
-      "en" : "A virtual link is a connection between resources such as literals and instances with some commonality. Each of these resources is from a different RDF dataset. Semantic relaxation is also considered when defining common resources between datasets. For example, the datasets uses different prefix namespaces for similar instances in a given domain scope. A virtual link can be interpreted as an intersection data point between two datasets. In addition, a virtual link is not concretely stored. The link may be physically established during a federated query execution, for example. This class must only have instances of its subclasses."
-    },
-    "id" : "10",
-    "superClasses" : [ "1" ]
-  }, {
-    "iri" : "http://www.w3.org/2001/XMLSchema#integer",
-    "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "44",
+    "id" : "25",
     "label" : {
       "IRI-based" : "integer"
     }
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#integer",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "45",
+    "id" : "22",
     "label" : {
       "IRI-based" : "integer"
     }
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#integer",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "46",
+    "id" : "54",
     "label" : {
       "IRI-based" : "integer"
     }
   }, {
     "iri" : "http://www.w3.org/2001/XMLSchema#integer",
     "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "47",
+    "id" : "55",
     "label" : {
       "IRI-based" : "integer"
     }
   }, {
-    "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
-    "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
-    "id" : "41",
+    "iri" : "http://www.w3.org/2001/XMLSchema#integer",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "56",
     "label" : {
-      "IRI-based" : "Literal",
-      "undefined" : "Literal"
+      "IRI-based" : "integer"
+    }
+  }, {
+    "iri" : "http://www.w3.org/2001/XMLSchema#integer",
+    "baseIri" : "http://www.w3.org/2001/XMLSchema",
+    "id" : "57",
+    "label" : {
+      "IRI-based" : "integer"
     }
   }, {
     "iri" : "http://purl.org/query/voidext#LinkSetIntersection",
@@ -857,22 +917,35 @@
     "comment" : {
       "en" : "The possible intersection types between the RDF graph nodes in different void:Dataset(s) (i.e. either the subject or the object node of a link predicate). The instances of this class are exclusively voidext:OBJECT_OBJECT, voidext:OBJECT_SUBJECT, and voidext:SUBJECT_SUBJECT."
     },
-    "id" : "43"
+    "id" : "53"
+  }, {
+    "iri" : "http://mex.aksw.org/mex-perf#ClassificationMeasure",
+    "baseIri" : "http://mex.aksw.org/mex-perf",
+    "instances" : 0,
+    "label" : {
+      "IRI-based" : "ClassificationMeasure"
+    },
+    "attributes" : [ "external" ],
+    "id" : "13",
+    "superClasses" : [ "11" ]
   }, {
     "iri" : "http://www.w3.org/2000/01/rdf-schema#Literal",
     "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
-    "id" : "52",
+    "id" : "62",
     "label" : {
       "IRI-based" : "Literal",
       "undefined" : "Literal"
     }
   }, {
-    "iri" : "http://www.w3.org/2001/XMLSchema#integer",
-    "baseIri" : "http://www.w3.org/2001/XMLSchema",
-    "id" : "53",
+    "iri" : "http://purl.org/query/voidext#LINK_SHAREDINSTANCE_SET",
+    "baseIri" : "http://purl.org/query/voidext",
+    "instances" : 0,
     "label" : {
-      "IRI-based" : "integer"
-    }
+      "IRI-based" : "LINK_SHAREDINSTANCE_SET"
+    },
+    "union" : [ "6", "18" ],
+    "attributes" : [ "union" ],
+    "id" : "28"
   }, {
     "iri" : "http://purl.org/query/voidext#SharedInstanceSet",
     "baseIri" : "http://purl.org/query/voidext",
@@ -882,10 +955,10 @@
       "en" : "Shared instance set"
     },
     "comment" : {
-      "en" : "A simple link set between shared instances that are usually of the same OWL/RDFS class and asserted in two different datasets."
+      "en" : "A shared instance set between exactly two datasets. For example, two datasets that contain the same OWL/RDFS class instances."
     },
     "id" : "6",
-    "superClasses" : [ "13" ]
+    "superClasses" : [ "1" ]
   }, {
     "iri" : "http://www.w3.org/2000/01/rdf-schema#Class",
     "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
@@ -902,9 +975,9 @@
     "label" : {
       "IRI-based" : "Document"
     },
-    "subClasses" : [ "32" ],
+    "subClasses" : [ "39" ],
     "attributes" : [ "external" ],
-    "id" : "33"
+    "id" : "40"
   }, {
     "iri" : "http://www.w3.org/1999/02/22-rdf-syntax-ns#Property",
     "baseIri" : "http://www.w3.org/1999/02/22-rdf-syntax-ns",
@@ -913,7 +986,7 @@
       "IRI-based" : "Property"
     },
     "attributes" : [ "external" ],
-    "id" : "50"
+    "id" : "59"
   }, {
     "iri" : "http://www.w3.org/2000/01/rdf-schema#Resource",
     "baseIri" : "http://www.w3.org/2000/01/rdf-schema",
@@ -922,7 +995,7 @@
       "IRI-based" : "Resource"
     },
     "attributes" : [ "external" ],
-    "id" : "28"
+    "id" : "36"
   } ],
   "property" : [ {
     "id" : "0",
@@ -935,105 +1008,120 @@
     "type" : "owl:objectProperty"
   }, {
     "id" : "8",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "11",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "2",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "15",
     "type" : "owl:datatypeProperty"
   }, {
-    "id" : "18",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "21",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "22",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "23",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "27",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "29",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "30",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "31",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "35",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "36",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "38",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "39",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "40",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "42",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "48",
-    "type" : "rdfs:SubClassOf"
-  }, {
-    "id" : "49",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "51",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "54",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "55",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "56",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "57",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "58",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "59",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "60",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "61",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "62",
-    "type" : "owl:datatypeProperty"
-  }, {
-    "id" : "63",
-    "type" : "owl:objectProperty"
-  }, {
-    "id" : "64",
+    "id" : "10",
     "type" : "owl:objectProperty"
   }, {
     "id" : "14",
     "type" : "owl:objectProperty"
   }, {
+    "id" : "17",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "2",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "21",
+    "type" : "owl:datatypeProperty"
+  }, {
     "id" : "24",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "27",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "29",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "30",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "34",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "35",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "37",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "38",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "41",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "42",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "43",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "45",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "48",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "49",
+    "type" : "rdfs:SubClassOf"
+  }, {
+    "id" : "50",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "52",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "58",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "60",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "61",
+    "type" : "owl:disjointWith"
+  }, {
+    "id" : "63",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "64",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "65",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "66",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "67",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "68",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "69",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "70",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "71",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "72",
+    "type" : "owl:datatypeProperty"
+  }, {
+    "id" : "73",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "19",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "74",
+    "type" : "owl:objectProperty"
+  }, {
+    "id" : "31",
     "type" : "owl:objectProperty"
   } ],
   "propertyAttribute" : [ {
@@ -1044,22 +1132,22 @@
       "creator" : [ {
         "identifier" : "creator",
         "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#keiale",
-        "type" : "iri"
-      }, {
-        "identifier" : "creator",
-        "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#cygri",
-        "type" : "iri"
-      }, {
-        "identifier" : "creator",
-        "language" : "undefined",
         "value" : "http://vocab.deri.ie/void#junzha",
         "type" : "iri"
       }, {
         "identifier" : "creator",
         "language" : "undefined",
+        "value" : "http://vocab.deri.ie/void#keiale",
+        "type" : "iri"
+      }, {
+        "identifier" : "creator",
+        "language" : "undefined",
         "value" : "http://vocab.deri.ie/void#Michael%20Hausenblas",
+        "type" : "iri"
+      }, {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://vocab.deri.ie/void#cygri",
         "type" : "iri"
       } ],
       "isDefinedBy" : [ {
@@ -1088,22 +1176,22 @@
       "creator" : [ {
         "identifier" : "creator",
         "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#cygri",
-        "type" : "iri"
-      }, {
-        "identifier" : "creator",
-        "language" : "undefined",
         "value" : "http://vocab.deri.ie/void#junzha",
         "type" : "iri"
       }, {
         "identifier" : "creator",
         "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#keiale",
+        "value" : "http://vocab.deri.ie/void#cygri",
         "type" : "iri"
       }, {
         "identifier" : "creator",
         "language" : "undefined",
         "value" : "http://vocab.deri.ie/void#Michael%20Hausenblas",
+        "type" : "iri"
+      }, {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://vocab.deri.ie/void#keiale",
         "type" : "iri"
       } ],
       "isDefinedBy" : [ {
@@ -1135,6 +1223,20 @@
     "attributes" : [ "object" ],
     "id" : "5"
   }, {
+    "iri" : "http://purl.org/query/voidext#supportFederatedQuery",
+    "baseIri" : "http://purl.org/query/voidext",
+    "range" : "9",
+    "label" : {
+      "IRI-based" : "supportFederatedQuery",
+      "en" : "supports SPARQL 1.1 federated query"
+    },
+    "domain" : "1",
+    "comment" : {
+      "en" : "This property should be used to explicitly assert that a void:Dataset supports SPARQL 1.1. federated queries to be able to access the dataset with the SERVICE keyword and perform federated join queries."
+    },
+    "attributes" : [ "datatype" ],
+    "id" : "8"
+  }, {
     "iri" : "http://rdfs.org/ns/void#class",
     "baseIri" : "http://rdfs.org/ns/void",
     "range" : "7",
@@ -1142,12 +1244,7 @@
       "creator" : [ {
         "identifier" : "creator",
         "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#junzha",
-        "type" : "iri"
-      }, {
-        "identifier" : "creator",
-        "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#cygri",
+        "value" : "http://vocab.deri.ie/void#keiale",
         "type" : "iri"
       }, {
         "identifier" : "creator",
@@ -1157,7 +1254,12 @@
       }, {
         "identifier" : "creator",
         "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#keiale",
+        "value" : "http://vocab.deri.ie/void#junzha",
+        "type" : "iri"
+      }, {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://vocab.deri.ie/void#cygri",
         "type" : "iri"
       } ],
       "isDefinedBy" : [ {
@@ -1175,8 +1277,22 @@
     "comment" : {
       "undefined" : "The rdfs:Class that is the rdf:type of all entities in a class-based partition."
     },
-    "attributes" : [ "external", "object", "functional" ],
-    "id" : "8"
+    "attributes" : [ "external", "functional", "object" ],
+    "id" : "10"
+  }, {
+    "iri" : "http://purl.org/query/voidext#hasPerformanceMeasure",
+    "baseIri" : "http://purl.org/query/voidext",
+    "range" : "11",
+    "label" : {
+      "IRI-based" : "hasPerformanceMeasure",
+      "en" : "has performance measure"
+    },
+    "domain" : "15",
+    "comment" : {
+      "en" : "This property assings the performance of the virtual link set, for example, in terms of recall and precision. The values to be assigned (property range) are represented with the ontology MEX Performance Ontology."
+    },
+    "attributes" : [ "object" ],
+    "id" : "14"
   }, {
     "iri" : "http://purl.org/query/voidext#linkPredicateRange",
     "baseIri" : "http://purl.org/query/voidext",
@@ -1185,12 +1301,12 @@
       "IRI-based" : "linkPredicateRange",
       "en" : "link predicate range"
     },
-    "domain" : "12",
+    "domain" : "18",
     "comment" : {
-      "en" : "The link predicate's object type (i.e. class), if any. Moreover, in the case of a void:Linkset that is not part of a complex virtual link, if the two datasets are linked through the link predicate's object then the link predicate range must be specified. Indeed, this object matches a second resource in another dataset. Therefore, the type of this second resource is asserted as the link predicate range."
+      "en" : "The link predicate's object type (i.e. class), if any. Moreover, in the case of a void:Linkset that is not classified as a simple link set, if the two datasets are linked through the link predicate's object then the link predicate range must be specified. Indeed, this object matches a second resource in an external dataset. Therefore, the type of this second resource is asserted as the link predicate range."
     },
     "attributes" : [ "object" ],
-    "id" : "11"
+    "id" : "17"
   }, {
     "iri" : "http://rdfs.org/ns/void#subset",
     "baseIri" : "http://rdfs.org/ns/void",
@@ -1204,12 +1320,12 @@
       }, {
         "identifier" : "creator",
         "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#Michael%20Hausenblas",
+        "value" : "http://vocab.deri.ie/void#keiale",
         "type" : "iri"
       }, {
         "identifier" : "creator",
         "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#keiale",
+        "value" : "http://vocab.deri.ie/void#Michael%20Hausenblas",
         "type" : "iri"
       }, {
         "identifier" : "creator",
@@ -1229,18 +1345,23 @@
       "undefined" : "has subset"
     },
     "domain" : "1",
-    "subproperty" : [ "0", "14" ],
+    "subproperty" : [ "0", "19" ],
     "attributes" : [ "external", "object" ],
     "id" : "2"
   }, {
     "iri" : "http://rdfs.org/ns/void#distinctSubjects",
     "baseIri" : "http://rdfs.org/ns/void",
-    "range" : "16",
+    "range" : "22",
     "annotations" : {
       "creator" : [ {
         "identifier" : "creator",
         "language" : "undefined",
         "value" : "http://vocab.deri.ie/void#keiale",
+        "type" : "iri"
+      }, {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://vocab.deri.ie/void#Michael%20Hausenblas",
         "type" : "iri"
       }, {
         "identifier" : "creator",
@@ -1251,11 +1372,6 @@
         "identifier" : "creator",
         "language" : "undefined",
         "value" : "http://vocab.deri.ie/void#cygri",
-        "type" : "iri"
-      }, {
-        "identifier" : "creator",
-        "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#Michael%20Hausenblas",
         "type" : "iri"
       } ],
       "isDefinedBy" : [ {
@@ -1274,21 +1390,16 @@
       "undefined" : "The total number of distinct subjects in a void:Dataset. In other words, the number of distinct resources that occur in the subject position of triples in the dataset."
     },
     "attributes" : [ "datatype", "external" ],
-    "id" : "15"
+    "id" : "21"
   }, {
     "iri" : "http://rdfs.org/ns/void#distinctObjects",
     "baseIri" : "http://rdfs.org/ns/void",
-    "range" : "19",
+    "range" : "25",
     "annotations" : {
       "creator" : [ {
         "identifier" : "creator",
         "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#cygri",
-        "type" : "iri"
-      }, {
-        "identifier" : "creator",
-        "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#junzha",
+        "value" : "http://vocab.deri.ie/void#Michael%20Hausenblas",
         "type" : "iri"
       }, {
         "identifier" : "creator",
@@ -1298,7 +1409,12 @@
       }, {
         "identifier" : "creator",
         "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#Michael%20Hausenblas",
+        "value" : "http://vocab.deri.ie/void#cygri",
+        "type" : "iri"
+      }, {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://vocab.deri.ie/void#junzha",
         "type" : "iri"
       } ],
       "isDefinedBy" : [ {
@@ -1317,21 +1433,21 @@
       "undefined" : "The total number of distinct objects in a void:Dataset. In other words, the number of distinct resources that occur in the object position of triples in the dataset. Literals are included in this count."
     },
     "attributes" : [ "datatype", "external" ],
-    "id" : "18"
+    "id" : "24"
   }, {
     "iri" : "http://purl.org/query/voidext#intersectAt",
     "baseIri" : "http://purl.org/query/voidext",
-    "range" : "13",
+    "range" : "28",
     "label" : {
       "IRI-based" : "intersectAt",
       "en" : "intersects at"
     },
-    "domain" : "9",
+    "domain" : "16",
     "comment" : {
       "en" : "This property is used to assign exactly either two shared instance sets (voidext:SharedInstanceSet) or two link sets (void:Linkset) to compose a complex link set (voidext:ComplexLinkSet). For each void:Linkset, either the subject or the object node of its link predicate intersects an RDF node of the link predicate from the other link set. In other words, the subject xor the object of a link predicate matches the subject xor the object of the other link predicate, where xor is the exclusive or. These link predicates must be from different datasets."
     },
     "attributes" : [ "object" ],
-    "id" : "21"
+    "id" : "27"
   }, {
     "iri" : "http://purl.org/query/voidext#linkPredicateDomain",
     "baseIri" : "http://purl.org/query/voidext",
@@ -1340,12 +1456,12 @@
       "IRI-based" : "linkPredicateDomain",
       "en" : "link predicate domain"
     },
-    "domain" : "12",
+    "domain" : "18",
     "comment" : {
-      "en" : "The link predicate's subject type (i.e. class), if any. Moreover, in the case of a void:Linkset that is not part of a complex virtual link (voidext:ComplexLinkset), if the two datasets are linked through the link predicate's subject then the link predicate range must be specified. Indeed, this subject matches a second resource in another dataset. Therefore, the type of this second resource is asserted as the link predicate range."
+      "en" : "The link predicate's subject type (i.e. class), if any. Moreover, in the case of a void:Linkset that is classified as a simple link set (voidext:SimpleLinkSet), if the two datasets are linked through the link predicate's subject then the link predicate domain must be specified. Indeed, this subject matches a second resource in an external dataset. Therefore, the type of this second resource is asserted as the link predicate domain."
     },
     "attributes" : [ "object" ],
-    "id" : "22"
+    "id" : "29"
   }, {
     "iri" : "http://rdfs.org/ns/void#subjectsTarget",
     "baseIri" : "http://rdfs.org/ns/void",
@@ -1354,12 +1470,12 @@
       "creator" : [ {
         "identifier" : "creator",
         "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#Michael%20Hausenblas",
+        "value" : "http://vocab.deri.ie/void#junzha",
         "type" : "iri"
       }, {
         "identifier" : "creator",
         "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#junzha",
+        "value" : "http://vocab.deri.ie/void#Michael%20Hausenblas",
         "type" : "iri"
       }, {
         "identifier" : "creator",
@@ -1372,28 +1488,10 @@
         "value" : "http://vocab.deri.ie/void#cygri",
         "type" : "iri"
       } ],
-      "contributor" : [ {
-        "identifier" : "contributor",
-        "language" : "undefined",
-        "value" : "http://purl.org/query/tarcisiomf",
-        "type" : "iri"
-      } ],
-      "provenance" : [ {
-        "identifier" : "provenance",
-        "language" : "undefined",
-        "value" : "http://purl.org/query/voidext#MODIFIED_TARGET",
-        "type" : "iri"
-      } ],
       "created" : [ {
         "identifier" : "created",
         "language" : "undefined",
         "value" : "2010-01-26",
-        "type" : "label"
-      } ],
-      "modified" : [ {
-        "identifier" : "modified",
-        "language" : "undefined",
-        "value" : "2019-01-30",
         "type" : "label"
       } ]
     },
@@ -1401,17 +1499,22 @@
       "IRI-based" : "subjectsTarget",
       "undefined" : "Subjects Target"
     },
-    "superproperty" : [ "24" ],
-    "domain" : "10",
+    "superproperty" : [ "31" ],
+    "domain" : "18",
     "comment" : {
-      "undefined" : "The dataset describing the subjects of triples contained in the virtual link."
+      "undefined" : "The dataset describing the subjects of triples contained in the Linkset."
     },
-    "attributes" : [ "external", "object", "functional" ],
-    "id" : "23"
+    "attributes" : [ "external", "functional", "object" ],
+    "id" : "30"
+  }, {
+    "range" : "1",
+    "domain" : "18",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "34"
   }, {
     "iri" : "http://rdfs.org/ns/void#dataDump",
     "baseIri" : "http://rdfs.org/ns/void",
-    "range" : "28",
+    "range" : "36",
     "annotations" : {
       "creator" : [ {
         "identifier" : "creator",
@@ -1426,12 +1529,12 @@
       }, {
         "identifier" : "creator",
         "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#Michael%20Hausenblas",
+        "value" : "http://vocab.deri.ie/void#cygri",
         "type" : "iri"
       }, {
         "identifier" : "creator",
         "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#cygri",
+        "value" : "http://vocab.deri.ie/void#Michael%20Hausenblas",
         "type" : "iri"
       } ],
       "isDefinedBy" : [ {
@@ -1450,51 +1553,56 @@
       "undefined" : "An RDF dump, partial or complete, of a void:Dataset."
     },
     "attributes" : [ "external", "object" ],
-    "id" : "27"
-  }, {
-    "range" : "10",
-    "domain" : "13",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "29"
-  }, {
-    "range" : "1",
-    "domain" : "25",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "30"
-  }, {
-    "range" : "33",
-    "domain" : "32",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "31"
-  }, {
-    "range" : "10",
-    "domain" : "9",
-    "attributes" : [ "object", "anonymous" ],
     "id" : "35"
   }, {
-    "range" : "13",
-    "domain" : "12",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "36"
-  }, {
     "range" : "1",
-    "domain" : "10",
-    "attributes" : [ "object", "anonymous" ],
+    "domain" : "32",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "37"
+  }, {
+    "range" : "40",
+    "domain" : "39",
+    "attributes" : [ "anonymous", "object" ],
     "id" : "38"
   }, {
+    "range" : "12",
+    "domain" : "11",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "41"
+  }, {
+    "range" : "15",
+    "domain" : "16",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "42"
+  }, {
     "range" : "1",
-    "domain" : "17",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "39"
+    "domain" : "6",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "43"
+  }, {
+    "range" : "1",
+    "domain" : "23",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "45"
+  }, {
+    "range" : "15",
+    "domain" : "20",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "48"
+  }, {
+    "range" : "11",
+    "domain" : "13",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "49"
   }, {
     "iri" : "http://rdfs.org/ns/void#uriSpace",
     "baseIri" : "http://rdfs.org/ns/void",
-    "range" : "41",
+    "range" : "46",
     "annotations" : {
       "creator" : [ {
         "identifier" : "creator",
         "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#cygri",
+        "value" : "http://vocab.deri.ie/void#keiale",
         "type" : "iri"
       }, {
         "identifier" : "creator",
@@ -1504,12 +1612,12 @@
       }, {
         "identifier" : "creator",
         "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#keiale",
+        "value" : "http://vocab.deri.ie/void#Michael%20Hausenblas",
         "type" : "iri"
       }, {
         "identifier" : "creator",
         "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#Michael%20Hausenblas",
+        "value" : "http://vocab.deri.ie/void#cygri",
         "type" : "iri"
       } ],
       "isDefinedBy" : [ {
@@ -1528,30 +1636,25 @@
       "undefined" : "A URI that is a common string prefix of all the entity URIs in a void:Dataset."
     },
     "attributes" : [ "datatype", "external" ],
-    "id" : "40"
+    "id" : "50"
   }, {
     "iri" : "http://purl.org/query/voidext#intersectionType",
     "baseIri" : "http://purl.org/query/voidext",
-    "range" : "43",
+    "range" : "53",
     "label" : {
       "IRI-based" : "intersectionType",
       "en" : "intersection type"
     },
-    "domain" : "9",
+    "domain" : "16",
     "comment" : {
       "en" : "This property assigns the intersection type of two RDF triples in different datasets (void:Dataset). In other words, if the intersection occurs at the subject xor the object node of a link predicate."
     },
     "attributes" : [ "object" ],
-    "id" : "42"
-  }, {
-    "range" : "13",
-    "domain" : "6",
-    "attributes" : [ "object", "anonymous" ],
-    "id" : "48"
+    "id" : "52"
   }, {
     "iri" : "http://rdfs.org/ns/void#property",
     "baseIri" : "http://rdfs.org/ns/void",
-    "range" : "50",
+    "range" : "59",
     "annotations" : {
       "creator" : [ {
         "identifier" : "creator",
@@ -1561,7 +1664,7 @@
       }, {
         "identifier" : "creator",
         "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#keiale",
+        "value" : "http://vocab.deri.ie/void#junzha",
         "type" : "iri"
       }, {
         "identifier" : "creator",
@@ -1571,7 +1674,7 @@
       }, {
         "identifier" : "creator",
         "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#junzha",
+        "value" : "http://vocab.deri.ie/void#keiale",
         "type" : "iri"
       } ],
       "isDefinedBy" : [ {
@@ -1589,19 +1692,14 @@
     "comment" : {
       "undefined" : "The rdf:Property that is the predicate of all triples in a property-based partition."
     },
-    "attributes" : [ "external", "object", "functional" ],
-    "id" : "49"
+    "attributes" : [ "external", "functional", "object" ],
+    "id" : "58"
   }, {
     "iri" : "http://rdfs.org/ns/void#inDataset",
     "baseIri" : "http://rdfs.org/ns/void",
     "range" : "1",
     "annotations" : {
       "creator" : [ {
-        "identifier" : "creator",
-        "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#junzha",
-        "type" : "iri"
-      }, {
         "identifier" : "creator",
         "language" : "undefined",
         "value" : "http://vocab.deri.ie/void#keiale",
@@ -1616,6 +1714,11 @@
         "language" : "undefined",
         "value" : "http://vocab.deri.ie/void#cygri",
         "type" : "iri"
+      }, {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://vocab.deri.ie/void#junzha",
+        "type" : "iri"
       } ],
       "isDefinedBy" : [ {
         "identifier" : "isDefinedBy",
@@ -1628,26 +1731,31 @@
       "IRI-based" : "inDataset",
       "undefined" : "in dataset"
     },
-    "domain" : "33",
+    "domain" : "40",
     "comment" : {
       "undefined" : "Points to the void:Dataset that a document is a part of."
     },
     "attributes" : [ "external", "object" ],
-    "id" : "51"
+    "id" : "60"
+  }, {
+    "range" : "16",
+    "domain" : "1",
+    "attributes" : [ "anonymous", "object" ],
+    "id" : "61"
   }, {
     "iri" : "http://rdfs.org/ns/void#triples",
     "baseIri" : "http://rdfs.org/ns/void",
-    "range" : "47",
+    "range" : "57",
     "annotations" : {
       "creator" : [ {
         "identifier" : "creator",
         "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#keiale",
+        "value" : "http://vocab.deri.ie/void#junzha",
         "type" : "iri"
       }, {
         "identifier" : "creator",
         "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#junzha",
+        "value" : "http://vocab.deri.ie/void#keiale",
         "type" : "iri"
       }, {
         "identifier" : "creator",
@@ -1676,11 +1784,11 @@
       "undefined" : "The total number of triples contained in a void:Dataset."
     },
     "attributes" : [ "datatype", "external" ],
-    "id" : "54"
+    "id" : "63"
   }, {
     "iri" : "http://rdfs.org/ns/void#entities",
     "baseIri" : "http://rdfs.org/ns/void",
-    "range" : "45",
+    "range" : "55",
     "annotations" : {
       "creator" : [ {
         "identifier" : "creator",
@@ -1719,11 +1827,11 @@
       "undefined" : "The total number of entities that are described in a void:Dataset."
     },
     "attributes" : [ "datatype", "external" ],
-    "id" : "55"
+    "id" : "64"
   }, {
     "iri" : "http://purl.org/query/voidext#resourceMapping",
     "baseIri" : "http://purl.org/query/voidext",
-    "range" : "52",
+    "range" : "62",
     "description" : {
       "undefined" : "Example of a value assigned with this property is the following \n    \"?objectsTarget a <urn:Example>. BIND(IF(contains(?objectsTarget, \"Example:\" ), IRI(concat(\"http://example.org/uniprot:\",strafter(?objectsTarget,\"Example:\"))), ?objectsTargetConverted)\n         as ?converted_object)\n     FILTER(BOUND(?obj_converted))\". \n     This will convert strings that contains \"Example:\" into IRIs defined in http://example.org/ namespace."
     },
@@ -1731,40 +1839,35 @@
       "IRI-based" : "resourceMapping",
       "en" : "resource mapped with"
     },
-    "domain" : "13",
+    "domain" : "28",
     "comment" : {
       "undefined" : "The preprocessing of a resource (i.e. IRI or literal) in a source void:Dataset in order\nto match another resource in the target void:Dataset. A resource is either the subject or the \nobject of an RDF triple. The resource preprocessing (i.e. the resource mapping)\nmust be defined with the SPARQL language by mainly using SPARQL built-ins for assignments\n(e.g. BIND), and expression and testing values (e.g. IF and FILTER). BIND is used to assign\nthe output of a function."
     },
     "attributes" : [ "datatype", "functional" ],
-    "id" : "56"
+    "id" : "65"
   }, {
     "iri" : "http://purl.org/query/voidext#recommendedMapping",
     "baseIri" : "http://purl.org/query/voidext",
-    "range" : "13",
+    "range" : "28",
     "label" : {
       "IRI-based" : "recommendedMapping",
       "en" : "recommended mapping from"
     },
-    "domain" : "9",
+    "domain" : "16",
     "comment" : {
-      "en" : "If more than one mapping is defined in the different void:Linkset(s) that are part of a voidext:ComplexLinkSet, one of the resource mappings may be recommended by asserting this property. The recommended mapping is the one stated to the void:Linkset assigned as the value of this property. If no mapping is explicitly recommended, solely one of them must arbitrarily be applied to establish a virtual link. At most one mapping function can be defined per voidext:SimpleLinkSet."
+      "en" : "If more than one mapping is defined in the different void:Linkset(s) that are part of a voidext:ComplexLinkSet, one of the resource mappings may be recommended by asserting this property. The recommended mapping is the one stated to the void:Linkset assigned as the value of this property. If no mapping is explicitly recommended, solely one of them must arbitrarily be applied to establish a virtual link. At most one mapping function can be defined either per linkset or per shared instance set."
     },
-    "attributes" : [ "object", "functional" ],
-    "id" : "57"
+    "attributes" : [ "functional", "object" ],
+    "id" : "66"
   }, {
     "iri" : "http://rdfs.org/ns/void#documents",
     "baseIri" : "http://rdfs.org/ns/void",
-    "range" : "44",
+    "range" : "54",
     "annotations" : {
       "creator" : [ {
         "identifier" : "creator",
         "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#junzha",
-        "type" : "iri"
-      }, {
-        "identifier" : "creator",
-        "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#Michael%20Hausenblas",
+        "value" : "http://vocab.deri.ie/void#keiale",
         "type" : "iri"
       }, {
         "identifier" : "creator",
@@ -1774,7 +1877,12 @@
       }, {
         "identifier" : "creator",
         "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#keiale",
+        "value" : "http://vocab.deri.ie/void#junzha",
+        "type" : "iri"
+      }, {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://vocab.deri.ie/void#Michael%20Hausenblas",
         "type" : "iri"
       } ],
       "isDefinedBy" : [ {
@@ -1793,16 +1901,28 @@
       "undefined" : "The total number of documents, for datasets that are published as a set of individual documents, such as RDF/XML documents or RDFa-annotated web pages. Non-RDF documents, such as web pages in HTML or images, are usually not included in this count. This property is intended for datasets where the total number of triples or entities is hard to determine. void:triples or void:entities should be preferred where practical."
     },
     "attributes" : [ "datatype", "external" ],
-    "id" : "58"
+    "id" : "67"
+  }, {
+    "iri" : "http://purl.org/query/voidext#isSubsetOf",
+    "inverse" : "2",
+    "baseIri" : "http://purl.org/query/voidext",
+    "range" : "1",
+    "label" : {
+      "IRI-based" : "isSubsetOf",
+      "undefined" : "is subset of"
+    },
+    "domain" : "1",
+    "attributes" : [ "object" ],
+    "id" : "68"
   }, {
     "iri" : "http://rdfs.org/ns/void#exampleResource",
     "baseIri" : "http://rdfs.org/ns/void",
-    "range" : "28",
+    "range" : "36",
     "annotations" : {
       "creator" : [ {
         "identifier" : "creator",
         "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#cygri",
+        "value" : "http://vocab.deri.ie/void#Michael%20Hausenblas",
         "type" : "iri"
       }, {
         "identifier" : "creator",
@@ -1812,7 +1932,7 @@
       }, {
         "identifier" : "creator",
         "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#Michael%20Hausenblas",
+        "value" : "http://vocab.deri.ie/void#cygri",
         "type" : "iri"
       }, {
         "identifier" : "creator",
@@ -1833,13 +1953,18 @@
     },
     "domain" : "1",
     "attributes" : [ "external", "object" ],
-    "id" : "59"
+    "id" : "69"
   }, {
     "iri" : "http://rdfs.org/ns/void#properties",
     "baseIri" : "http://rdfs.org/ns/void",
-    "range" : "46",
+    "range" : "56",
     "annotations" : {
       "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://vocab.deri.ie/void#Michael%20Hausenblas",
+        "type" : "iri"
+      }, {
         "identifier" : "creator",
         "language" : "undefined",
         "value" : "http://vocab.deri.ie/void#junzha",
@@ -1853,11 +1978,6 @@
         "identifier" : "creator",
         "language" : "undefined",
         "value" : "http://vocab.deri.ie/void#keiale",
-        "type" : "iri"
-      }, {
-        "identifier" : "creator",
-        "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#Michael%20Hausenblas",
         "type" : "iri"
       } ],
       "isDefinedBy" : [ {
@@ -1876,11 +1996,11 @@
       "undefined" : "The total number of distinct properties in a void:Dataset. In other words, the number of distinct resources that occur in the predicate position of triples in the dataset."
     },
     "attributes" : [ "datatype", "external" ],
-    "id" : "60"
+    "id" : "70"
   }, {
     "iri" : "http://rdfs.org/ns/void#openSearchDescription",
     "baseIri" : "http://rdfs.org/ns/void",
-    "range" : "33",
+    "range" : "40",
     "annotations" : {
       "creator" : [ {
         "identifier" : "creator",
@@ -1919,13 +2039,18 @@
       "undefined" : "An OpenSearch description document for a free-text search service over a void:Dataset."
     },
     "attributes" : [ "external", "object" ],
-    "id" : "61"
+    "id" : "71"
   }, {
     "iri" : "http://rdfs.org/ns/void#classes",
     "baseIri" : "http://rdfs.org/ns/void",
-    "range" : "53",
+    "range" : "51",
     "annotations" : {
       "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://vocab.deri.ie/void#keiale",
+        "type" : "iri"
+      }, {
         "identifier" : "creator",
         "language" : "undefined",
         "value" : "http://vocab.deri.ie/void#Michael%20Hausenblas",
@@ -1939,11 +2064,6 @@
         "identifier" : "creator",
         "language" : "undefined",
         "value" : "http://vocab.deri.ie/void#junzha",
-        "type" : "iri"
-      }, {
-        "identifier" : "creator",
-        "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#keiale",
         "type" : "iri"
       } ],
       "isDefinedBy" : [ {
@@ -1962,7 +2082,7 @@
       "undefined" : "The total number of distinct classes in a void:Dataset. In other words, the number of distinct resources occuring as objects of rdf:type triples in the dataset."
     },
     "attributes" : [ "datatype", "external" ],
-    "id" : "62"
+    "id" : "72"
   }, {
     "iri" : "http://rdfs.org/ns/void#objectsTarget",
     "baseIri" : "http://rdfs.org/ns/void",
@@ -1981,24 +2101,12 @@
       }, {
         "identifier" : "creator",
         "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#cygri",
+        "value" : "http://vocab.deri.ie/void#junzha",
         "type" : "iri"
       }, {
         "identifier" : "creator",
         "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#junzha",
-        "type" : "iri"
-      } ],
-      "contributor" : [ {
-        "identifier" : "contributor",
-        "language" : "undefined",
-        "value" : "http://purl.org/query/tarcisiomf",
-        "type" : "iri"
-      } ],
-      "provenance" : [ {
-        "identifier" : "provenance",
-        "language" : "undefined",
-        "value" : "http://purl.org/query/voidext#MODIFIED_TARGET",
+        "value" : "http://vocab.deri.ie/void#cygri",
         "type" : "iri"
       } ],
       "created" : [ {
@@ -2006,68 +2114,19 @@
         "language" : "undefined",
         "value" : "2010-01-26",
         "type" : "label"
-      } ],
-      "modified" : [ {
-        "identifier" : "modified",
-        "language" : "undefined",
-        "value" : "2019-01-30",
-        "type" : "label"
       } ]
     },
     "label" : {
       "IRI-based" : "objectsTarget",
       "undefined" : "Objects Target"
     },
-    "superproperty" : [ "24" ],
-    "domain" : "10",
+    "superproperty" : [ "31" ],
+    "domain" : "18",
     "comment" : {
-      "undefined" : "The dataset describing the objects of the triples contained in the virtual link."
+      "undefined" : "The dataset describing the objects of the triples contained in the Linkset."
     },
-    "attributes" : [ "external", "object", "functional" ],
-    "id" : "63"
-  }, {
-    "iri" : "http://rdfs.org/ns/void#linkPredicate",
-    "baseIri" : "http://rdfs.org/ns/void",
-    "range" : "50",
-    "annotations" : {
-      "creator" : [ {
-        "identifier" : "creator",
-        "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#junzha",
-        "type" : "iri"
-      }, {
-        "identifier" : "creator",
-        "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#cygri",
-        "type" : "iri"
-      }, {
-        "identifier" : "creator",
-        "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#Michael%20Hausenblas",
-        "type" : "iri"
-      }, {
-        "identifier" : "creator",
-        "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#keiale",
-        "type" : "iri"
-      } ],
-      "isDefinedBy" : [ {
-        "identifier" : "isDefinedBy",
-        "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void",
-        "type" : "iri"
-      } ]
-    },
-    "label" : {
-      "IRI-based" : "linkPredicate",
-      "undefined" : "a link predicate"
-    },
-    "domain" : "12",
-    "comment" : {
-      "undefined" : "It specifies the RDF predicate in a given dataset that relates to another dataset. In other words, the link predicate is the RDF property in the predicate position of an RDF triple that links two datasets."
-    },
-    "attributes" : [ "external", "object" ],
-    "id" : "64"
+    "attributes" : [ "external", "functional", "object" ],
+    "id" : "73"
   }, {
     "iri" : "http://rdfs.org/ns/void#classPartition",
     "baseIri" : "http://rdfs.org/ns/void",
@@ -2076,17 +2135,17 @@
       "creator" : [ {
         "identifier" : "creator",
         "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#junzha",
-        "type" : "iri"
-      }, {
-        "identifier" : "creator",
-        "language" : "undefined",
         "value" : "http://vocab.deri.ie/void#keiale",
         "type" : "iri"
       }, {
         "identifier" : "creator",
         "language" : "undefined",
         "value" : "http://vocab.deri.ie/void#cygri",
+        "type" : "iri"
+      }, {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://vocab.deri.ie/void#junzha",
         "type" : "iri"
       }, {
         "identifier" : "creator",
@@ -2111,21 +2170,16 @@
       "undefined" : "A subset of a void:Dataset that contains only the entities of a certain rdfs:Class."
     },
     "attributes" : [ "external", "object" ],
-    "id" : "14"
+    "id" : "19"
   }, {
-    "iri" : "http://rdfs.org/ns/void#target",
+    "iri" : "http://rdfs.org/ns/void#linkPredicate",
     "baseIri" : "http://rdfs.org/ns/void",
-    "range" : "1",
+    "range" : "59",
     "annotations" : {
       "creator" : [ {
         "identifier" : "creator",
         "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#junzha",
-        "type" : "iri"
-      }, {
-        "identifier" : "creator",
-        "language" : "undefined",
-        "value" : "http://vocab.deri.ie/void#cygri",
+        "value" : "http://vocab.deri.ie/void#keiale",
         "type" : "iri"
       }, {
         "identifier" : "creator",
@@ -2135,13 +2189,61 @@
       }, {
         "identifier" : "creator",
         "language" : "undefined",
+        "value" : "http://vocab.deri.ie/void#cygri",
+        "type" : "iri"
+      }, {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://vocab.deri.ie/void#junzha",
+        "type" : "iri"
+      } ],
+      "isDefinedBy" : [ {
+        "identifier" : "isDefinedBy",
+        "language" : "undefined",
+        "value" : "http://vocab.deri.ie/void",
+        "type" : "iri"
+      } ]
+    },
+    "label" : {
+      "IRI-based" : "linkPredicate",
+      "undefined" : "a link predicate"
+    },
+    "domain" : "18",
+    "comment" : {
+      "undefined" : "It specifies the RDF predicate in a given dataset that relates to another dataset. In other words, the link predicate is the RDF property in the predicate position of an RDF triple that links two datasets."
+    },
+    "attributes" : [ "external", "object" ],
+    "id" : "74"
+  }, {
+    "iri" : "http://rdfs.org/ns/void#target",
+    "baseIri" : "http://rdfs.org/ns/void",
+    "range" : "1",
+    "annotations" : {
+      "creator" : [ {
+        "identifier" : "creator",
+        "language" : "undefined",
         "value" : "http://vocab.deri.ie/void#keiale",
+        "type" : "iri"
+      }, {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://vocab.deri.ie/void#junzha",
+        "type" : "iri"
+      }, {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://vocab.deri.ie/void#Michael%20Hausenblas",
+        "type" : "iri"
+      }, {
+        "identifier" : "creator",
+        "language" : "undefined",
+        "value" : "http://vocab.deri.ie/void#cygri",
         "type" : "iri"
       } ],
       "provenance" : [ {
         "identifier" : "provenance",
         "language" : "undefined",
-        "value" : "http://purl.org/query/voidext#MODIFIED_TARGET",
+        "value" : "http://purl.org/query/voidext#MODIFIED_TARGET_1",
         "type" : "iri"
       } ],
       "contributor" : [ {
@@ -2159,7 +2261,7 @@
       "modified" : [ {
         "identifier" : "modified",
         "language" : "undefined",
-        "value" : "2019-01-30",
+        "value" : "2019-06-30",
         "type" : "label"
       } ]
     },
@@ -2167,12 +2269,12 @@
       "IRI-based" : "target",
       "undefined" : "Target"
     },
-    "domain" : "10",
-    "subproperty" : [ "23", "63" ],
+    "domain" : "28",
+    "subproperty" : [ "30", "73" ],
     "comment" : {
-      "undefined" : "One of the two datasets linked by the virtual link."
+      "undefined" : "One of the two datasets linked by the Linkset or the Shared instance set."
     },
     "attributes" : [ "external", "object" ],
-    "id" : "24"
+    "id" : "31"
   } ]
 }
