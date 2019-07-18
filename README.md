@@ -3,7 +3,9 @@
 This RDF schema vocabulary (TBox) is documented and available in the [VoIDext Vocabulary Specification Draft](https://biosoda.github.io/voidext/). 
 VoIDext is also accesible via the [SPARQL endpoint here](http://biosoda.expasy.org:8890/sparql).
 
-## PURL VoIDext RDFS schema vocabulary: [http://purl.org/query/voidext](http://purl.org/query/voidext)
+## [VoIDext Vocabulary Specification Draft](https://biosoda.github.io/voidext/)
+
+## PURL VoIDext RDF schema vocabulary: [http://purl.org/query/voidext](http://purl.org/query/voidext)
 
 ## VoIDext Supplementary Material 
 The [Supplementary_Material_VoIDext.pdf](Supplementary_Material_VoIDext.pdf) file describes in more details the development of VoIDext based on [SAMOD: an agile methodology for the development of ontologies](http://essepuntato.github.io/samod/) methodology.
