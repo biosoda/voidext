@@ -31,5 +31,9 @@ Exception: "[SQ_5.txt](https://github.com/biosoda/voidext/blob/master/SQ_set_of_
 
 The [queries_supplementary_examples.txt](ABox_examplar_data/queries_supplementary_examples.txt) file describes additional queries written during the development of the virtual link sets in "ABox_doc_examples.ttl" and complementary information about some link sets performance.
 
+
+## How to cite this work
+Mendes de Farias T., Stockinger K., Dessimoz C. (2019) VoIDext: Vocabulary and Patterns for Enhancing Interoperable Datasets with Virtual Links. In: Panetto H., Debruyne C., Hepp M., Lewis D., Ardagna C., Meersman R. (eds) On the Move to Meaningful Internet Systems: OTM 2019 Conferences. OTM 2019. Lecture Notes in Computer Science, vol 11877. Springer, Cham [https://doi.org/10.1007/978-3-030-33246-4_38](https://doi.org/10.1007/978-3-030-33246-4_38).
+
 ## Additional Information
 The [voidext_with_import.ttl](https://github.com/biosoda/voidext/blob/master/voidext_with_import.ttl) file is the VoIDext RDF Turtle serialisation including imported ontologies.
