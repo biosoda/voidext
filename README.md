@@ -1,3 +1,6 @@
+---
+permalink: /index.html
+---
 ## Supporting Virtual Links with the Extended Vocabulary of Interlinked Datasets (VoIDext)
 
 This RDF schema vocabulary (TBox) is documented and available in the [VoIDext Vocabulary Specification Draft](https://biosoda.github.io/voidext/). 
