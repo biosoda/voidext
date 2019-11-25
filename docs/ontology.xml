@@ -5,6 +5,7 @@
   xmlns:dcterms="http://purl.org/dc/terms/"
   xmlns:adms="http://www.w3.org/ns/adms#"
   xmlns:vann="http://purl.org/vocab/vann/"
+  xmlns:voaf="http://purl.org/vocommons/voaf#"
   xmlns:owl="http://www.w3.org/2002/07/owl#"
   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
   xmlns:foaf="http://xmlns.com/foaf/0.1/"
@@ -83,10 +84,9 @@
     <dcterms:creator rdf:resource="http://vocab.deri.ie/void#junzha"/>
     <rdfs:label>classes</rdfs:label>
   </owl:DatatypeProperty>
-  <adms:SemanticAsset rdf:about="http://purl.org/query/voidext">
+  <voaf:Vocabulary rdf:about="http://purl.org/query/voidext">
     <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2019-06-30</dcterms:modified>
     <dcterms:description>The Extension of the Vocabulary of Interlinked Datasets (VoID) RDF Schema that includes the concept of virtual links. This extension enhances interoperability among heterogeneous and distributed RDF data sets by bridging them through explicitly defined virtual links.</dcterms:description>
-    <dcterms:status rdf:resource="http://purl.org/adms/status/UnderDevelopment"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
     <dcterms:isVersionOf rdf:resource="http://rdfs.org/ns/void.ttl"/>
     <vann:preferredNamespacePrefix>voidext</vann:preferredNamespacePrefix>
@@ -110,7 +110,7 @@
     </dcterms:creator>
     <foaf:homepage rdf:resource="http://purl.org/query/voidext"/>
     <dcterms:title>Extended Vocabulary of Interlinked Datasets (VoIDext)</dcterms:title>
-  </adms:SemanticAsset>
+  </voaf:Vocabulary>
   <rdf:Property rdf:about="http://rdfs.org/ns/void#sparqlEndpoint">
     <rdfs:label>has a SPARQL endpoint at</rdfs:label>
     <dcterms:creator rdf:resource="http://vocab.deri.ie/void#cygri"/>
@@ -504,7 +504,7 @@ the output of a function.</rdfs:comment>
     <rdfs:subClassOf rdf:resource="http://rdfs.org/ns/void#Dataset"/>
   </rdf:Description>
   <dcterms:ProvenanceStatement rdf:about="http://purl.org/query/voidext#MODIFIED_TARGET_1">
-    <dcterms:label>modified void:target domain</dcterms:label>
+    <rdfs:label>modified void:target domain</rdfs:label>
     <dcterms:creator rdf:resource="http://purl.org/query/tarcisiomf"/>
     <dcterms:description>The void:target property domain was modified in voidext schema to be the union of the classes: void:Linkset, and voidext:SharedInstanceSet instead of only the void:Linkset class from the original VoID vocabulary.</dcterms:description>
     <dcterms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2019-06-30</dcterms:issued>
