@@ -1,4 +1,4 @@
-<http://purl.org/query/voidext#MODIFIED_TARGET_1> <http://purl.org/dc/terms/label> "modified void:target domain" .
+<http://purl.org/query/voidext#MODIFIED_TARGET_1> <http://www.w3.org/2000/01/rdf-schema#label> "modified void:target domain" .
 <http://rdfs.org/ns/void#triples> <http://purl.org/dc/terms/creator> <http://vocab.deri.ie/void#keiale> .
 <http://rdfs.org/ns/void#vocabulary> <http://www.w3.org/2000/01/rdf-schema#domain> <http://rdfs.org/ns/void#Dataset> .
 <http://rdfs.org/ns/void#feature> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://vocab.deri.ie/void> .
@@ -91,7 +91,6 @@ _:ub1bL472C59 <http://www.w3.org/2002/07/owl#intersectionOf> _:fd1ae141511c44b47
 <http://vocab.deri.ie/void#cygri> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
 <http://rdfs.org/ns/void#DatasetDescription> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://xmlns.com/foaf/0.1/Document> .
 <http://rdfs.org/ns/void#openSearchDescription> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://vocab.deri.ie/void> .
-<http://purl.org/query/voidext> <http://purl.org/dc/terms/status> <http://purl.org/adms/status/UnderDevelopment> .
 <http://purl.org/query/voidext#intersectAt> <http://www.w3.org/2000/01/rdf-schema#comment> "This property is used to assign exactly either two shared instance sets (voidext:SharedInstanceSet) or two link sets (void:Linkset) to compose a complex link set (voidext:ComplexLinkSet). For each void:Linkset, either the subject or the object node of its link predicate intersects an RDF node of the link predicate from the other link set. In other words, the subject xor the object of a link predicate matches the subject xor the object of the other link predicate, where xor is the exclusive or. These link predicates must be from different datasets."@en .
 <http://rdfs.org/ns/void#triples> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> <http://vocab.deri.ie/void> .
 <http://rdfs.org/ns/void#propertyPartition> <http://www.w3.org/2000/01/rdf-schema#label> "property partition" .
@@ -346,7 +345,7 @@ _:fd1ae141511c44b47bb35055d156c8fcdb10 <http://www.w3.org/1999/02/22-rdf-syntax-
 <http://rdfs.org/ns/void#Linkset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://rdfs.org/ns/void#objectsTarget> <http://purl.org/dc/terms/creator> <http://vocab.deri.ie/void#junzha> .
 <http://purl.org/query/voidext#sharedInstanceType> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Class> .
-<http://purl.org/query/voidext> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/adms#SemanticAsset> .
+<http://purl.org/query/voidext> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocommons/voaf#Vocabulary> .
 <http://rdfs.org/ns/void#target> <http://purl.org/dc/terms/created> "2010-01-26"^^<http://www.w3.org/2001/XMLSchema#date> .
 <http://purl.org/query/voidext#MODIFIED_TARGET_1> <http://purl.org/dc/terms/issued> "2019-06-30"^^<http://www.w3.org/2001/XMLSchema#date> .
 <http://rdfs.org/ns/void#TechnicalFeature> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
