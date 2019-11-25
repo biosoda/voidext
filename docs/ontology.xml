@@ -5,7 +5,6 @@
   xmlns:dcterms="http://purl.org/dc/terms/"
   xmlns:adms="http://www.w3.org/ns/adms#"
   xmlns:vann="http://purl.org/vocab/vann/"
-  xmlns:voaf="http://purl.org/vocommons/voaf#"
   xmlns:owl="http://www.w3.org/2002/07/owl#"
   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
   xmlns:foaf="http://xmlns.com/foaf/0.1/"
@@ -84,7 +83,7 @@
     <dcterms:creator rdf:resource="http://vocab.deri.ie/void#junzha"/>
     <rdfs:label>classes</rdfs:label>
   </owl:DatatypeProperty>
-  <voaf:Vocabulary rdf:about="http://purl.org/query/voidext">
+  <owl:Ontology rdf:about="http://purl.org/query/voidext">
     <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2019-06-30</dcterms:modified>
     <dcterms:description>The Extension of the Vocabulary of Interlinked Datasets (VoID) RDF Schema that includes the concept of virtual links. This extension enhances interoperability among heterogeneous and distributed RDF data sets by bridging them through explicitly defined virtual links.</dcterms:description>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
@@ -110,7 +109,7 @@
     </dcterms:creator>
     <foaf:homepage rdf:resource="http://purl.org/query/voidext"/>
     <dcterms:title>Extended Vocabulary of Interlinked Datasets (VoIDext)</dcterms:title>
-  </voaf:Vocabulary>
+  </owl:Ontology>
   <rdf:Property rdf:about="http://rdfs.org/ns/void#sparqlEndpoint">
     <rdfs:label>has a SPARQL endpoint at</rdfs:label>
     <dcterms:creator rdf:resource="http://vocab.deri.ie/void#cygri"/>
