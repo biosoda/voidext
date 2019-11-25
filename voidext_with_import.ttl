@@ -4,7 +4,6 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
-@prefix voaf: <http://purl.org/vocommons/voaf#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix void: <http://rdfs.org/ns/void#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -13,7 +12,7 @@
 @prefix mex-perf: <http://mex.aksw.org/mex-perf#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 
-<http://purl.org/query/voidext> a owl:Ontology, voaf:Vocabulary;
+<http://purl.org/query/voidext> a owl:Ontology;
     dcterms:title "Extended Vocabulary of Interlinked Datasets (VoIDext)";
     owl:imports <https://www.w3.org/ns/sparql-service-description.ttl> , 
 				<http://purl.org/dc/terms/>, 
