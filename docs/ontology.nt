@@ -345,7 +345,6 @@ _:fd1ae141511c44b47bb35055d156c8fcdb10 <http://www.w3.org/1999/02/22-rdf-syntax-
 <http://rdfs.org/ns/void#Linkset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
 <http://rdfs.org/ns/void#objectsTarget> <http://purl.org/dc/terms/creator> <http://vocab.deri.ie/void#junzha> .
 <http://purl.org/query/voidext#sharedInstanceType> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2000/01/rdf-schema#Class> .
-<http://purl.org/query/voidext> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/vocommons/voaf#Vocabulary> .
 <http://rdfs.org/ns/void#target> <http://purl.org/dc/terms/created> "2010-01-26"^^<http://www.w3.org/2001/XMLSchema#date> .
 <http://purl.org/query/voidext#MODIFIED_TARGET_1> <http://purl.org/dc/terms/issued> "2019-06-30"^^<http://www.w3.org/2001/XMLSchema#date> .
 <http://rdfs.org/ns/void#TechnicalFeature> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
